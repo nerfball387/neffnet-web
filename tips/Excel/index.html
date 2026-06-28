@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excel Tips Digest — Index</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --card: #22263a;
+    --border: #2e3350;
+    --accent: #4a86e8;
+    --accent2: #43d692;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --warn: #f59e0b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
+
+  /* ── HERO ── */
+  .hero { background: var(--surface); border-bottom: 1px solid var(--border); padding: 36px 32px 32px; }
+  .hero-inner { max-width: 860px; margin: 0 auto; }
+  .hero h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  .hero .subtitle { color: var(--muted); font-size: 0.88rem; margin-bottom: 24px; }
+  .latest-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 10px; }
+  .latest-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; }
+  .latest-card .date { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
+  .latest-card h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
+  .topic-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .pill { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 0.78rem; font-weight: 500; background: #1e2a4a; color: #93b4f5; border: 1px solid #2e3f6e; }
+  .pill.mynda { background: #142b1f; color: #6ddea9; border-color: #1e4a32; }
+  .btn-open { display: inline-block; padding: 8px 18px; background: var(--accent); color: #fff; border-radius: 7px; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+  .btn-open:hover { opacity: 0.85; }
+
+  /* ── INDEX LIST ── */
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+  .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+  .digest-list { list-style: none; }
+  .digest-list li { border-bottom: 1px solid var(--border); }
+  .digest-list li:last-child { border-bottom: none; }
+  .digest-row { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; text-decoration: none; color: inherit; }
+  .digest-row:hover .row-title { color: var(--accent); }
+  .row-date { width: 96px; flex-shrink: 0; font-size: 0.82rem; color: var(--muted); padding-top: 2px; }
+  .row-content { flex: 1; }
+  .row-title { font-weight: 600; font-size: 0.95rem; color: var(--text); transition: color 0.15s; }
+  .row-topics { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+  .row-badge { font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; background: #1c3a20; color: var(--accent2); margin-left: 8px; vertical-align: middle; }
+</style>
+</head>
+<body>
+
+<!-- ── HERO: MOST RECENT SUMMARY ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>📊 Excel Tips Digest</h1>
+    <div class="subtitle">Weekly summaries from Excel Off The Grid &amp; Mynda Treacy · Runs every Friday at 5pm</div>
+
+    <div class="latest-label">Most Recent Digest</div>
+    <div class="latest-card">
+      <div class="date">June 23, 2026 · Backlog sweep · 10 topics</div>
+      <h2>FILTER as a Lookup · PQ Column Resilience · Dynamic Array Formatting · REPT Dashboards · IF Alternatives &amp; More</h2>
+      <div class="topic-pills">
+        <span class="pill">FILTER as Lookup</span>
+        <span class="pill">Copilot Personalization</span>
+        <span class="pill">Power Query Resilience</span>
+        <span class="pill">Dynamic Array Formatting</span>
+        <span class="pill mynda">REPT In-Cell Charts</span>
+        <span class="pill mynda">Genspark AI</span>
+        <span class="pill mynda">Custom Number Formats</span>
+        <span class="pill mynda">IF Alternatives</span>
+        <span class="pill mynda">AGGREGATE Function</span>
+      </div>
+      <a class="btn-open" href="2026-06-23.html">Open Digest →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── INDEX LIST ── -->
+<div class="container">
+  <div class="section-label">All Digests</div>
+  <ul class="digest-list" id="digest-list">
+
+    <li>
+      <a class="digest-row" href="2026-06-23.html">
+        <div class="row-date">Jun 23, 2026</div>
+        <div class="row-content">
+          <div class="row-title">FILTER as Lookup · PQ Column Resilience · REPT Dashboards · IF Alternatives <span class="row-badge">LATEST</span></div>
+          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 10 topics · Backlog sweep</div>
+        </div>
+      </a>
+    </li>
+
+    <!-- n8n workflow prepends new entries here each Friday -->
+
+  </ul>
+</div>
+
+</body>
+</html>

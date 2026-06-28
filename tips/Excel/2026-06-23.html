@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excel Tips Digest — June 23, 2026</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --card: #22263a;
+    --border: #2e3350;
+    --accent: #4a86e8;
+    --accent2: #43d692;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --tag-mark: #1e3a5f;
+    --tag-mynda: #1a3d2e;
+    --warn: #f59e0b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
+  .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .header h1 { font-size: 1.1rem; font-weight: 600; color: var(--text); }
+  .header .meta { color: var(--muted); font-size: 0.85rem; }
+  .header a { color: var(--accent); text-decoration: none; font-size: 0.85rem; }
+  .header a:hover { text-decoration: underline; }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+  .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; margin-top: 32px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 20px 24px; margin-bottom: 16px; }
+  .card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; white-space: nowrap; margin-top: 3px; }
+  .tag-mark { background: var(--tag-mark); color: #7aadff; }
+  .tag-mynda { background: var(--tag-mynda); color: #43d692; }
+  .card h2 { font-size: 1rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+  .card p { color: #c5ccd8; margin-top: 8px; font-size: 0.92rem; }
+  .card-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 500; text-decoration: none; transition: opacity 0.15s; }
+  .btn:hover { opacity: 0.82; }
+  .btn-watch { background: #cc3a21; color: #fff; }
+  .btn-read { background: #285bac; color: #fff; }
+  .btn-claude { background: #6b3fa0; color: #fff; }
+  .flag-card { background: #1c1a0e; border: 1px solid #5c4a00; border-radius: 10px; padding: 20px 24px; margin-top: 8px; }
+  .flag-card .flag-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warn); margin-bottom: 8px; }
+  .flag-card h2 { font-size: 1rem; font-weight: 600; color: #fde68a; }
+  .flag-card p { color: #d4c48a; font-size: 0.92rem; margin-top: 8px; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 28px 0; }
+  .promo-note { font-size: 0.8rem; color: var(--muted); font-style: italic; padding: 10px 16px; border-left: 3px solid var(--border); margin-bottom: 16px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>📊 Excel Tips Digest</h1>
+    <div class="meta">Backlog sweep · 10 summaries · Sources: Excel Off The Grid &amp; Mynda Treacy</div>
+  </div>
+  <a href="index.html">← Back to Index</a>
+</div>
+
+<div class="container">
+
+  <div class="section-label">⚡ Follow-Up Worth Your Time</div>
+  <div class="flag-card">
+    <div class="flag-label">Top Pick for Teachers</div>
+    <h2>FILTER as the Best Lookup Function</h2>
+    <p>Mark's reframe: FILTER isn't just a filter — it's the most flexible lookup in Excel. Approaching lookup problems from a FILTER perspective solves multi-condition scenarios that VLOOKUP, XLOOKUP, and INDEX/MATCH can't handle cleanly. The mental model shift is the teachable moment, not the function itself.</p>
+    <div class="card-links">
+      <a class="btn btn-watch" href="https://www.youtube.com/watch?v=667VmSyaOdo" target="_blank">▶ Watch Video</a>
+      <a class="btn btn-claude" href="https://claude.ai/new?q=Explain+how+FILTER+can+be+used+as+a+lookup+function+in+Excel%2C+with+examples+comparing+it+to+VLOOKUP+and+XLOOKUP.+Show+advanced+scenarios+where+FILTER+outperforms+traditional+lookup+functions." target="_blank">✦ Ask Claude</a>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-label">Excel Off The Grid — Mark (Microsoft MVP)</div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-mark">Mark · Jun 19</span>
+      <h2>Copilot Gets Personal — Set Persistent Preferences</h2>
+    </div>
+    <p>New Copilot update: you can now set persistent preferences that apply to every session — e.g., "don't merge cells," "name tables with tbl_ prefix," "never use VLOOKUP." No more repeating these in every prompt. Useful context for anyone teaching Copilot workflows.</p>
+    <div class="card-links">
+      <a class="btn btn-read" href="https://techcommunity.microsoft.com/blog/excelblog/new-ways-to-customize-how-copilot-edits-your-workbooks/4527307" target="_blank">📄 Full Post</a>
+      <a class="btn btn-claude" href="https://claude.ai/new?q=Explain+the+Copilot+personalization+feature+in+Excel+2026.+How+do+I+set+persistent+preferences+so+Copilot+always+follows+my+naming+conventions+and+function+preferences%3F" target="_blank">✦ Ask Claude</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-mark">Mark · Jun 5</span>
+      <h2>Power Query: Survive Column Name AND Position Changes</h2>
+    </div>
+    <p>The classic PQ fragility: source column names change → query breaks. Easy fix: rename by position. But when position also shifts, that fix fails too. This video shows how to build truly robust queries that survive both simultaneously — a real pain point in production ETL pipelines.</p>
+    <div class="card-links">
+      <a class="btn btn-watch" href="https://www.youtube.com/watch?v=O8BDhgQGf5Y" target="_blank">▶ Watch Video</a>
+      <a class="btn btn-claude" href="https://claude.ai/new?q=How+do+I+build+a+Power+Query+in+Excel+that+stays+stable+when+source+column+names+AND+positions+both+change%3F+Show+me+the+M+code+techniques+for+future-proof+queries." target="_blank">✦ Ask Claude</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-mark">Mark · May 29</span>
+      <h2>Make Formatting Move With Dynamic Array Spill Ranges</h2>
+    </div>
+    <p>An underserved problem with dynamic arrays: formatting doesn't automatically follow spill ranges when they expand or contract. Mark covers techniques to make formatting adapt with the spill — bridging the gap between dynamic formulas and static visual design.</p>
+    <div class="card-links">
+      <a class="btn btn-claude" href="https://claude.ai/new?q=How+do+I+apply+formatting+to+dynamic+array+spill+ranges+in+Excel+so+the+formatting+automatically+expands+and+contracts+with+the+results%3F+What+are+the+best+techniques+for+this%3F" target="_blank">✦ Ask Claude</a>
+    </div>
+  </div>
+
+  <div class="promo-note">Jun 11 — "We've rebuilt the Excel Academy" — promotional update, no technique content.</div>
+
+  <hr class="divider">
+
+  <div class="section-label">Mynda Treacy — MyOnlineTrainingHub</div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-mynda">Mynda · Jun 23</span>
+      <h2>REPT Function: In-Cell Mini Bar Charts with One Formula</h2>
+    </div>
+    <p>Use <code style="background:#111827;padding:2px 6px;border-radius:4px;font-size:0.85rem;">REPT("█", value)</code> to render horizontal bar charts directly inside cells — no chart object required. Pairs well with conditional formatting for quick visual dashboards. A low-barrier technique worth showing students as an alternative to full chart builds.</p>
+    <div class="card-links">
+      <a class="btn btn-claude" href="https://claude.ai/new?q=Explain+how+to+use+the+Excel+REPT+function+to+create+in-cell+bar+charts.+Give+me+3+practical+examples+including+how+to+scale+the+bars+relative+to+a+maximum+value+and+how+to+add+color+with+conditional+formatting." target="_blank">✦ Ask Claude</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-mynda">Mynda · Jun 19</span>
+      <h2>AI-Powered Spreadsheet-to-Report: Genspark</h2>
+    </div>
+    <p>Mynda covered Genspark — an AI tool that takes messy spreadsheet files plus feedback notes and returns polished management reports in Excel, Word, and PowerPoint from a single prompt. Worth evaluating if you're tracking AI-in-Excel trends for teaching purposes.</p>
+    <div class="card-links">
+      <a class="btn btn-read" href="https://www.genspark.ai" target="_blank">🌐 Genspark</a>
+      <a class="btn btn-claude" href="https://claude.ai/new?q=What+is+Genspark+and+how+does+it+compare+to+Copilot+for+analyzing+Excel+spreadsheets+and+generating+management+reports%3F+What+are+the+practical+use+cases+for+Excel+educators%3F" target="_blank">✦ Ask Claude</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-mynda">Mynda · Jun 16</span>
+      <h2>10 Custom Number Format Codes That Feel Illegal</h2>
+    </div>
+    <p>Custom number formats are one of Excel's most overlooked features. Mynda's 10 codes include tricks like suppressing zeros, displaying units inline with numbers, color-coding negatives without conditional formatting, and showing text in formula cells. Free cheatsheet included.</p>
+    <div class="card-links">
+      <a class="btn btn-claude" href="https://claude.ai/new?q=Teach+me+10+advanced+Excel+custom+number+format+codes+that+most+users+don%27t+know+about.+Include+codes+for+suppressing+zeros%2C+inline+units%2C+color-coded+negatives%2C+and+any+other+tricks+that+would+surprise+an+expert+user." target="_blank">✦ Ask Claude</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-mynda">Mynda · Jun 11</span>
+      <h2>The One Function That Can Do 90% of Your Calculations</h2>
+    </div>
+    <p>Framed as a replacement for SUM, AVERAGE, and MAX in most scenarios — likely AGGREGATE or SUMPRODUCT. The pitch: one flexible function with a function-number argument covers most aggregation needs while ignoring errors and hidden rows, which SUM/AVERAGE can't do natively.</p>
+    <div class="card-links">
+      <a class="btn btn-claude" href="https://claude.ai/new?q=What+Excel+function+can+replace+SUM%2C+AVERAGE%2C+MAX+and+handle+90%25+of+calculation+scenarios%3F+Explain+AGGREGATE+vs+SUBTOTAL+vs+SUMPRODUCT+and+show+me+when+each+one+is+the+right+choice." target="_blank">✦ Ask Claude</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-mynda">Mynda · Jun 9</span>
+      <h2>6 Functions Experienced Users Prefer Over IF</h2>
+    </div>
+    <p>Covers IFS, SWITCH, IFERROR, IFNA, CHOOSE, and likely LET as cleaner alternatives to nested IF. The framing is "what experts actually use" — solid module content for logic function teaching. IFS and SWITCH alone eliminate most deeply nested IF chains.</p>
+    <div class="card-links">
+      <a class="btn btn-claude" href="https://claude.ai/new?q=List+and+explain+6+Excel+functions+that+experienced+users+prefer+over+nested+IF.+For+each+one%2C+show+a+before+%28nested+IF%29+and+after+example%2C+and+explain+exactly+when+to+choose+that+function+instead." target="_blank">✦ Ask Claude</a>
+    </div>
+  </div>
+
+  <div class="promo-note">May 28 — "TOP 10 Excel Productivity Tips" — general productivity content, no deep technique.</div>
+  <div class="promo-note">May 26 — "Excel Pricing Calculator for Hourly Services" — template/promotional content.</div>
+
+</div>
+</body>
+</html>
