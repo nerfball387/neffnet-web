@@ -3,195 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Excel Tips Digest — Index</title>
+<title>Excel Tips Brief Index</title>
 <style>
-  :root {
-    --bg: #0f1117;
-    --surface: #1a1d27;
-    --card: #22263a;
-    --border: #2e3350;
-    --accent: #4a86e8;
-    --accent2: #43d692;
-    --text: #e2e8f0;
-    --muted: #8892a4;
-    --warn: #f59e0b;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
-
-  /* ── HERO ── */
-  .hero { background: var(--surface); border-bottom: 1px solid var(--border); padding: 36px 32px 32px; }
-  .hero-inner { max-width: 860px; margin: 0 auto; }
-  .hero h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
-  .hero .subtitle { color: var(--muted); font-size: 0.88rem; margin-bottom: 24px; }
-  .latest-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); margin-bottom: 10px; }
-  .latest-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 26px; }
-  .latest-card .date { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
-  .latest-card h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
-  .topic-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-  .pill { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 0.78rem; font-weight: 500; background: #1e2a4a; color: #93b4f5; border: 1px solid #2e3f6e; }
-  .pill.mynda { background: #142b1f; color: #6ddea9; border-color: #1e4a32; }
-  .btn-open { display: inline-block; padding: 8px 18px; background: var(--accent); color: #fff; border-radius: 7px; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
-  .btn-open:hover { opacity: 0.85; }
-
-  /* ── INDEX LIST ── */
-  .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
-  .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
-  .digest-list { list-style: none; }
-  .digest-list li { border-bottom: 1px solid var(--border); }
-  .digest-list li:last-child { border-bottom: none; }
-  .digest-row { display: flex; align-items: flex-start; gap: 16px; padding: 16px 0; text-decoration: none; color: inherit; }
-  .digest-row:hover .row-title { color: var(--accent); }
-  .row-date { width: 96px; flex-shrink: 0; font-size: 0.82rem; color: var(--muted); padding-top: 2px; }
-  .row-content { flex: 1; }
-  .row-title { font-weight: 600; font-size: 0.95rem; color: var(--text); transition: color 0.15s; }
-  .row-topics { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
-  .row-badge { font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; background: #1c3a20; color: var(--accent2); margin-left: 8px; vertical-align: middle; }
+  :root{--bg:#0f1117;--surface:#1a1d27;--border:#2e3350;--accent:#4a86e8;--text:#e2e8f0;--muted:#8892a4}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,sans-serif;margin:0;padding:0}
+  .header{background:var(--surface);border-bottom:1px solid var(--border);padding:24px;text-align:center}
+  .container{max-width:800px;margin:40px auto;padding:0 20px}
+  .latest-card{background:#22263a;border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:32px}
+  .digest-list{list-style:none;padding:0}
+  .digest-item{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:8px;margin-bottom:12px;text-decoration:none;color:inherit;transition:transform .15s}
+  .digest-item:hover{transform:translateX(4px);border-color:var(--accent)}
+  .digest-date{font-weight:600}
+  .digest-meta{color:var(--muted);font-size:.9rem}
 </style>
 </head>
 <body>
-
-<!-- ── HERO: MOST RECENT SUMMARY ── -->
-<div class="hero">
-  <div class="hero-inner">
-    <h1>📊 Excel Tips Digest</h1>
-    <div class="subtitle">Weekly summaries from Excel Off The Grid &amp; Mynda Treacy · Runs every Friday at 5pm</div>
-
-    <div class="latest-label">Most Recent Digest</div>
-                                                                        <div class="latest-card">
-      <div class="date">July 1, 2025 · 5 topics</div>
-      <h2>Preventing Conditional Formatting Rule Duplication with Relative References · Compatibility Versions in Excel · Cartesian Product Generation Using Dynamic Arrays · Office Scripts for PDF generation and bulk email automation in Excel & More</h2>
-      <div class="topic-pills">
-        <span class="pill mynda">Preventing Conditional Formatting Rule Duplication with Relative References</span>
-        <span class="pill">Compatibility Versions in Excel</span>
-        <span class="pill">Cartesian Product Generation Using Dynamic Arrays</span>
-        <span class="pill">Office Scripts for PDF generation and bulk email automation in Excel</span>
-        <span class="pill">PERCENTOF Function Behavior in GROUPBY and PIVOTBY</span>
-      </div>
-      <a class="btn-open" href="weekly_07:01:2025.html">Open Digest →</a>
-    </div>
-  </div>
+<div class="header">
+  <h1>📊 Excel Tips Brief</h1>
+  <p style="color:var(--muted);margin-top:8px">Weekly digests of techniques, formulas, and videos</p>
 </div>
-
-<!-- ── INDEX LIST ── -->
 <div class="container">
-  <div class="section-label">All Digests</div>
+  <div class="latest-card" id="latest-card">
+    <p style="color:var(--muted)">No digests processed yet. Start the workflow to compile your first monthly digest!</p>
+  </div>
+  <h2>All Digests</h2>
   <ul class="digest-list" id="digest-list">
-
-    <li>
-      <a class="digest-row" href="weekly_07:01:2025.html">
-        <div class="row-date">Jun 30, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Preventing Conditional Formatting Rule Duplication with Relative References · Compatibility Versions in Excel · Cartesian Product Generation Using Dynamic Arrays · Office Scripts for PDF generation and bulk email automation in Excel & More <span class="row-badge">LATEST</span></div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 5 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_06:01:2025.html">
-        <div class="row-date">May 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Dynamic Array Formula Approach to Remove Blank Rows and Columns · Automatically Remove Null Columns in Power Query · Combining Excel Files with Inconsistent Sheet Names using Power Query · Multi-Column, Multi-Value FILTER with Dynamic Formulas </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_05:01:2025.html">
-        <div class="row-date">Apr 30, 2025</div>
-        <div class="row-content">
-          <div class="row-title">SCAN function for iterative calculations in dynamic arrays · Formula-Based Unpivoting with Merged Headers · VBA Automation of Power Query Workflows · Power Query methods for unstacking single columns into multiple columns & More </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 5 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_04:01:2025.html">
-        <div class="row-date">Mar 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Transform Sample Sheet Pattern for Multi-Worksheet Consolidation in Power Query · Handling Blank Cells in Excel Calculations · Dynamically insert blank rows between items in ranges · TRIMRANGE Function and Trim References Operator </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_03:01:2025.html">
-        <div class="row-date">Feb 28, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Period, YTD, and Full Year Projection Calculations with GROUPBY · GROUPBY Function with Dynamic Drill-Down · GROUPBY Across Multiple Tables · Dynamic Budget vs Actual Reporting with GROUPBY & PIVOTBY </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_02:01:2025.html">
-        <div class="row-date">Jan 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Dynamic Functions with Flexible Ranges · Rolling totals and moving averages using dynamic arrays · Allow Edit Ranges for Single-User Cell Access · Conditional Formatting Formulas for Dynamic Cell Highlighting </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_02:01:2025.html">
-        <div class="row-date">Jan 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Dynamic Functions with Flexible Range Selection </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 1 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_02:01:2025.html">
-        <div class="row-date">Jan 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Dynamic Functions with Flexible Range Selection </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 1 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_02:01:2025.html">
-        <div class="row-date">Jan 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Dynamic Functions with Dynamic Ranges </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 1 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_04:01:2025.html">
-        <div class="row-date">Mar 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title"> </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 0 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="2026-06-23.html">
-        <div class="row-date">Jun 23, 2026</div>
-        <div class="row-content">
-          <div class="row-title">FILTER as Lookup · PQ Column Resilience · REPT Dashboards · IF Alternatives </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 10 topics · Backlog sweep</div>
-        </div>
-      </a>
-    </li>
-
-    <!-- n8n workflow prepends new entries here each Friday -->
-
+    <!-- Digest entries will be inserted here -->
   </ul>
 </div>
-
 </body>
 </html>
