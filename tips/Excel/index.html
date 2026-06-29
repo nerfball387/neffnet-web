@@ -18,6 +18,7 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 15px; line-height: 1.6; }
+
   /* ── HERO ── */
   .hero { background: var(--surface); border-bottom: 1px solid var(--border); padding: 36px 32px 32px; }
   .hero-inner { max-width: 860px; margin: 0 auto; }
@@ -32,6 +33,7 @@
   .pill.mynda { background: #142b1f; color: #6ddea9; border-color: #1e4a32; }
   .btn-open { display: inline-block; padding: 8px 18px; background: var(--accent); color: #fff; border-radius: 7px; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
   .btn-open:hover { opacity: 0.85; }
+
   /* ── INDEX LIST ── */
   .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
   .section-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
@@ -47,164 +49,37 @@
   .row-badge { font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 4px; background: #1c3a20; color: var(--accent2); margin-left: 8px; vertical-align: middle; }
 </style>
 </head>
-<body><div class="header">
-<div class="header">
-  <h1>📊 Excel Tips Brief</h1>
-  <p style="color:var(--muted);margin-top:8px">Weekly digests of techniques, formulas, and videos</p>
-</div>
-<div class="container">
-  <div class="latest-card" id="latest-card">
-    <p style="color:var(--muted)">No digests processed yet. Start the workflow to compile your first monthly digest!</p>
+<body>
+
+<!-- ── HERO: MOST RECENT SUMMARY ── -->
+<div class="hero">
+  <div class="hero-inner">
+    <img src="PMexcel_logo.png" width="50%"/><h1>📊 Excel Tips Digest</h1>
+    <div class="subtitle">Weekly summaries from Excel Off The Grid, Mynda Treacy &amp; others· Runs every Friday at 5pm</div>
+
+    <div class="latest-label">Most Recent Digest</div>
+                                            <div class="latest-card">
+      <div class="date">February 1, 2025 · 1 topics</div>
+      <h2>Dynamic Functions with Flexible Range Selection</h2>
+      <div class="topic-pills">
+        <span class="pill">Dynamic Functions with Flexible Range Selection</span>
+      </div>
+      <a class="btn-open" href="weekly_02.01.2025.html">Open Digest →</a>
+    </div>
   </div>
-  <h2>All Digests</h2>
+</div>
+
+<!-- ── INDEX LIST ── -->
+<div class="container">
+  <div class="section-label">All Digests</div>
   <ul class="digest-list" id="digest-list">
 
     <li>
-      <a class="digest-row" href="weekly_05.01.2026.html">
-        <div class="row-date">Apr 30, 2026</div>
+      <a class="digest-row" href="weekly_02.01.2025.html">
+        <div class="row-date">Jan 31, 2025</div>
         <div class="row-content">
-          <div class="row-title">Dynamic Formatting Synchronization with Spill Manager Add-in · Service-Based Pricing Calculator with What-If Analysis and Goal Seek · Combining Range and Spill Operators for Dynamic Charts · Modern Function Replacements for Deprecated Excel Formulas & More <span class="row-badge">LATEST</span></div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 5 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_04.01.2026.html">
-        <div class="row-date">Mar 31, 2026</div>
-        <div class="row-content">
-          <div class="row-title">Percentage Formulas in Excel. Change, Discounts, and Tax Reversal · Formula-Based Conditional Formatting for Row-Level and Multi-Column Logic · Flattening and Unpivoting Multiple Header Rows in Power Query · Power Query Refresh Status Warnings and Interpretation & More </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 5 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_03.01.2026.html">
-        <div class="row-date">Feb 28, 2026</div>
-        <div class="row-content">
-          <div class="row-title">Loops in Office Scripts for Excel Automation · Office Scripts fundamentals: Document Object Model and TypeScript integration · Data Validation Drop-Down Lists from Tables Without INDIRECT · Structured References as Name-Driven Objects </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_02.01.2026.html">
-        <div class="row-date">Jan 31, 2026</div>
-        <div class="row-content">
-          <div class="row-title">Extracting Hyperlink URLs Using VBA and Office Scripts · Checkbox-Based Dynamic Controls and SCAN Function for Iterative Calculations · Dynamic Report Views with User-Selectable Filters · Comparative analysis of Formulas, PivotTables, and Power Pivot for different analytical scenarios </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_01.01.2026.html">
-        <div class="row-date">Dec 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">First Normal Form for Excel data structure · GROUPBY function for dynamic formula-based data summarization · Optimizing Power Query Refresh Speed for SharePoint Data Sources · Custom Column Techniques in Power Query & More </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 6 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_12.01.2025.html">
-        <div class="row-date">Nov 30, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Functions as First-Class Values in Excel and Power Query · Absolute vs Relative Position in VLOOKUP vs XLOOKUP </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 2 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_11.01.2025.html">
-        <div class="row-date">Oct 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Wildcard Filtering with FILTER using BYROW/XMATCH and REGEXTEST · Payback Period Calculation Using Modern Excel Formulas · XLOOKUP vs FILTER: Function Selection for Lookup Tasks · DROP/REDUCE/LAMBDA/STACK combination for spilling multiple array results </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_10.01.2025.html">
-        <div class="row-date">Sep 30, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Diagnosing and Fixing #VALUE! Errors in Spilled Formulas · Regional Settings Impact on Excel Function Syntax and Array Behavior · Reverse COUNTIFS for Existence Checking · Unpivoting Paired Columns with M Code Lists and Records & More </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 5 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_09.01.2025.html">
-        <div class="row-date">Aug 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Disconnected Slicer Tables for Formula-Driven Calculations · Approximate Match Lookup Methods in Power Query Performance Comparison · Reducing Applied Steps in Power Query: Column Transformation and Batch Column Addition </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 3 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_08.01.2025.html">
-        <div class="row-date">Jul 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Managing Column Name Changes in Power Query · Office Scripts and Power Automate Integration for Background Task Automation · List.Buffer for Power Query Performance Optimization · LAMBDA Function Fundamentals & More </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 5 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_07.01.2025.html">
-        <div class="row-date">Jun 30, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Preventing Conditional Formatting Rule Duplication with Relative References · Compatibility Versions for Modernizing Excel Functions · Cartesian Product Generation Using Dynamic Array Formulas · Dynamic Array Formulas: Lifting, Broadcasting, and Boolean Logic & More </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 6 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_06.01.2025.html">
-        <div class="row-date">May 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Dynamic Array Formula Approach to Remove Blank Rows · Automatically Remove Null Columns in Power Query · Combining Excel Files with Inconsistent Sheet Names using Power Query · Multi-column, Multi-value FILTER Formula Construction </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_05.01.2025.html">
-        <div class="row-date">Apr 30, 2025</div>
-        <div class="row-content">
-          <div class="row-title">SCAN function for iterative calculations in Excel · Formula-Based Unpivoting for Cross-Tab Data with Merged Headers · Automating Power Query with VBA · Power Query Methods for Unstacking Data & More </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 5 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_04.01.2025.html">
-        <div class="row-date">Mar 31, 2025</div>
-        <div class="row-content">
-          <div class="row-title">Transform Sample Sheet Pattern for Multi-Worksheet Consolidation in Power Query · Handling Blank Cells in Excel Calculations · Dynamically insert blank rows between items using formulas and arrays · TRIMRANGE function and Trim References operator for removing empty rows and columns </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
-        </div>
-      </a>
-    </li>
-
-    <li>
-      <a class="digest-row" href="weekly_03.01.2025.html">
-        <div class="row-date">Feb 28, 2025</div>
-        <div class="row-content">
-          <div class="row-title">GROUPBY for Period, YTD, and Full Year Projections · GROUPBY Function with Dynamic Drill-Down Capability · GROUPBY Across Multiple Tables · Dynamic Budget vs Actual Analysis Using GROUPBY and PIVOTBY </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
+          <div class="row-title">Dynamic Functions with Flexible Range Selection <span class="row-badge">LATEST</span></div>
+          <div class="row-topics">Excel Off The Grid<br>Mynda Treacy<br>1 topics</div>
         </div>
       </a>
     </li>
@@ -213,13 +88,36 @@
       <a class="digest-row" href="weekly_02.01.2025.html">
         <div class="row-date">Jan 31, 2025</div>
         <div class="row-content">
-          <div class="row-title">Dynamic Functions with Flexible Range Selection · Rolling Totals and Moving Averages with Dynamic Arrays · Allow Edit Ranges for Single-User Cell Access Control · Conditional Formatting with Dynamic Formulas </div>
-          <div class="row-topics">Excel Off The Grid · Mynda Treacy · 4 topics</div>
+          <div class="row-title">Dynamic Functions with Dynamic Ranges </div>
+          <div class="row-topics">Excel Off The Grid<br>Mynda Treacy<br>1 topics</div>
         </div>
       </a>
     </li>
-    <!-- Digest entries will be inserted here -->
+
+    <li>
+      <a class="digest-row" href="weekly_04.01.2025.html">
+        <div class="row-date">Mar 31, 2025</div>
+        <div class="row-content">
+          <div class="row-title"> </div>
+          <div class="row-topics">Excel Off The Grid<br>Mynda Treacy<br>0 topics</div>
+        </div>
+      </a>
+    </li>
+
+    <li>
+      <a class="digest-row" href="2026-06-23.html">
+        <div class="row-date">Jun 23, 2026</div>
+        <div class="row-content">
+          <div class="row-title">FILTER as Lookup<br>PQ Column Resilience<br>REPT Dashboards<br>IF Alternatives </div>
+          <div class="row-topics">Excel Off The Grid<br>Mynda Treacy<br>10 topics<br>Backlog sweep</div>
+        </div>
+      </a>
+    </li>
+
+    <!-- n8n workflow prepends new entries here each Friday -->
+
   </ul>
 </div>
+
 </body>
 </html>
