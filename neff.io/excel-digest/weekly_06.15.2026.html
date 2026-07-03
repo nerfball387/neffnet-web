@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Excel Tips Digest — June 15, 2026</title>
 <style>
-  :root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3350;--accent:#4a86e8;--accent2:#43d692;--text:#e2e8f0;--muted:#8892a4;--tag-mark:#1e3a5f;--tag-mynda:#1a3d2e;--warn:#f59e0b}
+  :root{--bg:#0f1117;--surface:#1a1d27;--card:#22263a;--border:#2e3350;--accent:#4a86e8;--accent2:#43d692;--text:#e2e8f0;--muted:#8892a4;--tag-mark:#1e3a5f;--tag-mynda:#1a3d2e;--tag-leila:#3e2663;--tag-other:#2c2e3b;--warn:#f59e0b}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;line-height:1.6}
   .header{background:var(--surface);border-bottom:1px solid var(--border);padding:20px 32px;display:flex;align-items:center;justify-content:space-between}
@@ -16,7 +16,7 @@
   .card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin-bottom:16px}
   .card-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
   .tag{font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:3px}
-  .tag-mark{background:var(--tag-mark);color:#7aadff}.tag-mynda{background:var(--tag-mynda);color:#43d692}
+  .tag-mark{background:var(--tag-mark);color:#7aadff}.tag-mynda{background:var(--tag-mynda);color:#43d692}.tag-leila{background:var(--tag-leila);color:#d1bcf5}.tag-other{background:var(--tag-other);color:#b3bfdb}
   .card h2{font-size:1rem;font-weight:600;color:var(--text);line-height:1.4}
   .card p{color:#c5ccd8;margin-top:8px;font-size:.92rem}
   .card-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
@@ -43,9 +43,9 @@
   
   <div class="flag-card">
     <div class="flag-label">⚡ Top Pick for Teachers</div>
-    <h2>Custom Number Format Codes for Display Control</h2>
-    <p>Custom number formats control how values appear in cells without altering underlying data, enabling formulas and charts to function normally. The technique uses semicolon-separated sections (Positive;Negative;Zero;Text) with codes to scale numbers, apply conditional colors, replace values with text, hide zeros, add symbols, and format patterns like phone numbers.</p>
-    <div class="card-links"><a class="btn btn-watch" href="https://clicks.aweber.com/y/ct/?l=uhC8&m=f_nM_Qhri5VR.Zj&b=8I7QI1QF6m5sHQzsrtLv_w" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://www.myonlinetraininghub.com/10-excel-custom-number-formatting-tricks" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=Explain%20the%20technical%20syntax%20and%20order%20of%20operations%20in%20Excel's%20four-section%20custom%20number%20format%20code%20(Positive%3BNegative%3BZero%3BText).%20How%20does%20using%20commas%20in%20the%20format%20code%20'%23%2C%23%230.00%2C%2C%22M%22'%20actually%20remove%20digits%20from%20display%2C%20and%20what%20are%20the%20limitations%20when%20combining%20color%20codes%20like%20%5BBlue%5D%20with%20conditional%20operators%20like%20%5B%3E%3D0.5%5D%3F%20Can%20you%20demonstrate%20a%20scenario%20where%20custom%20number%20formatting%20fails%20and%20conditional%20formatting%20becomes%20necessary%3F" target="_blank">✦ Ask Claude</a></div>
+    <h2>Custom Number Format Codes for Data Presentation</h2>
+    <p>Custom number formats control how values display in cells without altering underlying data, preserving formula integrity. They use a four-section syntax (positive;negative;zero;text) separated by semicolons to apply scaling, colors, conditional text, symbols, and formatting across thousands/millions, phone numbers, and other patterns while maintaining calculation accuracy.</p>
+    <div class="card-links"><a class="btn btn-watch" href="https://clicks.aweber.com/y/ct/?l=uhC8&m=f_nM_Qhri5VR.Zj&b=8I7QI1QF6m5sHQzsrtLv_w" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://www.myonlinetraininghub.com/10-excel-custom-number-formatting-tricks?awt_a=f2Zj&awt_l=uhC8&awt_m=f_nM_Qhri5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=say-goodbye-to-ugly-excel-numbers-with-these-tricks-free-cheatsheet" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=Explain%20the%20mechanics%20of%20how%20Excel's%20four-section%20custom%20number%20format%20syntax%20(positive%3Bnegative%3Bzero%3Btext)%20processes%20different%20value%20conditions%2C%20and%20describe%20a%20scenario%20where%20applying%20conditional%20text%20formats%20with%20value%20thresholds%20would%20be%20preferable%20to%20using%20IF%20formulas%20or%20conditional%20formatting%20for%20report%20readability%20at%20scale." target="_blank">✦ Ask Claude</a></div>
   </div>
   
   <hr class="divider">
@@ -54,10 +54,10 @@
   <div class="card">
     <div class="card-header">
       <span class="tag tag-mynda">Mynda · Jun 16</span>
-      <h2>Custom Number Format Codes for Display Control</h2>
+      <h2>Custom Number Format Codes for Data Presentation</h2>
     </div>
-    <p>Custom number formats control how values appear in cells without altering underlying data, enabling formulas and charts to function normally. The technique uses semicolon-separated sections (Positive;Negative;Zero;Text) with codes to scale numbers, apply conditional colors, replace values with text, hide zeros, add symbols, and format patterns like phone numbers.</p>
-    <div class="card-links"><a class="btn btn-watch" href="https://clicks.aweber.com/y/ct/?l=uhC8&m=f_nM_Qhri5VR.Zj&b=8I7QI1QF6m5sHQzsrtLv_w" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://www.myonlinetraininghub.com/10-excel-custom-number-formatting-tricks" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=Explain%20the%20technical%20syntax%20and%20order%20of%20operations%20in%20Excel's%20four-section%20custom%20number%20format%20code%20(Positive%3BNegative%3BZero%3BText).%20How%20does%20using%20commas%20in%20the%20format%20code%20'%23%2C%23%230.00%2C%2C%22M%22'%20actually%20remove%20digits%20from%20display%2C%20and%20what%20are%20the%20limitations%20when%20combining%20color%20codes%20like%20%5BBlue%5D%20with%20conditional%20operators%20like%20%5B%3E%3D0.5%5D%3F%20Can%20you%20demonstrate%20a%20scenario%20where%20custom%20number%20formatting%20fails%20and%20conditional%20formatting%20becomes%20necessary%3F" target="_blank">✦ Ask Claude</a></div>
+    <p>Custom number formats control how values display in cells without altering underlying data, preserving formula integrity. They use a four-section syntax (positive;negative;zero;text) separated by semicolons to apply scaling, colors, conditional text, symbols, and formatting across thousands/millions, phone numbers, and other patterns while maintaining calculation accuracy.</p>
+    <div class="card-links"><a class="btn btn-watch" href="https://clicks.aweber.com/y/ct/?l=uhC8&m=f_nM_Qhri5VR.Zj&b=8I7QI1QF6m5sHQzsrtLv_w" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://www.myonlinetraininghub.com/10-excel-custom-number-formatting-tricks?awt_a=f2Zj&awt_l=uhC8&awt_m=f_nM_Qhri5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=say-goodbye-to-ugly-excel-numbers-with-these-tricks-free-cheatsheet" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=Explain%20the%20mechanics%20of%20how%20Excel's%20four-section%20custom%20number%20format%20syntax%20(positive%3Bnegative%3Bzero%3Btext)%20processes%20different%20value%20conditions%2C%20and%20describe%20a%20scenario%20where%20applying%20conditional%20text%20formats%20with%20value%20thresholds%20would%20be%20preferable%20to%20using%20IF%20formulas%20or%20conditional%20formatting%20for%20report%20readability%20at%20scale." target="_blank">✦ Ask Claude</a></div>
   </div>
   <div class="promo-note">Jun 19 — "Messy Files to Analysis, Slides and Action Plans with 1 Prompt" — promotional, no technique content.</div><div class="promo-note">Jun 18 — "You'll Wish You Found Genspark Before Your Last Report" — promotional, no technique content.</div>
 </div>
