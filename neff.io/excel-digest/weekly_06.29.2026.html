@@ -34,7 +34,7 @@
 <div class="header">
   <div>
     <h1>📊 Excel Tips Digest</h1>
-    <div class="meta">June 29, 2026 · 7 summaries</div>
+    <div class="meta">June 29, 2026 · 6 summaries</div>
   </div>
   <a href="index.html">← Back to Index</a>
 </div>
@@ -43,9 +43,9 @@
   
   <div class="flag-card">
     <div class="flag-label">⚡ Top Pick for Teachers</div>
-    <h2>TRIMRANGE function and dot notation for eliminating blank cells in spilled ranges</h2>
-    <p>Excel's TRIMRANGE function (or shorthand dot notation before/after a colon, like A2:.A100) automatically removes blank cells from spilled array results without requiring wrapper formulas like FILTER. This produces cleaner dynamic arrays for operations like UNIQUE lists or rolling calculations that would otherwise display trailing zeros.</p>
-    <div class="card-links"><a class="btn btn-read" href="https://www.xelplus.com/trimrange-function-excel/" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=How%20does%20TRIMRANGE%20differ%20from%20wrapping%20a%20spilled%20array%20in%20FILTER%20to%20remove%20blanks%2C%20and%20what%20edge%20cases%20should%20an%20advanced%20user%20consider%20when%20using%20dot%20notation%20(A2%3A.A100)%20versus%20explicit%20TRIMRANGE%20syntax%20in%20formulas%20that%20chain%20multiple%20array%20operations%3F" target="_blank">✦ Ask Claude</a></div>
+    <h2>TRIMRANGE and Dot-Notation Syntax for Removing Blanks from Spilled Arrays</h2>
+    <p>Excel's TRIMRANGE function and the dot-notation shorthand (e.g., A2:.A100) automatically remove blank cells from dynamic array spills, eliminating unwanted zeros in results. This single-character syntax modification provides a lightweight alternative to FILTER wrapping for cleaning spilled ranges.</p>
+    <div class="card-links"><a class="btn btn-read" href="https://www.xelplus.com/trimrange-function-excel/" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=How%20does%20the%20dot-notation%20syntax%20(A2%3A.A100)%20differ%20in%20performance%20and%20behavior%20from%20TRIMRANGE(A2%3AA100)%20when%20applied%20to%20large%20datasets%20with%20scattered%20blanks%3F%20Are%20there%20edge%20cases%20where%20one%20method%20fails%20but%20the%20other%20succeeds%2C%20particularly%20with%20nested%20dynamic%20array%20operations%3F" target="_blank">✦ Ask Claude</a></div>
   </div>
   
   <hr class="divider">
@@ -54,10 +54,10 @@
   <div class="card">
     <div class="card-header">
       <span class="tag tag-mark">Mark · Jul 3</span>
-      <h2>AGGREGATE Function Limitations and Workarounds for Filtered Data</h2>
+      <h2>AGGREGATE Function Limitations and Workarounds</h2>
     </div>
-    <p>AGGREGATE has significant limitations when attempting to sum visible rows conditionally based on another column's contents. The video explains why AGGREGATE fails in these scenarios and provides both a basic workaround compatible with all Excel versions and an advanced solution for modern Excel using dynamic arrays.</p>
-    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/watch?v=TEoHmSnPKy4" target="_blank">▶ Watch Video</a><a class="btn btn-claude" href="https://claude.ai/new?q=The%20AGGREGATE%20function%20is%20often%20promoted%20as%20a%20solution%20for%20ignoring%20hidden%20rows%20and%20errors%2C%20but%20it%20doesn't%20support%20conditional%20visibility%20based%20on%20another%20column's%20values.%20What%20are%20the%20specific%20architectural%20limitations%20of%20AGGREGATE%20that%20prevent%20conditional%20summation%20of%20filtered%20data%2C%20and%20how%20do%20SUMPRODUCT%20or%20dynamic%20array%20formulas%20overcome%20these%20constraints%20differently%3F" target="_blank">✦ Ask Claude</a></div>
+    <p>The AGGREGATE function has significant limitations when attempting to sum visible rows based on criteria from another column. The email explains why AGGREGATE fails in these scenarios and presents both basic workarounds compatible with all Excel versions and advanced solutions for modern Excel with dynamic array functions.</p>
+    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/watch?v=TEoHmSnPKy4" target="_blank">▶ Watch Video</a><a class="btn btn-claude" href="https://claude.ai/new?q=What%20are%20the%20specific%20mathematical%20or%20logical%20constraints%20that%20prevent%20the%20AGGREGATE%20function%20from%20filtering%20visible%20cells%20based%20on%20criteria%20in%20a%20different%20column%2C%20and%20how%20do%20dynamic%20array%20functions%20like%20FILTER%20overcome%20these%20limitations%20compared%20to%20traditional%20SUMIF%20approaches%3F" target="_blank">✦ Ask Claude</a></div>
   </div>
   
   <hr class="divider">
@@ -66,18 +66,10 @@
   <div class="card">
     <div class="card-header">
       <span class="tag tag-mynda">Mynda · Jul 2</span>
-      <h2>Nested IF with AND/OR operators for multi-condition logic</h2>
+      <h2>Nesting AND/OR logic within IF statements for multi-condition evaluation</h2>
     </div>
-    <p>Combining IF with AND or OR functions enables evaluation of multiple conditions within a single formula. AND requires all conditions to be true; OR requires only one. This technique enables efficient decision logic for approval workflows, classifications, and conditional rule-based calculations without nested IF statements.</p>
-    <div class="card-links"><a class="btn btn-watch" href="https://clicks.aweber.com/y/ct/?l=uhC8&m=gexCvau2J5VR.Zj&b=OLDWOVxwX7yguBq_FCXjgw" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://www.myonlinetraininghub.com/excel-if-and-or-functions-explained?awt_a=f2Zj&awt_l=uhC8&awt_m=gexCvau2J5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=the-one-thing-missing-from-your-if-formulas" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=What%20are%20the%20performance%20implications%20of%20using%20nested%20IF(AND())%20versus%20IF(OR())%20for%20evaluating%205%2B%20conditions%20in%20a%20large%20dataset%2C%20and%20when%20would%20IFS()%20be%20preferable%20to%20IF(AND())%20for%20readability%20and%20efficiency%3F" target="_blank">✦ Ask Claude</a></div>
-  </div>
-  <div class="card">
-    <div class="card-header">
-      <span class="tag tag-mynda">Mynda · Jun 30</span>
-      <h2>Advanced Find and Replace with Format Replacement and Wildcards</h2>
-    </div>
-    <p>Excel's Find and Replace dialog contains advanced options (accessed via Options button) that enable sophisticated operations beyond text substitution: replacing cell formatting independently of values, searching within formulas/values/comments, using wildcards for pattern matching, and replacing across entire workbooks. This technique is particularly powerful for updating number formats globally without touching underlying data or cleaning messy imported data through pattern-based replacement.</p>
-    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/watch?v=8TRTfNwKKR40f8HQ8wuBOA" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://www.myonlinetraininghub.com/excel-find-and-replace-tricks" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=An%20advanced%20Excel%20user%20needs%20to%20replace%20a%20custom%20number%20format%20showing%20values%20in%20millions%20(%23%2C%23%230.0%2C%2C%20%22M%22)%20with%20thousands%20(%23%2C%23%230%2C%20%22K%22)%20across%2050%2B%20non-contiguous%20cells%20scattered%20throughout%20a%20workbook.%20Using%20Find%20and%20Replace%20with%20format%20matching%2C%20explain%20the%20exact%20steps%2C%20limitations%20of%20this%20approach%20versus%20alternatives%20like%20conditional%20formatting%20or%20PQ%2C%20and%20how%20to%20verify%20the%20replacement%20affected%20only%20formatting%E2%80%94not%20underlying%20formulas%20or%20values%E2%80%94especially%20in%20cells%20containing%20references%20to%20other%20sheets." target="_blank">✦ Ask Claude</a></div>
+    <p>Combines IF with AND (all conditions must be true) or OR (at least one condition must be true) to create decision logic that evaluates multiple criteria simultaneously. Demonstrates practical applications like approval workflows and eligibility rules without requiring nested IF statements.</p>
+    <div class="card-links"><a class="btn btn-watch" href="https://clicks.aweber.com/y/ct/?l=uhC8&m=gexCvau2J5VR.Zj&b=OLDWOVxwX7yguBq_FCXjgw" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://www.myonlinetraininghub.com/excel-if-and-or-functions-explained?awt_a=f2Zj&awt_l=uhC8&awt_m=gexCvau2J5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=the-one-thing-missing-from-your-if-formulas" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=What%20is%20the%20computational%20difference%20between%20IF(AND(condition1%2C%20condition2))%20and%20nested%20IF(condition1%2C%20IF(condition2))%20in%20Excel%2C%20and%20when%20would%20short-circuit%20evaluation%20matter%20in%20complex%20approval%20logic%3F" target="_blank">✦ Ask Claude</a></div>
   </div>
   
   <hr class="divider">
@@ -86,10 +78,10 @@
   <div class="card">
     <div class="card-header">
       <span class="tag tag-other">Leila at XelPlus · Jul 5</span>
-      <h2>TRIMRANGE function and dot notation for eliminating blank cells in spilled ranges</h2>
+      <h2>TRIMRANGE and Dot-Notation Syntax for Removing Blanks from Spilled Arrays</h2>
     </div>
-    <p>Excel's TRIMRANGE function (or shorthand dot notation before/after a colon, like A2:.A100) automatically removes blank cells from spilled array results without requiring wrapper formulas like FILTER. This produces cleaner dynamic arrays for operations like UNIQUE lists or rolling calculations that would otherwise display trailing zeros.</p>
-    <div class="card-links"><a class="btn btn-read" href="https://www.xelplus.com/trimrange-function-excel/" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=How%20does%20TRIMRANGE%20differ%20from%20wrapping%20a%20spilled%20array%20in%20FILTER%20to%20remove%20blanks%2C%20and%20what%20edge%20cases%20should%20an%20advanced%20user%20consider%20when%20using%20dot%20notation%20(A2%3A.A100)%20versus%20explicit%20TRIMRANGE%20syntax%20in%20formulas%20that%20chain%20multiple%20array%20operations%3F" target="_blank">✦ Ask Claude</a></div>
+    <p>Excel's TRIMRANGE function and the dot-notation shorthand (e.g., A2:.A100) automatically remove blank cells from dynamic array spills, eliminating unwanted zeros in results. This single-character syntax modification provides a lightweight alternative to FILTER wrapping for cleaning spilled ranges.</p>
+    <div class="card-links"><a class="btn btn-read" href="https://www.xelplus.com/trimrange-function-excel/" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=How%20does%20the%20dot-notation%20syntax%20(A2%3A.A100)%20differ%20in%20performance%20and%20behavior%20from%20TRIMRANGE(A2%3AA100)%20when%20applied%20to%20large%20datasets%20with%20scattered%20blanks%3F%20Are%20there%20edge%20cases%20where%20one%20method%20fails%20but%20the%20other%20succeeds%2C%20particularly%20with%20nested%20dynamic%20array%20operations%3F" target="_blank">✦ Ask Claude</a></div>
   </div>
   <div class="promo-note">Jul 3 — "my personal story - from corporate to XelPlus" — promotional, no technique content.</div><div class="promo-note">Jul 2 — "Important: confirm your subscription" — promotional, no technique content.</div><div class="promo-note">Jul 2 — "My best free resources to help you" — promotional, no technique content.</div><div class="promo-note">Jul 2 — "Leila's Excel navigation workbook is inside" — promotional, no technique content.</div>
   <hr class="divider">
@@ -100,24 +92,24 @@
       <span class="tag tag-other">Steven Neff · Jul 2</span>
       <h2>Python in Excel for Time Series Analysis</h2>
     </div>
-    <p>Excel now integrates Python data science libraries directly within the application, enabling time series analysis and statistical computations previously considered infeasible in Excel. This eliminates setup friction by bringing Python capabilities into the familiar Excel environment without requiring external tools or configuration.</p>
-    <div class="card-links"><a class="btn btn-read" href="https://pages.xelplus.com/posts/excel-s-outgrown-its-reputation" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=What%20are%20the%20practical%20limitations%20and%20best%20practices%20for%20executing%20Python%20time%20series%20analysis%20functions%20within%20Excel's%20Python%20integration%3F%20How%20should%20educators%20frame%20the%20trade-offs%20between%20using%20Python%20in%20Excel%20versus%20dedicated%20data%20science%20environments%20for%20different%20skill%20levels%3F" target="_blank">✦ Ask Claude</a></div>
+    <p>Python integration within Excel enables data science techniques previously considered impractical in the spreadsheet environment. This bridges Python's analytical capabilities with Excel's familiar interface, allowing advanced statistical and time series computations without external setup.</p>
+    <div class="card-links"><a class="btn btn-read" href="https://pages.xelplus.com/posts/excel-s-outgrown-its-reputation" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=What%20are%20the%20practical%20limitations%20of%20using%20Python%20in%20Excel%20for%20time%20series%20forecasting%20compared%20to%20dedicated%20Python%20environments%2C%20and%20how%20would%20you%20structure%20a%20workflow%20to%20validate%20Python%20outputs%20within%20Excel%20for%20financial%20analysis%3F" target="_blank">✦ Ask Claude</a></div>
   </div>
   <div class="card">
     <div class="card-header">
       <span class="tag tag-other">Steven Neff · Jul 2</span>
-      <h2>Cell Styles for Workbook Standardization and Readability</h2>
+      <h2>Cell Styles for Workbook Consistency and Readability</h2>
     </div>
-    <p>Cell Styles in Excel provide consistent visual formatting across worksheets through predefined or custom style templates, distinguishing input cells from calculated cells without manual cell-by-cell formatting. Styles can be modified once and automatically applied throughout a workbook, and saved as templates for reuse across multiple files.</p>
-    <div class="card-links"><a class="btn btn-read" href="https://pages.xelplus.com/posts/i-used-to-build-workbooks-no-one-could-read" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=How%20would%20you%20explain%20the%20difference%20between%20applying%20Cell%20Styles%20versus%20using%20conditional%20formatting%20for%20distinguishing%20input%20cells%20from%20calculated%20cells%20in%20a%20large%20shared%20workbook%3F%20What%20are%20the%20maintenance%20and%20scalability%20implications%20of%20each%20approach%3F" target="_blank">✦ Ask Claude</a></div>
+    <p>Cell Styles provide a workbook-level formatting system that allows consistent visual differentiation between input and calculated cells without manual formatting. Styles can be created, duplicated, modified, and applied across worksheets; built-in styles for inputs and calculations can be customized to corporate standards, and custom styles persist within the workbook or can be distributed via templates.</p>
+    <div class="card-links"><a class="btn btn-read" href="https://pages.xelplus.com/posts/i-used-to-build-workbooks-no-one-could-read" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=How%20would%20you%20programmatically%20manage%20and%20apply%20Cell%20Styles%20across%20multiple%20workbooks%20using%20VBA%20or%20Office%20Scripts%3F%20Specifically%2C%20how%20would%20you%20create%20custom%20styles%2C%20modify%20built-in%20styles%2C%20and%20ensure%20consistency%20when%20copying%20styles%20from%20a%20template%20workbook%20to%20dependent%20files%3F" target="_blank">✦ Ask Claude</a></div>
   </div>
   <div class="card">
     <div class="card-header">
       <span class="tag tag-other">Steven Neff · Jul 2</span>
       <h2>Copilot Personalization in Excel</h2>
     </div>
-    <p>Copilot in Excel now includes a Personalization feature that learns user preferences for formatting, functions, and cell/number formats across workbooks and devices, eliminating the need to repeat instructions in every prompt. This reduces prompt length and ensures consistent output style without manual specification each time.</p>
-    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/watch?v=si61bqW4AEo" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://pages.xelplus.com/posts/your-copilot-prompts-are-getting-too-long" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=How%20would%20you%20advise%20an%20advanced%20Excel%20user%20to%20structure%20their%20initial%20Copilot%20personalization%20settings%20to%20maximize%20efficiency%20across%20different%20workbook%20types%E2%80%94financial%20models%20vs.%20dashboards%20vs.%20data%20processing%E2%80%94while%20maintaining%20consistency%20without%20over-specifying%20preferences%3F" target="_blank">✦ Ask Claude</a></div>
+    <p>Copilot in Excel now includes a Personalization feature that remembers user preferences for formatting, cell styles, and number formats across workbooks and devices. This reduces the need for lengthy, repetitive prompts by allowing users to set style preferences once, and Copilot applies them consistently to generated content.</p>
+    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/watch?v=si61bqW4AEo" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://pages.xelplus.com/posts/your-copilot-prompts-are-getting-too-long" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=How%20would%20you%20design%20a%20system%20for%20Copilot%20to%20store%20and%20apply%20user-defined%20formatting%20preferences%20(table%20styles%2C%20cell%20formatting%2C%20number%20formats)%20when%20generating%20or%20modifying%20Excel%20structures%3F%20What%20data%20schema%20and%20retrieval%20logic%20would%20ensure%20consistency%20across%20workbooks%20and%20devices%3F" target="_blank">✦ Ask Claude</a></div>
   </div>
   
 </div>
