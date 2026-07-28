@@ -1,0 +1,57 @@
+{
+  "authors": [
+    {
+      "key": "exceloffthegrid",
+      "name": "Mark Proctor",
+      "brand": "Excel Off The Grid",
+      "credential": "Microsoft MVP",
+      "avatar": null,
+      "logo": null,
+      "site": "https://exceloffthegrid.com",
+      "youtube": "https://youtube.com/@exceloffthegrid",
+      "accent": "#005999",
+      "credit": "All techniques summarized here are created and taught by Mark Proctor. These summaries are pointers to his original content — go read the full version."
+    },
+    {
+      "key": "myonlinetraininghub",
+      "name": "Mynda Treacy",
+      "brand": "MyOnlineTrainingHub",
+      "credential": "Microsoft MVP",
+      "avatar": null,
+      "logo": null,
+      "site": "https://www.myonlinetraininghub.com",
+      "youtube": "https://youtube.com/@MyOnlineTrainingHub",
+      "accent": "#009E6D",
+      "credit": "All techniques summarized here are created and taught by Mynda Treacy. These summaries are pointers to her original content — go watch the full version."
+    },
+    {
+      "key": "xelplus",
+      "name": "Leila Gharani",
+      "brand": "XelPlus",
+      "credential": "Microsoft MVP",
+      "avatar": null,
+      "logo": null,
+      "site": "https://www.xelplus.com",
+      "youtube": "https://youtube.com/@LeilaGharani",
+      "accent": "#1991C7",
+      "credit": "All techniques summarized here are created and taught by Leila Gharani. These summaries are pointers to her original content — go watch the full version."
+    },
+    {
+      "key": "neffio",
+      "name": "Steve Neff",
+      "brand": "Neff.io (submitted)",
+      "credential": "Codex curator",
+      "avatar": null,
+      "logo": null,
+      "site": "https://neffnet.com",
+      "youtube": null,
+      "accent": "#1A4D1C",
+      "credit": "Reader-submitted links, summarized by Claude and filed into the Codex. Original credit belongs to the source publication."
+    }
+  ],
+  "fallback": {
+    "credential": "Excel educator",
+    "accent": "#999999",
+    "credit": "This technique belongs to its original creator. The summary here is a pointer — go read or watch the source."
+  }
+}
