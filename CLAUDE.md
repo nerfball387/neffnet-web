@@ -91,12 +91,26 @@ landing/                   neffio.com's actual home page + logo assets
   index.html
   Neffio_logo_*.png
 neff.io/excel-digest/      weekly Excel Tips digests (written by the n8n workflow)
+todoist/                   "Lister" Todoist client — index.html + support.js runtime
 excel/  tips/  pics/  PMXcodex/
 ```
 
 `landing/` was added 2026-08-02 — it previously lived at `/srv/neffio/landing`, outside any
 repo and with no backup. Adding it to the repo also means it is published at
 `neffnet.com/landing/`, which is harmless but was not the goal.
+
+### ⚠️ `todoist/` — never restore the hardcoded API token
+
+Added 2026-08-03 from `OneDrive\03.Projects\AutomateMyLife\TaskManager\Todoist Interface.dc.html`.
+It is a generated `.dc.html` bundle: `index.html` needs `support.js` beside it, and neither
+is hand-edited — re-export from the authoring tool and re-apply the change below.
+
+The source file ships `const DEFAULT_TOKEN = '<live 40-char Todoist token>'` near line 628.
+**It is blanked to `''` in this repo and must stay that way.** The repo is public and also
+served by GitHub Pages, so committing that line hands anyone full read/write on Steve's
+Todoist account. The app already handles an empty token properly — it shows a "Connect your
+Todoist account → Add API token" banner and stores what you paste in `localStorage` only.
+Re-check that line on every re-export; the authoring tool puts it back.
 
 ---
 

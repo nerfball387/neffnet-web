@@ -1,0 +1,2167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <template id="__bundler_thumbnail" data-bg-color="#4a3aff">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect x="30" y="30" width="40" height="40" rx="8" fill="#ffffff"/>
+      <rect x="42" y="42" width="16" height="16" rx="3" fill="#4a3aff"/>
+    </svg>
+  </template>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @keyframes toastIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    ::selection { background: rgba(74,58,255,0.18); }
+  </style>
+</helmet>
+
+<div style="{{ rootStyle }}">
+
+  <!-- HEADER -->
+  <div style="position:sticky; top:0; z-index:20; background:var(--bg-header); border-bottom:1px solid var(--border); padding:0 28px;">
+    <sc-if value="{{ isMobileHeader }}">
+      <div style="max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:56px; gap:10px;">
+        <div style="display:flex; align-items:center; gap:6px;">
+          <img src="{{ logoSrc }}" alt="Neffio" style="height:18px; width:auto; flex-shrink:0;" />
+          <div style="width:18px; height:18px; border-radius:5px; background:#4a3aff; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:6px; height:6px; border-radius:1px; background:#ffffff;"></div>
+          </div>
+          <div style="font-size:14px; font-weight:700; letter-spacing:-0.01em;">Lister</div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:2px; background:var(--bg-tab-track); padding:4px; border-radius:10px; flex-shrink:0;">
+          <div onClick="{{ goToQuickAdd }}" style="{{ tabStyles.quickadd }}">Task</div>
+          <div onClick="{{ goToProjects }}" style="{{ tabStyles.projects }}">Projects</div>
+          <div onClick="{{ onRefresh }}" title="Refresh" style="width:28px; height:28px; border-radius:7px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--text-secondary);" style-hover="background:var(--bg-surface);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ refreshIconStyle }}"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>
+          </div>
+          <div onClick="{{ toggleSettings }}" title="Settings" style="width:28px; height:28px; border-radius:7px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--text-secondary);" style-hover="background:var(--bg-surface);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isDesktopHeader }}">
+      <div style="max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:64px; gap:20px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <img src="{{ logoSrc }}" alt="Neffio" style="height:26px; width:auto; flex-shrink:0;" />
+          <div style="width:26px; height:26px; border-radius:7px; background:#4a3aff; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <div style="width:9px; height:9px; border-radius:2px; background:#ffffff;"></div>
+          </div>
+          <div style="font-size:17px; font-weight:700; letter-spacing:-0.01em;">Lister</div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:4px; background:var(--bg-tab-track); padding:4px; border-radius:10px;">
+          <div onClick="{{ goToQuickAdd }}" style="{{ tabStyles.quickadd }}">Task</div>
+          <div onClick="{{ goToProjects }}" style="{{ tabStyles.projects }}">Projects</div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:10px;">
+          <sc-if value="{{ hasToken }}">
+            <div style="font-size:12px; color:var(--text-muted);">{{ syncLabel }}</div>
+          </sc-if>
+          <div onClick="{{ onRefresh }}" title="Refresh" style="width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--text-secondary);" style-hover="background:var(--bg-tab-track);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="{{ refreshIconStyle }}"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>
+          </div>
+          <div onClick="{{ toggleSettings }}" title="Settings" style="width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--text-secondary);" style-hover="background:var(--bg-tab-track);">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- NO TOKEN BANNER -->
+  <sc-if value="{{ noTokenBanner }}">
+    <div style="max-width:1180px; margin:16px auto 0; padding:0 28px;">
+      <div style="background:#fff4e5; border:1px solid #f3d9ab; color:#7a5518; padding:12px 16px; border-radius:10px; font-size:14px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+        <div>Connect your Todoist account to load real projects and tasks.</div>
+        <div onClick="{{ toggleSettings }}" style="cursor:pointer; font-weight:600; text-decoration:underline; white-space:nowrap;">Add API token</div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- DATA ERROR -->
+  <sc-if value="{{ dataError }}">
+    <div style="max-width:1180px; margin:16px auto 0; padding:0 28px;">
+      <div style="background:#fdeceb; border:1px solid #f3b9b3; color:#8a2b22; padding:12px 16px; border-radius:10px; font-size:14px;">{{ dataError }}</div>
+    </div>
+  </sc-if>
+
+  <!-- QUICK ADD VIEW -->
+  <sc-if value="{{ isQuickAdd }}">
+    <div style="{{ quickAddContainerStyle }}">
+    <div style="flex:1; min-width:0; max-width:720px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+        <div style="font-size:26px; font-weight:700; letter-spacing:-0.02em;">{{ headerTitle }}</div>
+        <sc-if value="{{ isEditing }}">
+          <div style="display:flex; align-items:center; gap:14px;">
+            <div onClick="{{ onRequestDeleteCurrentTask }}" style="font-size:13px; font-weight:600; color:#c53929; cursor:pointer; text-decoration:underline;">Delete task</div>
+            <div onClick="{{ onCancelEdit }}" style="font-size:13px; font-weight:600; color:var(--text-muted); cursor:pointer; text-decoration:underline;">Cancel edit</div>
+          </div>
+        </sc-if>
+      </div>
+      <div style="font-size:14px; color:var(--text-muted); margin-bottom:20px;">Type naturally — try "#Errands @calls p1" — or set fields below. ( / to jump here, ⌘Enter to submit)</div>
+
+      <sc-if value="{{ form.parentTaskId }}">
+        <div style="display:flex; align-items:center; justify-content:space-between; background:var(--chip-selected-bg); color:#4a3aff; font-size:13px; font-weight:600; padding:9px 14px; border-radius:10px; margin-bottom:14px;">
+          <div>Adding subtask under: {{ form.parentTaskContent }}</div>
+          <div onClick="{{ onCancelSubtask }}" style="cursor:pointer; text-decoration:underline; font-weight:700;">Remove</div>
+        </div>
+      </sc-if>
+
+      <div style="display:flex; align-items:stretch; gap:10px;">
+        <textarea
+          id="qa-text-input"
+          value="{{ form.text }}"
+          onChange="{{ onTextChange }}"
+          placeholder="What do you need to do?"
+          rows="2"
+          style="flex:1; min-width:0; box-sizing:border-box; font-family:inherit; font-size:20px; font-weight:500; color:var(--text-primary); padding:18px 20px; border-radius:14px; border:1.5px solid var(--border); background:var(--bg-surface); resize:none; outline:none; line-height:1.4;"
+          style-focus="border-color:#4a3aff;"
+        ></textarea>
+        <div onClick="{{ onParseText }}" style="flex-shrink:0; align-self:center; font-size:12px; font-weight:700; padding:10px 14px; border-radius:20px; background:var(--btn-strong-bg); color:#fff; cursor:pointer; white-space:nowrap;">Parse ✦</div>
+      </div>
+
+      <sc-if value="{{ parsed.hasAny }}">
+        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-top:10px;">
+          <sc-if value="{{ parsed.projectMatch }}">
+            <div style="font-size:12px; padding:4px 10px; border-radius:20px; background:var(--chip-selected-bg); color:#4a3aff; font-weight:600;">→ {{ parsed.projectMatch }}</div>
+          </sc-if>
+          <sc-for list="{{ parsed.labelMatches }}" as="lbl" hint-placeholder-count="0">
+            <div style="font-size:12px; padding:4px 10px; border-radius:20px; background:#eef3ff; color:#2857c7; font-weight:600;">@{{ lbl }}</div>
+          </sc-for>
+          <sc-if value="{{ parsed.priorityMatch }}">
+            <div style="font-size:12px; padding:4px 10px; border-radius:20px; background:#fdeceb; color:#c53929; font-weight:600;">{{ parsed.priorityMatch }}</div>
+          </sc-if>
+          <sc-if value="{{ parsed.duePhrase }}">
+            <div style="font-size:12px; padding:4px 10px; border-radius:20px; background:#e8f6ec; color:#1f8a44; font-weight:600;">→ {{ parsed.duePhrase }}</div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <!-- Project -->
+      <div style="margin-top:10px;">
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:10px;">Project</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <sc-for list="{{ projectRadios }}" as="p" hint-placeholder-count="3">
+            <div onClick="{{ p.onSelect }}" style="{{ p.style }}">{{ p.name }}</div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- Section -->
+      <sc-if value="{{ hasSectionsForForm }}">
+        <div style="margin-top:24px;">
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:10px;">Section</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <sc-for list="{{ sectionRadios }}" as="sec" hint-placeholder-count="0">
+              <div onClick="{{ sec.onSelect }}" style="{{ sec.style }}">{{ sec.name }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Parent task -->
+      <sc-if value="{{ hasParentOptionsForForm }}">
+        <div style="margin-top:24px;">
+          <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:10px;">Parent task</div>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <sc-for list="{{ parentTaskRadios }}" as="pt" hint-placeholder-count="0">
+              <div onClick="{{ pt.onSelect }}" style="{{ pt.style }}">{{ pt.name }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- Priority -->
+      <div style="margin-top:24px;">
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:10px;">Priority</div>
+        <div style="display:flex; gap:8px;">
+          <sc-for list="{{ priorityOptions }}" as="opt" hint-placeholder-count="4">
+            <div onClick="{{ opt.onSelect }}" style="{{ opt.style }}">{{ opt.label }}</div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- Due date -->
+      <div style="margin-top:24px;">
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:10px;">Due date</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+          <sc-for list="{{ dateQuickOptions }}" as="d" hint-placeholder-count="4">
+            <div onClick="{{ d.onSelect }}" style="{{ d.style }}">{{ d.label }}</div>
+          </sc-for>
+          <input type="date" value="{{ form.dueDate }}" onChange="{{ onDateChange }}" style="font-family:inherit; font-size:14px; padding:8px 12px; border-radius:20px; border:1.5px solid var(--border); background:var(--bg-surface); color:var(--text-primary); outline:none;" />
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div style="margin-top:24px;">
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:10px;">Tags</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+          <sc-for list="{{ labelChips }}" as="lc" hint-placeholder-count="4">
+            <div onClick="{{ lc.onToggle }}" style="{{ lc.style }}">{{ lc.name }}</div>
+          </sc-for>
+          <input
+            type="text"
+            value="{{ labelInput }}"
+            onChange="{{ onLabelInputChange }}"
+            onKeyDown="{{ onLabelInputKeyDown }}"
+            placeholder="add tag + Enter"
+            style="font-family:inherit; font-size:13px; padding:7px 12px; border-radius:20px; border:1.5px dashed var(--border-dashed); background:transparent; color:var(--text-secondary); outline:none; width:140px;"
+          />
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div style="margin-top:24px;">
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:10px;">Notes</div>
+        <textarea
+          value="{{ form.description }}"
+          onChange="{{ onDescriptionChange }}"
+          placeholder="Optional notes…"
+          rows="2"
+          style="width:100%; box-sizing:border-box; font-family:inherit; font-size:14px; color:var(--text-primary); padding:10px 12px; border-radius:10px; border:1.5px solid var(--border); background:var(--bg-surface); resize:vertical; outline:none; line-height:1.4;"
+          style-focus="border-color:#4a3aff;"
+        ></textarea>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:14px; margin-top:36px;">
+        <div onClick="{{ onSubmit }}" style="{{ submitButtonStyle }}">{{ submitLabel }}</div>
+        <div onClick="{{ onClearForm }}" style="font-size:13px; font-weight:600; color:var(--text-muted); cursor:pointer;" style-hover="color:var(--text-secondary);">Clear form</div>
+        <sc-if value="{{ toast }}">
+          <div style="font-size:13px; font-weight:600; color:{{ toast.color }}; animation: toastIn 0.2s ease;">{{ toast.msg }}</div>
+        </sc-if>
+      </div>
+    </div>
+
+    <div style="{{ sidebarContainerStyle }}">
+      <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-muted); margin-bottom:10px;">Active tasks</div>
+      <select value="{{ sidebarFilter }}" onChange="{{ onSidebarFilterChange }}" style="width:100%; box-sizing:border-box; font-family:inherit; font-size:14px; padding:10px 12px; border-radius:10px; border:1.5px solid var(--border); background:var(--bg-surface); color:var(--text-primary); outline:none; margin-bottom:10px;">
+        <option value="all">All projects</option>
+        <sc-for list="{{ projectOptions }}" as="p" hint-placeholder-count="3">
+          <option value="{{ p.id }}">{{ p.name }}</option>
+        </sc-for>
+      </select>
+
+      <select value="{{ sidebarSectionFilter }}" onChange="{{ onSidebarSectionFilterChange }}" style="width:100%; box-sizing:border-box; font-family:inherit; font-size:14px; padding:10px 12px; border-radius:10px; border:1.5px solid var(--border); background:var(--bg-surface); color:var(--text-primary); outline:none; margin-bottom:10px;">
+        <option value="all">All sections</option>
+        <sc-for list="{{ sidebarSectionOptions }}" as="sec" hint-placeholder-count="0">
+          <option value="{{ sec.id }}">{{ sec.name }}</option>
+        </sc-for>
+      </select>
+
+      <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;">
+        <sc-for list="{{ sidebarLabelChips }}" as="lc" hint-placeholder-count="0">
+          <div onClick="{{ lc.onToggle }}" style="{{ lc.style }}">{{ lc.name }}</div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex; gap:6px; margin-bottom:14px;">
+        <sc-for list="{{ sidebarSortOptions }}" as="so" hint-placeholder-count="3">
+          <div onClick="{{ so.onSelect }}" style="{{ so.style }}">{{ so.label }}</div>
+        </sc-for>
+      </div>
+
+      <div style="background:var(--bg-surface); border:1px solid var(--border); border-radius:14px; overflow:hidden;">
+        <sc-if value="{{ sidebarEmpty }}">
+          <div style="padding:18px 14px; font-size:13px; color:var(--text-faint);">No active tasks</div>
+        </sc-if>
+        <div style="max-height:calc(100vh - 340px); overflow-y:auto; padding:2px 4px;">
+          <sc-for list="{{ sidebarTasks }}" as="t" hint-placeholder-count="4">
+            <div style="display:flex; align-items:flex-start; gap:8px; padding:7px 8px; border-bottom:1px solid var(--border-light); {{ t.indent }}" style-hover="background:var(--row-hover);">
+              <div onClick="{{ t.onToggle }}" style="{{ t.checkboxStyle }} margin-top:2px;"></div>
+              <div onClick="{{ t.onEdit }}" style="flex:1; min-width:0; cursor:pointer; display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                <div style="font-size:13px; line-height:1.3; word-break:break-word; {{ t.textStyle }}"><span style="color:var(--text-faint); font-weight:600;">{{ t.prefix }}</span>{{ t.content }}</div>
+                <sc-if value="{{ t.hasNotes }}">
+                  <div title="Has notes" style="font-size:11px; color:var(--text-muted); flex-shrink:0;">▤</div>
+                </sc-if>
+                <sc-for list="{{ t.tags }}" as="tg" hint-placeholder-count="0">
+                  <div style="font-size:10px; font-weight:600; padding:1px 6px; border-radius:10px; background:var(--bg-chip); color:var(--text-tag);">{{ tg }}</div>
+                </sc-for>
+              </div>
+              <sc-if value="{{ t.onAddSubtask }}">
+                <div onClick="{{ t.onAddSubtask }}" title="Add subtask" style="font-size:13px; font-weight:700; color:var(--text-faint); cursor:pointer; flex-shrink:0; padding:0 4px;">+</div>
+              </sc-if>
+              <div onClick="{{ t.onDelete }}" title="Delete task" style="font-size:13px; font-weight:700; color:#d9b8b4; cursor:pointer; flex-shrink:0; padding:0 4px;" style-hover="color:#c53929;">×</div>
+            </div>
+          </sc-for>
+
+          <sc-if value="{{ sidebarCompletedTasks.length }}" hint-placeholder-val="{{ false }}">
+            <div style="margin:10px 4px 4px; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint); border-top:1px solid var(--border); padding-top:10px;">Completed</div>
+          </sc-if>
+          <sc-for list="{{ sidebarCompletedTasks }}" as="t" hint-placeholder-count="0">
+            <div style="display:flex; align-items:flex-start; gap:8px; padding:7px 8px; border-bottom:1px solid var(--border-light); opacity:0.65;" style-hover="background:var(--row-hover);">
+              <div onClick="{{ t.onToggle }}" style="{{ t.checkboxStyle }} margin-top:2px;"></div>
+              <div style="flex:1; min-width:0; display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
+                <div style="font-size:13px; line-height:1.3; word-break:break-word; {{ t.textStyle }}"><span style="color:var(--text-faint); font-weight:600;">{{ t.prefix }}</span>{{ t.content }}</div>
+                <sc-for list="{{ t.tags }}" as="tg" hint-placeholder-count="0">
+                  <div style="font-size:10px; font-weight:600; padding:1px 6px; border-radius:10px; background:var(--bg-chip); color:var(--text-tag);">{{ tg }}</div>
+                </sc-for>
+              </div>
+              <div onClick="{{ t.onDelete }}" title="Delete task" style="font-size:13px; font-weight:700; color:#d9b8b4; cursor:pointer; flex-shrink:0; padding:0 4px;" style-hover="color:#c53929;">×</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+    </div>
+  </sc-if>
+
+  <!-- PROJECTS VIEW -->
+  <sc-if value="{{ isProjects }}">
+    <div style="max-width:1180px; margin:0 auto; padding:32px 28px 80px;">
+      <div style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:18px;">
+        <div>
+          <div style="font-size:26px; font-weight:700; letter-spacing:-0.02em;">All projects</div>
+          <div style="font-size:14px; color:var(--text-muted); margin-top:4px;">{{ totalOpenLabel }}</div>
+        </div>
+        <div onClick="{{ onResetProjectSizes }}" style="font-size:13px; font-weight:600; color:var(--text-muted); cursor:pointer;" style-hover="color:var(--text-secondary);">Reset sizes</div>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:10px;">
+        <input
+          id="pj-search-input"
+          type="text"
+          value="{{ searchQuery }}"
+          onChange="{{ onSearchChange }}"
+          placeholder="Search tasks… ( / )"
+          style="font-family:inherit; font-size:13px; padding:8px 14px; border-radius:20px; border:1.5px solid var(--border); background:var(--bg-surface); color:var(--text-primary); outline:none; width:200px;"
+          style-focus="border-color:#4a3aff;"
+        />
+        <sc-for list="{{ dateFilterToggles }}" as="d" hint-placeholder-count="3">
+          <div onClick="{{ d.onSelect }}" style="{{ d.style }}">{{ d.label }}</div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:22px;">
+        <sc-for list="{{ projectFilterTagChips }}" as="tc" hint-placeholder-count="0">
+          <div onClick="{{ tc.onToggle }}" style="{{ tc.style }}">{{ tc.name }}</div>
+        </sc-for>
+      </div>
+
+      <div style="display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:22px;">
+        <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint);">Show:</div>
+        <sc-for list="{{ projectVisibilityChips }}" as="pv" hint-placeholder-count="0">
+          <div onClick="{{ pv.onToggle }}" style="{{ pv.style }}">{{ pv.name }}</div>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{ loadingData }}" hint-placeholder-val="{{ false }}">
+        <div style="color:var(--text-muted); font-size:14px;">Loading your Todoist data…</div>
+      </sc-if>
+
+      <sc-if value="{{ showEmptyProjects }}">
+        <div style="color:var(--text-muted); font-size:14px;">No projects to show yet.</div>
+      </sc-if>
+
+      <div style="{{ projectsGridStyle }}">
+        <sc-for list="{{ groupedProjects }}" as="proj" hint-placeholder-count="4">
+          <div onDrop="{{ proj.onDrop }}" onDragOver="{{ proj.onDragOver }}" style="{{ proj.boxStyle }}">
+            <sc-if value="{{ proj.isPlaceholder }}">
+              <div style="width:100%; height:100%; border:1.5px dashed var(--border-dashed); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--text-faint); box-sizing:border-box;">{{ proj.name }} (hidden)</div>
+            </sc-if>
+            <sc-if value="{{ proj.notPlaceholder }}">
+            <div draggable="{{ proj.draggable }}" onDragStart="{{ proj.onDragStart }}" style="padding:12px 14px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; cursor:grab; flex-shrink:0; gap:8px;">
+              <div style="font-size:14px; font-weight:700; letter-spacing:-0.01em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ proj.name }}</div>
+              <div style="display:flex; align-items:center; gap:6px; flex-shrink:0;">
+                <div style="font-size:11px; font-weight:700; color:var(--text-muted); background:var(--bg-chip); padding:2px 8px; border-radius:20px;">{{ proj.count }}</div>
+                <sc-if value="{{ proj.showResizeControls }}">
+                <div style="display:flex; align-items:center; gap:2px; border-left:1px solid var(--border); padding-left:6px;">
+                  <div onClick="{{ proj.onWidthDec }}" title="Narrower" style="width:18px; height:18px; border-radius:5px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:12px; font-weight:700; color:var(--text-muted);" style-hover="background:var(--bg-tab-track);">−</div>
+                  <div title="Width" style="font-size:10px; color:var(--text-faint); width:10px; text-align:center;">W</div>
+                  <div onClick="{{ proj.onWidthInc }}" title="Wider" style="width:18px; height:18px; border-radius:5px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:12px; font-weight:700; color:var(--text-muted);" style-hover="background:var(--bg-tab-track);">+</div>
+                  <div onClick="{{ proj.onHeightDec }}" title="Shorter" style="width:18px; height:18px; border-radius:5px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:12px; font-weight:700; color:var(--text-muted); margin-left:4px;" style-hover="background:var(--bg-tab-track);">−</div>
+                  <div title="Height" style="font-size:10px; color:var(--text-faint); width:10px; text-align:center;">H</div>
+                  <div onClick="{{ proj.onHeightInc }}" title="Taller" style="width:18px; height:18px; border-radius:5px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:12px; font-weight:700; color:var(--text-muted);" style-hover="background:var(--bg-tab-track);">+</div>
+                </div>
+                </sc-if>
+              </div>
+            </div>
+            <div style="flex:1; overflow-y:auto; min-height:0;">
+              <sc-if value="{{ proj.isEmpty }}">
+                <div style="padding:14px 12px; font-size:13px; color:var(--text-faint);">No open tasks</div>
+              </sc-if>
+              <sc-for list="{{ proj.sections }}" as="sec" hint-placeholder-count="1">
+                <sc-if value="{{ sec.name }}">
+                  <div style="padding:8px 12px 4px; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:var(--text-faint);">{{ sec.name }}</div>
+                </sc-if>
+                <sc-for list="{{ sec.rows }}" as="t" hint-placeholder-count="3">
+                  <div style="display:flex; align-items:flex-start; gap:8px; padding:7px 12px; border-bottom:1px solid var(--border-light); {{ t.rowStyle }} {{ t.indent }}" style-hover="background:var(--row-hover);">
+                    <div onClick="{{ t.onToggle }}" style="{{ t.checkboxStyle }} margin-top:2px;"></div>
+                    <div onClick="{{ t.onEdit }}" style="flex:1; min-width:0; cursor:pointer;">
+                      <span style="font-size:13px; line-height:1.6; word-break:break-word; {{ t.textStyle }}">{{ t.content }}</span>
+                      <sc-if value="{{ t.hasNotes }}">
+                        <span title="{{ t.noteText }}" style="font-size:11px; color:var(--text-muted); margin-left:6px;">▤</span>
+                      </sc-if>
+                      <sc-if value="{{ t.dueBadge }}">
+                        <span style="display:inline-block; font-size:10px; font-weight:600; padding:1px 6px; border-radius:10px; background:{{ t.dueBadge.bg }}; color:{{ t.dueBadge.color }}; white-space:nowrap; margin-left:6px;">{{ t.dueBadge.text }}</span>
+                      </sc-if>
+                      <sc-for list="{{ t.tags }}" as="tg" hint-placeholder-count="0">
+                        <span style="display:inline-block; font-size:10px; font-weight:600; padding:1px 6px; border-radius:10px; background:var(--bg-chip); color:var(--text-tag); white-space:nowrap; margin-left:6px;">{{ tg }}</span>
+                      </sc-for>
+                    </div>
+                    <sc-if value="{{ t.onAddSubtask }}">
+                      <div onClick="{{ t.onAddSubtask }}" title="Add subtask" style="font-size:13px; font-weight:700; color:var(--text-faint); cursor:pointer; flex-shrink:0; padding:0 4px;">+</div>
+                    </sc-if>
+                    <div onClick="{{ t.onDelete }}" title="Delete task" style="font-size:13px; font-weight:700; color:#d9b8b4; cursor:pointer; flex-shrink:0; padding:0 4px;" style-hover="color:#c53929;">×</div>
+                  </div>
+                </sc-for>
+              </sc-for>
+            </div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <sc-for list="{{ emptyColumnDropZones }}" as="ez" hint-placeholder-count="0">
+          <div onDrop="{{ ez.onDrop }}" onDragOver="{{ ez.onDragOver }}" style="{{ ez.style }}">Drop here</div>
+        </sc-for>
+      </div>
+    </div>
+
+  </sc-if>
+
+  <!-- SETTINGS MODAL -->
+  <sc-if value="{{ showSettings }}">
+    <div onClick="{{ toggleSettings }}" style="position:fixed; inset:0; background:rgba(28,27,26,0.35); z-index:50; display:flex; align-items:center; justify-content:center; padding:32px 0;">
+      <div onClick="{{ stopClick }}" style="background:var(--bg-surface); border-radius:16px; width:420px; max-width:92vw; max-height:100%; overflow-y:auto; padding:26px; box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid var(--border);">
+          <div>
+            <div style="font-size:14px; font-weight:700; margin-bottom:2px;">Appearance</div>
+            <div style="font-size:12px; color:var(--text-muted);">Light or dark interface</div>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <sc-for list="{{ appearanceOptions }}" as="ap" hint-placeholder-count="2">
+              <div onClick="{{ ap.onSelect }}" style="{{ ap.style }}">{{ ap.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-bottom:22px;">
+          <div style="font-size:14px; font-weight:700; margin-bottom:4px;">Show completed tasks for</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-bottom:12px; line-height:1.5;">Completed tasks stay visible with a strikethrough until this long has passed, then they're hidden.</div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+            <sc-for list="{{ retentionOptions }}" as="r" hint-placeholder-count="5">
+              <div onClick="{{ r.onSelect }}" style="{{ r.style }}">{{ r.label }}</div>
+            </sc-for>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <input
+              type="number"
+              min="0"
+              value="{{ retentionDaysInput }}"
+              onChange="{{ onRetentionDaysInputChange }}"
+              style="width:80px; font-family:inherit; font-size:13px; padding:8px 10px; border-radius:8px; border:1.5px solid var(--border); outline:none;"
+              style-focus="border-color:#4a3aff;"
+            />
+            <div style="font-size:13px; color:var(--text-muted);">days</div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--border); padding-top:18px;">
+          <div style="font-size:14px; font-weight:700; margin-bottom:10px;">Manage tags</div>
+          <sc-if value="{{ tagActionError }}">
+            <div style="font-size:12px; color:#c53929; margin-bottom:10px;">{{ tagActionError }}</div>
+          </sc-if>
+          <div style="max-height:220px; overflow-y:auto; margin-bottom:12px;">
+            <sc-for list="{{ manageLabels }}" as="l" hint-placeholder-count="3">
+              <div style="display:flex; align-items:center; gap:8px; padding:7px 0; border-bottom:1px solid var(--border-light);">
+                <sc-if value="{{ l.isEditing }}" hint-placeholder-val="{{ false }}">
+                  <input
+                    type="text"
+                    value="{{ l.editingName }}"
+                    onChange="{{ l.onEditChange }}"
+                    onKeyDown="{{ l.onEditKeyDown }}"
+                    onBlur="{{ l.onSaveEdit }}"
+                    style="flex:1; font-family:inherit; font-size:13px; padding:6px 10px; border-radius:8px; border:1.5px solid #4a3aff; outline:none;"
+                  />
+                </sc-if>
+                <sc-if value="{{ l.notEditing }}" hint-placeholder-val="{{ true }}">
+                  <div onClick="{{ l.onStartEdit }}" style="flex:1; font-size:13px; color:var(--text-primary); cursor:pointer; padding:6px 2px;">{{ l.name }}</div>
+                </sc-if>
+                <div onClick="{{ l.onDelete }}" style="font-size:12px; font-weight:600; color:#c53929; cursor:pointer; padding:4px 8px;">Delete</div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <input
+              type="text"
+              value="{{ newTagInput }}"
+              onChange="{{ onNewTagInputChange }}"
+              onKeyDown="{{ onNewTagKeyDown }}"
+              placeholder="New tag name"
+              style="flex:1; font-family:inherit; font-size:13px; padding:9px 12px; border-radius:10px; border:1.5px solid var(--border); outline:none;"
+              style-focus="border-color:#4a3aff;"
+            />
+            <div onClick="{{ onAddTag }}" style="font-size:13px; font-weight:700; color:#fff; background:var(--btn-strong-bg); padding:9px 16px; border-radius:10px; cursor:pointer;">Add</div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--border); padding-top:18px; margin-top:18px;">
+          <div style="font-size:14px; font-weight:700; margin-bottom:10px;">Manage projects &amp; sections</div>
+          <sc-if value="{{ projectActionError }}">
+            <div style="font-size:12px; color:#c53929; margin-bottom:10px;">{{ projectActionError }}</div>
+          </sc-if>
+          <div style="max-height:280px; overflow-y:auto; margin-bottom:12px;">
+            <sc-for list="{{ manageProjects }}" as="p" hint-placeholder-count="3">
+              <div style="padding:8px 0; border-bottom:1px solid var(--border-light);">
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <sc-if value="{{ p.isEditing }}" hint-placeholder-val="{{ false }}">
+                    <input
+                      type="text"
+                      value="{{ p.editingName }}"
+                      onChange="{{ p.onEditChange }}"
+                      onKeyDown="{{ p.onEditKeyDown }}"
+                      onBlur="{{ p.onSaveEdit }}"
+                      style="flex:1; font-family:inherit; font-size:13px; padding:6px 10px; border-radius:8px; border:1.5px solid #4a3aff; outline:none;"
+                    />
+                  </sc-if>
+                  <sc-if value="{{ p.notEditing }}" hint-placeholder-val="{{ true }}">
+                    <div onClick="{{ p.onStartEdit }}" style="flex:1; font-size:13px; font-weight:600; color:var(--text-primary); cursor:pointer; padding:6px 2px;">{{ p.name }}</div>
+                  </sc-if>
+                  <div onClick="{{ p.onToggleExpand }}" style="font-size:11px; font-weight:600; color:#4a3aff; cursor:pointer; white-space:nowrap;">{{ p.expandLabel }}</div>
+                  <div onClick="{{ p.onDelete }}" style="font-size:12px; font-weight:600; color:#c53929; cursor:pointer; padding:4px 8px;">Delete</div>
+                </div>
+                <sc-if value="{{ p.isExpanded }}">
+                  <div style="margin:8px 0 0 12px; padding-left:12px; border-left:2px solid var(--border);">
+                    <sc-for list="{{ p.sections }}" as="sec" hint-placeholder-count="1">
+                      <div style="display:flex; align-items:center; gap:8px; padding:5px 0;">
+                        <sc-if value="{{ sec.isEditing }}" hint-placeholder-val="{{ false }}">
+                          <input
+                            type="text"
+                            value="{{ sec.editingName }}"
+                            onChange="{{ sec.onEditChange }}"
+                            onKeyDown="{{ sec.onEditKeyDown }}"
+                            onBlur="{{ sec.onSaveEdit }}"
+                            style="flex:1; font-family:inherit; font-size:12px; padding:5px 9px; border-radius:8px; border:1.5px solid #4a3aff; outline:none;"
+                          />
+                        </sc-if>
+                        <sc-if value="{{ sec.notEditing }}" hint-placeholder-val="{{ true }}">
+                          <div onClick="{{ sec.onStartEdit }}" style="flex:1; font-size:12px; color:var(--text-secondary); cursor:pointer;">{{ sec.name }}</div>
+                        </sc-if>
+                        <div onClick="{{ sec.onDelete }}" style="font-size:11px; font-weight:600; color:#c53929; cursor:pointer; padding:3px 6px;">Delete</div>
+                      </div>
+                    </sc-for>
+                    <div style="display:flex; gap:6px; margin-top:6px;">
+                      <input
+                        type="text"
+                        value="{{ p.newSectionInput }}"
+                        onChange="{{ p.onNewSectionInputChange }}"
+                        onKeyDown="{{ p.onNewSectionKeyDown }}"
+                        placeholder="New section name"
+                        style="flex:1; font-family:inherit; font-size:12px; padding:6px 10px; border-radius:8px; border:1.5px solid var(--border); outline:none;"
+                      />
+                      <div onClick="{{ p.onAddSection }}" style="font-size:12px; font-weight:700; color:#4a3aff; cursor:pointer; padding:6px 4px; white-space:nowrap;">Add</div>
+                    </div>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <input
+              type="text"
+              value="{{ newProjectInput }}"
+              onChange="{{ onNewProjectInputChange }}"
+              onKeyDown="{{ onNewProjectKeyDown }}"
+              placeholder="New project name"
+              style="flex:1; font-family:inherit; font-size:13px; padding:9px 12px; border-radius:10px; border:1.5px solid var(--border); outline:none;"
+              style-focus="border-color:#4a3aff;"
+            />
+            <div onClick="{{ onAddProject }}" style="font-size:13px; font-weight:700; color:#fff; background:var(--btn-strong-bg); padding:9px 16px; border-radius:10px; cursor:pointer;">Add</div>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--border); padding-top:18px; margin-top:18px;">
+          <div style="font-size:14px; font-weight:700; margin-bottom:6px;">Todoist connection</div>
+          <div style="font-size:13px; color:var(--text-muted); margin-bottom:16px; line-height:1.5;">Paste your API token from Todoist Settings → Integrations → Developer. Stored only in this browser.</div>
+          <input
+            type="text"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            value="{{ tokenInput }}"
+            onChange="{{ onTokenInputChange }}"
+            placeholder="Todoist API token"
+            style="width:100%; box-sizing:border-box; font-family:inherit; font-size:14px; padding:11px 14px; border-radius:10px; border:1.5px solid var(--border); outline:none; margin-bottom:14px;"
+            style-focus="border-color:#4a3aff;"
+          />
+          <div style="display:flex; gap:10px; justify-content:flex-end;">
+            <div onClick="{{ onClearToken }}" style="font-size:14px; font-weight:600; color:var(--text-muted); padding:10px 16px; border-radius:10px; cursor:pointer;" style-hover="background:var(--bg-chip);">Clear</div>
+            <div onClick="{{ onSaveToken }}" style="font-size:14px; font-weight:600; color:#fff; background:#4a3aff; padding:10px 18px; border-radius:10px; cursor:pointer;">Save & sync</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- DELETE TASK CONFIRMATION -->
+  <sc-if value="{{ confirmDeleteTask }}">
+    <div onClick="{{ onCancelDeleteTask }}" style="position:fixed; inset:0; background:rgba(28,27,26,0.35); z-index:60; display:flex; align-items:center; justify-content:center; padding:32px 0;">
+      <div onClick="{{ stopClick }}" style="background:var(--bg-surface); border-radius:16px; width:400px; max-width:92vw; padding:26px; box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+        <div style="font-size:17px; font-weight:700; margin-bottom:10px;">Delete this task?</div>
+        <div style="font-size:14px; color:var(--text-secondary); line-height:1.5; margin-bottom:6px;">"{{ confirmDeleteTask.content }}"</div>
+        <sc-if value="{{ confirmDeleteTask.childCount }}">
+          <div style="font-size:13px; color:#c53929; margin-bottom:10px;">This will also delete {{ confirmDeleteTask.childCount }} subtask{{ confirmDeleteTask.childPlural }}.</div>
+        </sc-if>
+        <div style="font-size:13px; color:var(--text-muted); margin-bottom:22px;">This can't be undone.</div>
+        <div style="display:flex; gap:10px; justify-content:flex-end;">
+          <div onClick="{{ onCancelDeleteTask }}" style="font-size:14px; font-weight:600; color:var(--text-muted); padding:10px 16px; border-radius:10px; cursor:pointer;" style-hover="background:var(--bg-chip);">Cancel</div>
+          <div onClick="{{ onConfirmDeleteTask }}" style="font-size:14px; font-weight:600; color:#fff; background:#c53929; padding:10px 18px; border-radius:10px; cursor:pointer;">Delete</div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const BASE = 'https://api.todoist.com/api/v1';
+function unwrap(data) { return Array.isArray(data) ? data : (data && data.results) || []; }
+const DEFAULT_TOKEN = '';
+
+function makeUuid() {
+  if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+    const r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+function pad(n) { return String(n).padStart(2, '0'); }
+function isoDate(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+function addDays(base, n) { const d = new Date(base); d.setDate(d.getDate() + n); return d; }
+
+class Component extends DCLogic {
+  state = {
+    token: '',
+    tokenInput: '',
+    showSettings: false,
+    view: 'quickadd',
+    projects: [],
+    tasks: [],
+    labels: [],
+    sections: [],
+    loadingData: false,
+    dataError: '',
+    lastSync: null,
+    refreshing: false,
+
+    form: { text: '', projectId: '', sectionId: '', priority: 1, dueDate: '', labels: [], description: '', parentTaskId: null, parentTaskContent: '' },
+    editingTaskId: null,
+    labelInput: '',
+    sidebarFilter: 'all',
+    sidebarSectionFilter: 'all',
+    sidebarLabelFilter: [],
+    sidebarSort: 'default',
+    submitting: false,
+    toast: null,
+    completingIds: {},
+    localCompleted: {},
+    completedRetentionDays: 7,
+    projectOrder: [],
+    projectColumns: {},
+    boxSpans: {},
+    dragProjectId: null,
+    newTagInput: '',
+    editingLabelId: null,
+    editingLabelName: '',
+    tagActionError: '',
+
+    newProjectInput: '',
+    editingProjectId: null,
+    editingProjectName: '',
+    expandedProjectId: null,
+    newSectionInput: '',
+    editingSectionId: null,
+    editingSectionName: '',
+    projectActionError: '',
+
+    searchQuery: '',
+    projectFilterTags: [],
+    filterDueToday: false,
+    filterDueWeek: false,
+    filterOverdue: false,
+
+    confirmDeleteTask: null,
+
+    darkMode: false,
+    isMobile: false,
+    hiddenProjectIds: []
+  };
+
+  componentDidMount() {
+    let token = '';
+    try { token = localStorage.getItem('todoist_token') || ''; } catch (e) {}
+    if (!token) {
+      token = DEFAULT_TOKEN;
+      try { localStorage.setItem('todoist_token', token); } catch (e) {}
+    }
+
+    let localCompleted = {};
+    try { localCompleted = JSON.parse(localStorage.getItem('todoist_local_completed') || '{}'); } catch (e) {}
+    let completedRetentionDays = 7;
+    try { completedRetentionDays = parseInt(localStorage.getItem('todoist_completed_retention_days') || '7', 10); } catch (e) {}
+
+    const retentionMs = completedRetentionDays * 86400000;
+    const now = Date.now();
+    Object.keys(localCompleted).forEach(id => {
+      if (now - localCompleted[id].completedAt > retentionMs) delete localCompleted[id];
+    });
+    this.persistCompleted(localCompleted);
+
+    let projectOrder = [];
+    try { projectOrder = JSON.parse(localStorage.getItem('todoist_project_order') || '[]'); } catch (e) {}
+    let projectColumns = {};
+    try { projectColumns = JSON.parse(localStorage.getItem('todoist_project_columns') || '{}'); } catch (e) {}
+    let boxSpans = {};
+    try { boxSpans = JSON.parse(localStorage.getItem('todoist_project_box_spans') || '{}'); } catch (e) {}
+
+    let darkMode = false;
+    try { darkMode = localStorage.getItem('todoist_dark_mode') === '1'; } catch (e) {}
+
+    let hiddenProjectIds = [];
+    try { hiddenProjectIds = JSON.parse(localStorage.getItem('todoist_hidden_projects') || '[]'); } catch (e) {}
+
+    this.setState({ token, tokenInput: token, localCompleted, completedRetentionDays, projectOrder, projectColumns, boxSpans, darkMode, hiddenProjectIds });
+    if (token) this.loadData(token);
+
+    this._mq = window.matchMedia('(max-width: 768px)');
+    this.setState({ isMobile: this._mq.matches });
+    this._mqHandler = (e) => this.setState({ isMobile: e.matches });
+    if (this._mq.addEventListener) this._mq.addEventListener('change', this._mqHandler);
+    else this._mq.addListener(this._mqHandler);
+
+    this._keyHandler = (e) => {
+      const tag = (e.target && e.target.tagName) || '';
+      const isTyping = tag === 'INPUT' || tag === 'TEXTAREA';
+      if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+        e.preventDefault();
+        if (this.state.view === 'quickadd') this.submitTask();
+        return;
+      }
+      if (e.key === '/' && !isTyping) {
+        e.preventDefault();
+        const id = this.state.view === 'projects' ? 'pj-search-input' : 'qa-text-input';
+        const el = document.getElementById(id);
+        if (el) el.focus();
+      }
+    };
+    document.addEventListener('keydown', this._keyHandler);
+  }
+
+  componentWillUnmount() {
+    if (this._keyHandler) document.removeEventListener('keydown', this._keyHandler);
+    if (this._mq && this._mqHandler) {
+      if (this._mq.removeEventListener) this._mq.removeEventListener('change', this._mqHandler);
+      else this._mq.removeListener(this._mqHandler);
+    }
+  }
+
+  reorderProjects(draggedId, targetId, after, targetColumn) {
+    if (!draggedId || !targetId || draggedId === targetId) return;
+    this.setState(st => {
+      const currentIds = (st.projects || []).map(p => String(p.id));
+      let order = st.projectOrder.length ? st.projectOrder.slice() : currentIds.slice();
+      currentIds.forEach(id => { if (!order.includes(id)) order.push(id); });
+      order = order.filter(id => currentIds.includes(id));
+
+      const from = order.indexOf(String(draggedId));
+      let to = order.indexOf(String(targetId));
+      if (from !== -1 && to !== -1) {
+        order.splice(from, 1);
+        to = order.indexOf(String(targetId));
+        order.splice(after ? to + 1 : to, 0, String(draggedId));
+      }
+      try { localStorage.setItem('todoist_project_order', JSON.stringify(order)); } catch (e) {}
+
+      let projectColumns = st.projectColumns;
+      if (typeof targetColumn === 'number') {
+        projectColumns = { ...st.projectColumns, [String(draggedId)]: targetColumn };
+        try { localStorage.setItem('todoist_project_columns', JSON.stringify(projectColumns)); } catch (e) {}
+      }
+      return { projectOrder: order, projectColumns };
+    });
+  }
+
+  moveProjectToColumn(draggedId, colIndex) {
+    if (!draggedId) return;
+    this.setState(st => {
+      const projectColumns = { ...st.projectColumns, [String(draggedId)]: colIndex };
+      try { localStorage.setItem('todoist_project_columns', JSON.stringify(projectColumns)); } catch (e) {}
+      return { projectColumns };
+    });
+  }
+
+  setBoxSpan(projectId, colSpan, rowSpan) {
+    this.setState(st => {
+      const boxSpans = { ...st.boxSpans, [String(projectId)]: { colSpan, rowSpan } };
+      try { localStorage.setItem('todoist_project_box_spans', JSON.stringify(boxSpans)); } catch (e) {}
+      return { boxSpans };
+    });
+  }
+
+  resetProjectSizes() {
+    try { localStorage.setItem('todoist_project_box_spans', '{}'); } catch (e) {}
+    this.setState({ boxSpans: {} });
+  }
+
+  persistCompleted(map) {
+    try { localStorage.setItem('todoist_local_completed', JSON.stringify(map)); } catch (e) {}
+  }
+
+  async loadData(token) {
+    this.setState({ loadingData: true, dataError: '' });
+    try {
+      const headers = { Authorization: 'Bearer ' + token };
+      const [pRes, tRes, lRes] = await Promise.all([
+        fetch(BASE + '/projects', { headers }),
+        fetch(BASE + '/tasks', { headers }),
+        fetch(BASE + '/labels', { headers })
+      ]);
+      if (!pRes.ok || !tRes.ok || !lRes.ok) {
+        if (pRes.status === 401 || tRes.status === 401) {
+          throw new Error('Invalid API token — check it in Settings.');
+        }
+        throw new Error('Todoist API error (' + pRes.status + '). Please try again.');
+      }
+      const projects = unwrap(await pRes.json());
+      const tasks = unwrap(await tRes.json());
+      const labels = unwrap(await lRes.json());
+      let sections = [];
+      try {
+        const sRes = await fetch(BASE + '/sections', { headers });
+        if (sRes.ok) sections = unwrap(await sRes.json());
+      } catch (e) {}
+      const inbox = projects.find(p => p.is_inbox_project || p.inbox_project) || projects[0];
+      this.setState(s => ({
+        projects, tasks, labels, sections,
+        loadingData: false, refreshing: false, lastSync: new Date(),
+        form: { ...s.form, projectId: s.form.projectId || (inbox ? String(inbox.id) : '') }
+      }));
+    } catch (err) {
+      this.setState({
+        loadingData: false, refreshing: false,
+        dataError: this.explainFetchError(err)
+      });
+    }
+  }
+
+  // Moving a task to a different project, or re-parenting it under another task, isn't
+  // supported by the general task-update endpoint — it requires the Sync API's item_move command.
+  async moveTaskToProject(taskId, projectId) {
+    const s = this.state;
+    const res = await fetch(BASE + '/sync', {
+      method: 'POST',
+      headers: { Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ commands: [{ type: 'item_move', uuid: makeUuid(), args: { id: taskId, project_id: projectId } }] })
+    });
+    if (!res.ok) throw new Error('Could not move task (' + res.status + ').');
+    const data = await res.json();
+    const status = data && data.sync_status && data.sync_status[Object.keys(data.sync_status)[0]];
+    if (status && status !== 'ok') throw new Error('Could not move task.');
+    return true;
+  }
+
+  async moveTaskToParent(taskId, parentId, fallbackProjectId) {
+    const s = this.state;
+    const args = parentId ? { id: taskId, parent_id: parentId } : { id: taskId, project_id: fallbackProjectId };
+    const res = await fetch(BASE + '/sync', {
+      method: 'POST',
+      headers: { Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ commands: [{ type: 'item_move', uuid: makeUuid(), args }] })
+    });
+    if (!res.ok) throw new Error('Could not move task (' + res.status + ').');
+    const data = await res.json();
+    const status = data && data.sync_status && data.sync_status[Object.keys(data.sync_status)[0]];
+    if (status && status !== 'ok') throw new Error('Could not move task.');
+    return true;
+  }
+
+  async moveTaskToSection(taskId, sectionId, fallbackProjectId) {
+    const s = this.state;
+    const args = sectionId ? { id: taskId, section_id: sectionId } : { id: taskId, project_id: fallbackProjectId };
+    const res = await fetch(BASE + '/sync', {
+      method: 'POST',
+      headers: { Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ commands: [{ type: 'item_move', uuid: makeUuid(), args }] })
+    });
+    if (!res.ok) throw new Error('Could not move task (' + res.status + ').');
+    const data = await res.json();
+    const status = data && data.sync_status && data.sync_status[Object.keys(data.sync_status)[0]];
+    if (status && status !== 'ok') throw new Error('Could not move task.');
+    return true;
+  }
+
+  explainFetchError(err) {
+    const msg = (err && err.message) || '';
+    if (msg === 'Failed to fetch' || err instanceof TypeError) {
+      return 'Could not reach api.todoist.com. Check your internet connection, or that your token is valid, and try refreshing.';
+    }
+    return msg || 'Could not reach Todoist. Check your connection.';
+  }
+
+  parseDatePhrase(text) {
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const lower = text.toLowerCase();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    let m;
+    if ((m = lower.match(/\btoday\b/))) return { date: isoDate(today), phrase: m[0] };
+    if ((m = lower.match(/\b(tomorrow|tmrw)\b/))) return { date: isoDate(addDays(today, 1)), phrase: m[0] };
+    if ((m = lower.match(/\bnext week\b/))) return { date: isoDate(addDays(today, 7)), phrase: m[0] };
+    if ((m = lower.match(/\bin (\d+) days?\b/))) return { date: isoDate(addDays(today, parseInt(m[1], 10))), phrase: m[0] };
+
+    if ((m = lower.match(/\bnext (sunday|monday|tuesday|wednesday|thursday|friday|saturday)\b/))) {
+      const target = days.indexOf(m[1]);
+      const diff = (target - today.getDay() + 7) % 7;
+      return { date: isoDate(addDays(today, diff + 7)), phrase: m[0] };
+    }
+
+    if ((m = lower.match(/\b(sunday|monday|tuesday|wednesday|thursday|friday|saturday)\b/))) {
+      const target = days.indexOf(m[1]);
+      const diff = (target - today.getDay() + 7) % 7;
+      return { date: isoDate(addDays(today, diff)), phrase: m[0] };
+    }
+
+    return null;
+  }
+
+  parseQuickText(text, projects, allLabels) {
+    let priorityMatch = null, priority = null;
+    const pMatch = text.match(/(^|\s)p([1-4])(\s|$)/i);
+    if (pMatch) { priority = 5 - parseInt(pMatch[2], 10); priorityMatch = 'P' + pMatch[2]; }
+
+    let projectMatch = null, projectId = null;
+    const hashMatch = text.match(/#(\w+)/);
+    if (hashMatch && projects && projects.length) {
+      const found = projects.find(p => p.name.toLowerCase() === hashMatch[1].toLowerCase());
+      if (found) { projectId = String(found.id); projectMatch = found.name; }
+    }
+
+    const knownLabelNames = (allLabels || []).map(l => l.name);
+    const labelMatches = [];
+    const atRegex = /@(\w+)/g;
+    let m;
+    while ((m = atRegex.exec(text)) !== null) {
+      const known = knownLabelNames.find(name => name.toLowerCase() === m[1].toLowerCase());
+      if (known && !labelMatches.includes(known)) labelMatches.push(known);
+    }
+
+    const dateResult = this.parseDatePhrase(text);
+
+    return {
+      priority, priorityMatch, projectId, projectMatch, labelMatches,
+      dueDate: dateResult ? dateResult.date : null,
+      duePhrase: dateResult ? dateResult.phrase : null,
+      hasAny: !!(priorityMatch || projectMatch || labelMatches.length || dateResult)
+    };
+  }
+
+  cleanContent(text, duePhrase) {
+    let cleaned = text
+      .replace(/(^|\s)p[1-4](\s|$)/i, ' ')
+      .replace(/#\w+/g, '')
+      .replace(/@\w+/g, '');
+    if (duePhrase) {
+      cleaned = cleaned.replace(new RegExp('\\b' + duePhrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'i'), '');
+    }
+    cleaned = cleaned.replace(/\s+/g, ' ').trim();
+    return cleaned || text.trim();
+  }
+
+  priorityMeta(p) {
+    // API priority: 4=P1(urgent) 3=P2 2=P3 1=P4(none)
+    if (p === 4) return { label: 'P1', color: '#c53929', bg: '#fdeceb' };
+    if (p === 3) return { label: 'P2', color: '#c77714', bg: '#fdf1de' };
+    if (p === 2) return { label: 'P3', color: '#2857c7', bg: '#eef3ff' };
+    return { label: 'P4', color: 'var(--text-faint)', bg: 'var(--bg-chip)' };
+  }
+
+  dueBadge(due) {
+    if (!due || !due.date) return null;
+    const dateStr = due.date.slice(0, 10);
+    const today = isoDate(new Date());
+    const tomorrow = isoDate(addDays(new Date(), 1));
+    if (dateStr < today) return { text: 'Overdue · ' + dateStr.slice(5), bg: '#fdeceb', color: '#c53929' };
+    if (dateStr === today) return { text: 'Today', bg: '#e8f6ec', color: '#1f8a44' };
+    if (dateStr === tomorrow) return { text: 'Tomorrow', bg: '#eef3ff', color: '#2857c7' };
+    return { text: dateStr.slice(5), bg: 'var(--bg-chip)', color: 'var(--text-tag)' };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const dark = s.darkMode;
+    const theme = dark ? {
+      bgPage: '#18181b', bgHeader: '#212126', bgSurface: '#232228', bgTabTrack: '#2c2b31',
+      hoverBg: '#33323a', rowHover: '#2a292f', bgChip: '#2c2b31', border: '#38373f',
+      borderLight: '#2e2d34', borderDashed: '#48474f', textPrimary: '#f1f0ee', textSecondary: '#c7c3bd',
+      textMuted: '#938f89', textFaint: '#6f6c68', textTag: '#a7a39c', chipSelectedBg: '#2b2650', btnStrongBg: '#3a383f'
+    } : {
+      bgPage: '#f6f5f2', bgHeader: '#fbfaf8', bgSurface: '#fff', bgTabTrack: '#efece5',
+      hoverBg: '#efece5', rowHover: '#f9f8f5', bgChip: '#f3f1ec', border: '#e7e4de',
+      borderLight: '#f1efe9', borderDashed: '#d8d4cb', textPrimary: '#1c1b1a', textSecondary: '#57534a',
+      textMuted: '#8a867d', textFaint: '#b4b0a6', textTag: '#7a766c', chipSelectedBg: '#ece9ff', btnStrongBg: '#1c1b1a'
+    };
+    const rootStyle = "min-height:100vh; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--bg-page); color:var(--text-primary); " +
+      '--bg-page:' + theme.bgPage + '; --bg-header:' + theme.bgHeader + '; --bg-surface:' + theme.bgSurface + '; --bg-tab-track:' + theme.bgTabTrack +
+      '; --hover-bg:' + theme.hoverBg + '; --row-hover:' + theme.rowHover + '; --bg-chip:' + theme.bgChip + '; --border:' + theme.border +
+      '; --border-light:' + theme.borderLight + '; --border-dashed:' + theme.borderDashed + '; --text-primary:' + theme.textPrimary +
+      '; --text-secondary:' + theme.textSecondary + '; --text-muted:' + theme.textMuted + '; --text-faint:' + theme.textFaint + '; --text-tag:' + theme.textTag + '; --chip-selected-bg:' + theme.chipSelectedBg + '; --btn-strong-bg:' + theme.btnStrongBg + ';';
+
+    const appearanceOptions = [
+      { key: false, label: 'Light' },
+      { key: true, label: 'Dark' }
+    ].map(o => {
+      const selected = dark === o.key;
+      return {
+        label: o.label,
+        onSelect: () => this.setDarkMode(o.key),
+        style: 'font-size:12px; font-weight:700; padding:6px 14px; border-radius:8px; cursor:pointer; border:1.5px solid ' +
+          (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-secondary)') + ';'
+      };
+    });
+
+    const isQuickAdd = s.view === 'quickadd';
+    const isProjects = s.view === 'projects';
+
+    const tabBase = 'padding:8px 18px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; transition:background 0.15s;';
+    const tabStyles = {
+      quickadd: tabBase + (isQuickAdd ? 'background:var(--bg-surface); color:var(--text-primary); box-shadow:0 1px 2px rgba(0,0,0,0.06);' : 'color:var(--text-muted);'),
+      projects: tabBase + (isProjects ? 'background:var(--bg-surface); color:var(--text-primary); box-shadow:0 1px 2px rgba(0,0,0,0.06);' : 'color:var(--text-muted);')
+    };
+
+    const parsed = this.parseQuickText(s.form.text || '', s.projects, s.labels);
+
+    const projectOptions = (s.projects || []).map(p => ({ id: String(p.id), name: p.name }));
+
+    const projectRadios = projectOptions.map(p => {
+      const selected = String(s.form.projectId) === String(p.id);
+      return {
+        id: p.id,
+        name: p.name,
+        onSelect: () => this.setState(st => ({ form: { ...st.form, projectId: p.id } })),
+        style: 'font-size:13px; font-weight:600; padding:8px 14px; border-radius:20px; cursor:pointer; border:1.5px solid ' +
+          (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-secondary)') + ';'
+      };
+    });
+
+    const sectionsForForm = (s.sections || []).filter(sec => String(sec.project_id) === String(s.form.projectId));
+    const sectionRadios = sectionsForForm.length ? [{ id: '', name: 'No section' }, ...sectionsForForm.map(sec => ({ id: String(sec.id), name: sec.name }))].map(sec => {
+      const selected = String(s.form.sectionId || '') === String(sec.id);
+      return {
+        id: sec.id,
+        name: sec.name,
+        onSelect: () => this.setState(st => ({ form: { ...st.form, sectionId: sec.id } })),
+        style: 'font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px; cursor:pointer; border:1.5px solid ' +
+          (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-secondary)') + ';'
+      };
+    }) : [];
+
+    // Candidate parents: top-level tasks in the same project, excluding the task being
+    // edited itself and its own direct subtasks (to avoid creating a cycle).
+    const excludedParentIds = new Set();
+    if (s.editingTaskId) {
+      excludedParentIds.add(String(s.editingTaskId));
+      (s.tasks || []).filter(t => String(t.parent_id) === String(s.editingTaskId)).forEach(t => excludedParentIds.add(String(t.id)));
+    }
+    const parentCandidates = (s.tasks || [])
+      .filter(t => String(t.project_id) === String(s.form.projectId) && !t.parent_id && !excludedParentIds.has(String(t.id)));
+    const parentTaskRadios = parentCandidates.length ? [{ id: '', name: 'No parent' }, ...parentCandidates.map(t => ({ id: String(t.id), name: t.content }))].map(pt => {
+      const selected = String(s.form.parentTaskId || '') === String(pt.id);
+      return {
+        id: pt.id,
+        name: pt.name,
+        onSelect: () => this.setState(st => ({ form: { ...st.form, parentTaskId: pt.id || null, parentTaskContent: pt.id ? pt.name : '' } })),
+        style: 'font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px; cursor:pointer; border:1.5px solid ' +
+          (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-secondary)') + ';'
+      };
+    }) : [];
+
+    const priorityOptions = [4, 3, 2, 1].map(val => {
+      const meta = this.priorityMeta(val);
+      const selected = s.form.priority === val;
+      return {
+        value: val,
+        label: meta.label,
+        onSelect: () => this.setState(st => ({ form: { ...st.form, priority: val } })),
+        style: 'flex:1; text-align:center; padding:10px 0; border-radius:10px; font-size:13px; font-weight:700; cursor:pointer; border:1.5px solid ' +
+          (selected ? meta.color : 'var(--border)') + '; background:' + (selected ? meta.bg : 'var(--bg-surface)') + '; color:' + (selected ? meta.color : 'var(--text-muted)') + ';'
+      };
+    });
+
+    const today = isoDate(new Date());
+    const tomorrow = isoDate(addDays(new Date(), 1));
+    const nextWeek = isoDate(addDays(new Date(), 7));
+    const dateOptDefs = [
+      { key: 'today', label: 'Today', date: today },
+      { key: 'tomorrow', label: 'Tomorrow', date: tomorrow },
+      { key: 'nextweek', label: 'Next week', date: nextWeek },
+      { key: 'none', label: 'No date', date: '' }
+    ];
+    const dateQuickOptions = dateOptDefs.map(d => {
+      const selected = s.form.dueDate === d.date;
+      return {
+        label: d.label,
+        onSelect: () => this.setState(st => ({ form: { ...st.form, dueDate: d.date } })),
+        style: 'font-size:13px; font-weight:600; padding:8px 14px; border-radius:20px; cursor:pointer; border:1.5px solid ' +
+          (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-secondary)') + ';'
+      };
+    });
+
+    const knownLabelNames = (s.labels || []).map(l => l.name);
+    const labelChips = (s.labels || []).map(l => {
+      const selected = (s.form.labels || []).includes(l.name);
+      return {
+        name: l.name,
+        onToggle: () => this.setState(st => {
+          const has = st.form.labels.includes(l.name);
+          return { form: { ...st.form, labels: has ? st.form.labels.filter(x => x !== l.name) : [...st.form.labels, l.name] } };
+        }),
+        style: 'font-size:13px; font-weight:600; padding:7px 13px; border-radius:20px; cursor:pointer; border:1.5px solid ' +
+          (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-secondary)') + ';'
+      };
+    });
+    // Tags just typed in that aren't in the known label list yet — show them as confirmed chips too
+    (s.form.labels || []).filter(name => !knownLabelNames.includes(name)).forEach(name => {
+      labelChips.push({
+        name: name + ' (new)',
+        onToggle: () => this.setState(st => ({ form: { ...st.form, labels: st.form.labels.filter(x => x !== name) } })),
+        style: 'font-size:13px; font-weight:600; padding:7px 13px; border-radius:20px; cursor:pointer; border:1.5px solid #1f8a44; background:#e8f6ec; color:#1f8a44;'
+      });
+    });
+
+    const canSubmit = !!(s.form.text || '').trim() && !!s.token && !s.submitting;
+    const submitButtonStyle = 'padding:12px 26px; border-radius:10px; font-size:14px; font-weight:700; cursor:pointer; background:' +
+      (canSubmit ? '#4a3aff' : 'var(--border-dashed)') + '; color:#fff;';
+
+    // Completed tasks still within the retention window
+    const retentionMs = s.completedRetentionDays * 86400000;
+    const nowTs = Date.now();
+    const completedEntries = Object.values(s.localCompleted).filter(e => (nowTs - e.completedAt) <= retentionMs);
+    const makeCompletedDisplay = (entry) => {
+      const t = entry.task;
+      const isReopening = !!s.completingIds[t.id];
+      return {
+        id: t.id,
+        content: t.content,
+        tags: t.labels || [],
+        dueBadge: this.dueBadge(t.due),
+        completed: true,
+        hasNotes: !!t.description,
+        noteText: t.description || '',
+        checkboxStyle: 'width:14px; height:14px; flex-shrink:0; cursor:pointer; border-radius:3px; border:2px solid ' +
+          this.priorityMeta(t.priority).color + '; background:' + (isReopening ? 'transparent' : this.priorityMeta(t.priority).color) + '; transition:background 0.15s;',
+        rowStyle: 'opacity:0.6;',
+        textStyle: 'text-decoration:line-through; color:var(--text-faint);',
+        onToggle: () => this.reopenTask(t.id),
+        onDelete: () => this.requestDeleteTask(t)
+      };
+    };
+
+    // Projects view grouping
+    const activeTasks = (s.tasks || []).filter(t => !t.is_completed);
+    const orderedProjectIds = s.projectOrder.length ? s.projectOrder.slice() : [];
+    (s.projects || []).forEach(p => { if (!orderedProjectIds.includes(String(p.id))) orderedProjectIds.push(String(p.id)); });
+    const projectsById = {};
+    (s.projects || []).forEach(p => { projectsById[String(p.id)] = p; });
+    const orderedProjects = orderedProjectIds.map(id => projectsById[id]).filter(Boolean);
+
+    // Search + tag + date filters (Projects view only) — non-matching tasks are dimmed, not hidden
+    const filterActive = !!((s.searchQuery || '').trim() || s.projectFilterTags.length || s.filterDueToday || s.filterDueWeek || s.filterOverdue);
+    const todayStr = isoDate(new Date());
+    const weekEndStr = isoDate(addDays(new Date(), 7));
+    const taskMatchesFilters = (t) => {
+      const q = (s.searchQuery || '').trim().toLowerCase();
+      if (q && !(t.content || '').toLowerCase().includes(q)) return false;
+      if (s.projectFilterTags.length && !(t.labels || []).some(l => s.projectFilterTags.includes(l))) return false;
+      const dateOn = s.filterDueToday || s.filterDueWeek || s.filterOverdue;
+      if (dateOn) {
+        const ds = t.due && t.due.date ? t.due.date.slice(0, 10) : null;
+        if (!ds) return false;
+        let ok = false;
+        if (s.filterDueToday && ds === todayStr) ok = true;
+        if (s.filterDueWeek && ds >= todayStr && ds <= weekEndStr) ok = true;
+        if (s.filterOverdue && ds < todayStr) ok = true;
+        if (!ok) return false;
+      }
+      return true;
+    };
+
+    const sortFn = (a, b) => (b.priority - a.priority) || String(a.due ? a.due.date : '9999').localeCompare(String(b.due ? b.due.date : '9999'));
+
+    const makeActiveRow = (t, level) => {
+      const isCompleting = !!s.completingIds[t.id];
+      const meta = this.priorityMeta(t.priority);
+      const dimmed = filterActive && !taskMatchesFilters(t);
+      return {
+        id: t.id,
+        content: t.content,
+        tags: t.labels || [],
+        dueBadge: this.dueBadge(t.due),
+        completed: false,
+        hasNotes: !!t.description,
+        noteText: t.description || '',
+        indent: level ? 'margin-left:18px;' : '',
+        rowStyle: dimmed ? 'opacity:0.28;' : '',
+        textStyle: '',
+        checkboxStyle: 'width:14px; height:14px; flex-shrink:0; cursor:pointer; border-radius:3px; border:2px solid ' + meta.color + '; background:' + (isCompleting ? meta.color : 'transparent') + '; transition:background 0.15s;',
+        onToggle: () => this.completeTask(t.id),
+        onEdit: () => this.startEdit(t),
+        onAddSubtask: level === 0 ? (() => this.startSubtask(t)) : null,
+        onDelete: () => this.requestDeleteTask(t)
+      };
+    };
+
+    const groupedProjects = orderedProjects.map(p => {
+      const activeForProject = activeTasks.filter(t => String(t.project_id) === String(p.id));
+      const topTasks = activeForProject.filter(t => !t.parent_id);
+      const childrenByParent = {};
+      activeForProject.filter(t => t.parent_id).forEach(t => {
+        const k = String(t.parent_id);
+        (childrenByParent[k] = childrenByParent[k] || []).push(t);
+      });
+      Object.values(childrenByParent).forEach(arr => arr.sort(sortFn));
+
+      const sectionsForProject = (s.sections || []).filter(sec => String(sec.project_id) === String(p.id));
+      const buckets = [{ id: '', name: null }, ...sectionsForProject.map(sec => ({ id: String(sec.id), name: sec.name }))];
+
+      const completedForProject = completedEntries
+        .filter(e => String(e.task.project_id) === String(p.id))
+        .sort((a, b) => b.completedAt - a.completedAt)
+        .map(makeCompletedDisplay);
+
+      const sections = buckets.map(bucket => {
+        const topInBucket = topTasks.filter(t => String(t.section_id || '') === bucket.id).sort(sortFn);
+        const rows = [];
+        topInBucket.forEach(t => {
+          rows.push(makeActiveRow(t, 0));
+          (childrenByParent[String(t.id)] || []).forEach(c => rows.push(makeActiveRow(c, 1)));
+        });
+        return { id: bucket.id, name: bucket.name, rows };
+      }).filter(sec => sec.rows.length > 0);
+
+      if (completedForProject.length) {
+        sections.push({ id: 'completed', name: 'Completed', rows: completedForProject });
+      }
+
+      const activeCount = topTasks.length + Object.values(childrenByParent).reduce((n, a) => n + a.length, 0);
+      const span = s.boxSpans[String(p.id)] || { colSpan: 1, rowSpan: 1 };
+      const colSpan = Math.min(3, Math.max(1, span.colSpan));
+      const rowSpan = Math.min(4, Math.max(1, span.rowSpan));
+      const isHidden = s.hiddenProjectIds.includes(String(p.id));
+      return {
+        id: p.id,
+        name: p.name,
+        count: activeCount,
+        isEmpty: sections.length === 0,
+        sections,
+        colSpan, rowSpan,
+        isHidden
+      };
+    }).filter(gp => s.isMobile ? !gp.isHidden : true);
+
+    if (s.isMobile) {
+      // Mobile: simple stacked single column. No drag-reorder, no resize controls,
+      // cards grow to fit their content instead of being pinned to a fixed grid unit.
+      groupedProjects.forEach(gp => {
+        gp.isPlaceholder = false;
+        gp.notPlaceholder = true;
+        gp.draggable = false;
+        gp.showResizeControls = false;
+        gp.boxStyle = 'background:var(--bg-surface); border:1px solid var(--border); border-radius:10px; overflow:hidden; display:flex; flex-direction:column; width:100%; margin-bottom:18px;';
+        gp.onDragStart = () => {};
+        gp.onDrop = (e) => e.preventDefault();
+        gp.onDragOver = (e) => e.preventDefault();
+        gp.onWidthInc = () => {};
+        gp.onWidthDec = () => {};
+        gp.onHeightInc = () => {};
+        gp.onHeightDec = () => {};
+      });
+    } else {
+      // Explicit skyline placement: each project is pinned to a home column (pushed down by
+      // drag-drop reordering within that column) rather than left to the browser's auto-flow,
+      // so dropping a card onto another always pushes the rest of that column down.
+      const NUM_COLS = 3;
+      const cursors = [1, 1, 1];
+      groupedProjects.forEach((gp, idx) => {
+        const assigned = s.projectColumns[String(gp.id)];
+        let colIndex = (typeof assigned === 'number' && assigned >= 0 && assigned < NUM_COLS) ? assigned : idx % NUM_COLS;
+        gp.isPlaceholder = gp.isHidden;
+        gp.notPlaceholder = !gp.isHidden;
+        gp.draggable = true;
+        gp.showResizeControls = true;
+        const effColSpanFull = gp.isHidden ? 1 : gp.colSpan;
+        const rowSpanFull = gp.isHidden ? 1 : gp.rowSpan;
+        const effColSpan = Math.min(effColSpanFull, NUM_COLS - colIndex);
+        let rowStart = 1;
+        for (let c = colIndex; c < colIndex + effColSpan; c++) rowStart = Math.max(rowStart, cursors[c]);
+        for (let c = colIndex; c < colIndex + effColSpan; c++) cursors[c] = rowStart + rowSpanFull;
+
+        gp.boxStyle = 'background:var(--bg-surface); border:1px solid var(--border); border-radius:10px; overflow:hidden; display:flex; flex-direction:column; grid-column:' +
+          (colIndex + 1) + ' / span ' + effColSpan + '; grid-row:' + rowStart + ' / span ' + rowSpanFull + ';';
+        gp.onDragStart = (e) => { e.dataTransfer.setData('text/plain', String(gp.id)); };
+        gp.onDrop = (e) => {
+          e.preventDefault();
+          const rect = e.currentTarget.getBoundingClientRect();
+          const after = (e.clientY - rect.top) > rect.height / 2;
+          this.reorderProjects(e.dataTransfer.getData('text/plain'), String(gp.id), after, colIndex);
+        };
+        gp.onDragOver = (e) => e.preventDefault();
+        gp.onWidthInc = () => this.setBoxSpan(gp.id, Math.min(3, gp.colSpan + 1), gp.rowSpan);
+        gp.onWidthDec = () => this.setBoxSpan(gp.id, Math.max(1, gp.colSpan - 1), gp.rowSpan);
+        gp.onHeightInc = () => this.setBoxSpan(gp.id, gp.colSpan, Math.min(4, gp.rowSpan + 1));
+        gp.onHeightDec = () => this.setBoxSpan(gp.id, gp.colSpan, Math.max(1, gp.rowSpan - 1));
+      });
+    }
+
+    // Empty columns have no card to drop onto, so give them their own drop target.
+    const emptyColumnDropZones = [];
+    if (!s.isMobile) {
+    const NUM_COLS2 = 3;
+    const cursorsForEmpty = [1, 1, 1];
+    groupedProjects.forEach((gp, idx) => {
+      const assigned = s.projectColumns[String(gp.id)];
+      let colIndex = (typeof assigned === 'number' && assigned >= 0 && assigned < NUM_COLS2) ? assigned : idx % NUM_COLS2;
+      const rowSpanFull = gp.isHidden ? 1 : gp.rowSpan;
+      const effColSpan = Math.min(gp.isHidden ? 1 : gp.colSpan, NUM_COLS2 - colIndex);
+      for (let c = colIndex; c < colIndex + effColSpan; c++) cursorsForEmpty[c] = Math.max(cursorsForEmpty[c], rowSpanFull + 1);
+    });
+    for (let c = 0; c < NUM_COLS2; c++) {
+      if (cursorsForEmpty[c] === 1) {
+        emptyColumnDropZones.push({
+          key: c,
+          style: 'grid-column:' + (c + 1) + '; grid-row:1 / span 1; border:1.5px dashed var(--border-dashed); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:12px; color:var(--text-faint); min-height:189px;',
+          onDrop: (e) => { e.preventDefault(); this.moveProjectToColumn(e.dataTransfer.getData('text/plain'), c); },
+          onDragOver: (e) => e.preventDefault()
+        });
+      }
+    }
+    }
+
+    const projectNameById = {};
+    (s.projects || []).forEach(p => { projectNameById[String(p.id)] = p.name; });
+
+    const sectionNameById = {};
+    (s.sections || []).forEach(sec => { sectionNameById[String(sec.id)] = sec.name; });
+
+    const sidebarSortFns = {
+      default: (a, b) => {
+        const pa = projectNameById[String(a.project_id)] || '';
+        const pb = projectNameById[String(b.project_id)] || '';
+        if (pa !== pb) return pa.localeCompare(pb);
+        const sa = a.section_id ? (sectionNameById[String(a.section_id)] || '') : '';
+        const sb = b.section_id ? (sectionNameById[String(b.section_id)] || '') : '';
+        if (sa !== sb) {
+          if (!sa) return -1;
+          if (!sb) return 1;
+          return sa.localeCompare(sb);
+        }
+        return 0;
+      },
+      priority: (a, b) => (b.priority - a.priority) || String(a.due ? a.due.date : '9999').localeCompare(String(b.due ? b.due.date : '9999')),
+      due: (a, b) => String(a.due ? a.due.date : '9999').localeCompare(String(b.due ? b.due.date : '9999')),
+      updated: (a, b) => String(b.updated_at || b.added_at || '').localeCompare(String(a.updated_at || a.added_at || ''))
+    };
+
+    const sidebarPrefix = (t) => {
+      const pName = projectNameById[String(t.project_id)] || '';
+      const secName = t.section_id ? sectionNameById[String(t.section_id)] : '';
+      return pName + (secName ? ' › ' + secName : '') + ': ';
+    };
+
+    const sidebarChildrenByParent = {};
+    activeTasks.filter(t => t.parent_id).forEach(t => {
+      const k = String(t.parent_id);
+      (sidebarChildrenByParent[k] = sidebarChildrenByParent[k] || []).push(t);
+    });
+    Object.values(sidebarChildrenByParent).forEach(arr => arr.sort(sidebarSortFns[s.sidebarSort] || sidebarSortFns.default));
+
+    const makeSidebarRow = (t, level) => {
+      const isCompleting = !!s.completingIds[t.id];
+      const meta = this.priorityMeta(t.priority);
+      return {
+        id: t.id,
+        content: t.content,
+        prefix: level ? '' : sidebarPrefix(t),
+        tags: t.labels || [],
+        hasNotes: !!t.description,
+        indent: level ? 'margin-left:16px;' : '',
+        textStyle: '',
+        checkboxStyle: 'width:14px; height:14px; flex-shrink:0; cursor:pointer; border-radius:3px; border:2px solid ' +
+          meta.color + '; background:' + (isCompleting ? meta.color : 'transparent') + '; transition:background 0.15s;',
+        onToggle: () => this.completeTask(t.id),
+        onEdit: () => this.startEdit(t),
+        onAddSubtask: level === 0 ? (() => this.startSubtask(t)) : null,
+        onDelete: () => this.requestDeleteTask(t)
+      };
+    };
+
+    const sidebarTopTasks = activeTasks
+      .filter(t => !t.parent_id)
+      .filter(t => s.sidebarFilter === 'all' || String(t.project_id) === String(s.sidebarFilter))
+      .filter(t => s.sidebarSectionFilter === 'all' || String(t.section_id || '') === String(s.sidebarSectionFilter))
+      .filter(t => s.sidebarLabelFilter.length === 0 || (t.labels || []).some(l => s.sidebarLabelFilter.includes(l)))
+      .slice()
+      .sort(sidebarSortFns[s.sidebarSort] || sidebarSortFns.default);
+
+    const sidebarTaskList = [];
+    sidebarTopTasks.forEach(t => {
+      sidebarTaskList.push(makeSidebarRow(t, 0));
+      (sidebarChildrenByParent[String(t.id)] || []).forEach(c => sidebarTaskList.push(makeSidebarRow(c, 1)));
+    });
+
+    const sidebarCompletedList = completedEntries
+      .filter(e => s.sidebarFilter === 'all' || String(e.task.project_id) === String(s.sidebarFilter))
+      .filter(e => s.sidebarSectionFilter === 'all' || String(e.task.section_id || '') === String(s.sidebarSectionFilter))
+      .filter(e => s.sidebarLabelFilter.length === 0 || (e.task.labels || []).some(l => s.sidebarLabelFilter.includes(l)))
+      .sort((a, b) => b.completedAt - a.completedAt)
+      .map(e => {
+        const t = e.task;
+        const isReopening = !!s.completingIds[t.id];
+        return {
+          id: t.id,
+          content: t.content,
+          prefix: sidebarPrefix(t),
+          tags: t.labels || [],
+          hasNotes: !!t.description,
+          indent: '',
+          textStyle: 'text-decoration:line-through; color:var(--text-faint);',
+          checkboxStyle: 'width:14px; height:14px; flex-shrink:0; cursor:pointer; border-radius:3px; border:2px solid ' +
+            this.priorityMeta(t.priority).color + '; background:' + (isReopening ? 'transparent' : this.priorityMeta(t.priority).color) + '; transition:background 0.15s;',
+          onToggle: () => this.reopenTask(t.id),
+          onEdit: () => {},
+          onAddSubtask: null,
+          onDelete: () => this.requestDeleteTask(t)
+        };
+      });
+
+    const sidebarSortOptions = [
+      { key: 'default', label: 'Default' },
+      { key: 'priority', label: 'Priority' },
+      { key: 'due', label: 'Due date' },
+      { key: 'updated', label: 'Updated' }
+    ].map(o => {
+      const selected = s.sidebarSort === o.key;
+      return {
+        label: o.label,
+        onSelect: () => this.setState({ sidebarSort: o.key }),
+        style: 'flex:1; text-align:center; padding:7px 0; border-radius:8px; font-size:12px; font-weight:600; cursor:pointer; border:1.5px solid ' +
+          (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-muted)') + ';'
+      };
+    });
+
+    const sidebarLabelChips = (s.labels || []).map(l => {
+      const selected = s.sidebarLabelFilter.includes(l.name);
+      return {
+        name: l.name,
+        onToggle: () => this.setState(st => ({
+          sidebarLabelFilter: st.sidebarLabelFilter.includes(l.name)
+            ? st.sidebarLabelFilter.filter(x => x !== l.name)
+            : [...st.sidebarLabelFilter, l.name]
+        })),
+        style: 'font-size:11px; font-weight:600; padding:5px 10px; border-radius:20px; cursor:pointer; border:1.5px solid ' +
+          (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-tag)') + ';'
+      };
+    });
+
+    const totalOpen = activeTasks.length;
+    const totalOpenLabel = s.loadingData ? '' : (totalOpen === 1 ? '1 open task across ' : totalOpen + ' open tasks across ') + (s.projects || []).length + ' projects';
+
+    let syncLabel = '';
+    if (s.lastSync) {
+      const mins = Math.round((Date.now() - s.lastSync.getTime()) / 60000);
+      syncLabel = mins < 1 ? 'Synced just now' : 'Synced ' + mins + 'm ago';
+    }
+
+    return {
+      rootStyle,
+      darkMode: s.darkMode,
+      appearanceOptions,
+      logoSrc: dark ? 'https://neffnet.com/pics/Neffio_logo_wht-blu_noBG.png' : 'https://neffnet.com/pics/Neffio_logo_drkb-blu_noBG.png',
+      hasToken: !!s.token,
+      noTokenBanner: !s.token,
+      dataError: s.dataError,
+      isQuickAdd, isProjects,
+      isMobileHeader: s.isMobile,
+      isDesktopHeader: !s.isMobile,
+      quickAddContainerStyle: s.isMobile
+        ? 'max-width:1180px; margin:0 auto; padding:32px 16px 60px; display:flex; flex-direction:column; gap:32px;'
+        : 'max-width:1180px; margin:0 auto; padding:48px 28px 80px; display:flex; gap:48px; align-items:flex-start;',
+      sidebarContainerStyle: s.isMobile
+        ? 'width:100%; flex-shrink:0;'
+        : 'width:360px; flex-shrink:0; position:sticky; top:84px;',
+      tabStyles,
+      goToQuickAdd: () => this.setState({ view: 'quickadd' }),
+      goToProjects: () => this.setState({ view: 'projects' }),
+      toggleSettings: () => this.setState(st => ({ showSettings: !st.showSettings, tokenInput: st.token })),
+      stopClick: (e) => e.stopPropagation(),
+      onRefresh: () => { this.setState({ refreshing: true }); if (s.token) this.loadData(s.token); },
+      refreshIconStyle: s.refreshing || s.loadingData ? 'animation: spin 0.8s linear infinite;' : '',
+      syncLabel,
+
+      showSettings: s.showSettings,
+      tokenInput: s.tokenInput,
+      onTokenInputChange: (e) => this.setState({ tokenInput: e.target.value }),
+      onSaveToken: () => {
+        const t = (this.state.tokenInput || '').trim();
+        try { localStorage.setItem('todoist_token', t); } catch (err) {}
+        this.setState({ token: t, showSettings: false });
+        if (t) this.loadData(t);
+      },
+      onClearToken: () => {
+        try { localStorage.removeItem('todoist_token'); } catch (err) {}
+        this.setState({ token: '', tokenInput: '', projects: [], tasks: [], labels: [], showSettings: false });
+      },
+
+      form: s.form,
+      parsed,
+      projectOptions,
+      projectRadios,
+      sectionRadios,
+      hasSectionsForForm: sectionRadios.length > 0,
+      parentTaskRadios,
+      hasParentOptionsForForm: parentTaskRadios.length > 0,
+      priorityOptions,
+      dateQuickOptions,
+      labelChips,
+      labelInput: s.labelInput,
+      isEditing: !!s.editingTaskId,
+      headerTitle: s.editingTaskId ? 'Task Edit' : 'Task Add',
+      onCancelEdit: () => this.setState({ editingTaskId: null, form: { text: '', projectId: s.form.projectId, sectionId: '', priority: 1, dueDate: '', labels: [], description: '', parentTaskId: null, parentTaskContent: '' } }),
+      onRequestDeleteCurrentTask: () => {
+        const t = (s.tasks || []).find(x => String(x.id) === String(s.editingTaskId));
+        if (t) this.requestDeleteTask(t);
+      },
+      confirmDeleteTask: s.confirmDeleteTask,
+      onCancelDeleteTask: () => this.cancelDeleteTask(),
+      onConfirmDeleteTask: () => this.confirmDeleteTaskAction(),
+      onClearForm: () => {
+        const inbox = (s.projects || []).find(p => p.is_inbox_project || p.inbox_project);
+        this.setState({ editingTaskId: null, labelInput: '', form: { text: '', projectId: inbox ? String(inbox.id) : s.form.projectId, sectionId: '', priority: 1, dueDate: '', labels: [], description: '', parentTaskId: null, parentTaskContent: '' } });
+      },
+      onCancelSubtask: () => this.setState(st => ({ form: { ...st.form, parentTaskId: null, parentTaskContent: '' } })),
+      onDescriptionChange: (e) => this.setState(st => ({ form: { ...st.form, description: e.target.value } })),
+      submitLabel: s.submitting ? (s.editingTaskId ? 'Saving…' : 'Adding…') : (s.editingTaskId ? 'Save changes' : 'Add task'),
+      submitButtonStyle,
+      toast: s.toast,
+
+      onParseText: () => {
+        const parsedNow = this.parseQuickText(s.form.text || '', s.projects, s.labels);
+        if (!parsedNow.hasAny) return;
+        this.setState(st => ({
+          form: {
+            ...st.form,
+            text: this.cleanContent(st.form.text || '', parsedNow.duePhrase),
+            priority: parsedNow.priority || st.form.priority,
+            projectId: parsedNow.projectId || st.form.projectId,
+            labels: parsedNow.labelMatches.length ? Array.from(new Set([...st.form.labels, ...parsedNow.labelMatches])) : st.form.labels,
+            dueDate: parsedNow.dueDate || st.form.dueDate
+          }
+        }));
+      },
+      onTextChange: (e) => {
+        const text = e.target.value;
+        const parsedLive = this.parseQuickText(text, s.projects, s.labels);
+        this.setState(st => ({
+          form: {
+            ...st.form,
+            text,
+            priority: parsedLive.priority || st.form.priority,
+            projectId: parsedLive.projectId || st.form.projectId,
+            labels: parsedLive.labelMatches.length ? Array.from(new Set([...st.form.labels, ...parsedLive.labelMatches])) : st.form.labels
+          }
+        }));
+      },
+      onProjectChange: (e) => this.setState(st => ({ form: { ...st.form, projectId: e.target.value } })),
+      onDateChange: (e) => this.setState(st => ({ form: { ...st.form, dueDate: e.target.value } })),
+      onLabelInputChange: (e) => this.setState({ labelInput: e.target.value }),
+      onLabelInputKeyDown: (e) => {
+        if (e.key === 'Enter' && (this.state.labelInput || '').trim()) {
+          e.preventDefault();
+          const name = this.state.labelInput.trim();
+          this.setState(st => ({
+            labelInput: '',
+            form: { ...st.form, labels: st.form.labels.includes(name) ? st.form.labels : [...st.form.labels, name] }
+          }));
+        }
+      },
+      onSubmit: () => this.submitTask(),
+
+      loadingData: s.loadingData,
+      showEmptyProjects: !s.loadingData && !s.dataError && (s.projects || []).length === 0,
+      groupedProjects,
+      emptyColumnDropZones,
+      totalOpenLabel,
+      onResetProjectSizes: () => this.resetProjectSizes(),
+      projectsGridStyle: s.isMobile
+        ? 'display:flex; flex-direction:column;'
+        : 'display:grid; grid-template-columns:repeat(3, 1fr); grid-template-rows:repeat(4, 189px); grid-auto-rows:189px; gap:18px;',
+      projectVisibilityChips: (s.projects || []).map(p => {
+        const hidden = s.hiddenProjectIds.includes(String(p.id));
+        return {
+          name: p.name,
+          onToggle: () => this.toggleProjectVisibility(p.id),
+          style: 'font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px; cursor:pointer; border:1.5px solid ' +
+            (hidden ? 'var(--border)' : '#4a3aff') + '; background:' + (hidden ? 'var(--bg-surface)' : 'var(--chip-selected-bg)') + '; color:' + (hidden ? 'var(--text-faint)' : '#4a3aff') + '; text-decoration:' + (hidden ? 'line-through' : 'none') + ';'
+        };
+      }),
+
+      searchQuery: s.searchQuery,
+      onSearchChange: (e) => this.setState({ searchQuery: e.target.value }),
+      projectFilterTagChips: (s.labels || []).map(l => {
+        const selected = s.projectFilterTags.includes(l.name);
+        return {
+          name: l.name,
+          onToggle: () => this.setState(st => ({
+            projectFilterTags: st.projectFilterTags.includes(l.name)
+              ? st.projectFilterTags.filter(x => x !== l.name)
+              : [...st.projectFilterTags, l.name]
+          })),
+          style: 'font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px; cursor:pointer; border:1.5px solid ' +
+            (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-secondary)') + ';'
+        };
+      }),
+      dateFilterToggles: [
+        { key: 'filterDueToday', label: 'Due today' },
+        { key: 'filterDueWeek', label: 'Due this week' },
+        { key: 'filterOverdue', label: 'Overdue' }
+      ].map(d => {
+        const selected = !!s[d.key];
+        return {
+          label: d.label,
+          onSelect: () => this.setState({ [d.key]: !selected }),
+          style: 'font-size:12px; font-weight:600; padding:6px 12px; border-radius:20px; cursor:pointer; border:1.5px solid ' +
+            (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-secondary)') + ';'
+        };
+      }),
+
+      sidebarFilter: s.sidebarFilter,
+      onSidebarFilterChange: (e) => this.setState({ sidebarFilter: e.target.value, sidebarSectionFilter: 'all' }),
+      sidebarSectionFilter: s.sidebarSectionFilter,
+      onSidebarSectionFilterChange: (e) => this.setState({ sidebarSectionFilter: e.target.value }),
+      sidebarSectionOptions: (s.sections || [])
+        .filter(sec => s.sidebarFilter === 'all' || String(sec.project_id) === String(s.sidebarFilter))
+        .map(sec => ({ id: String(sec.id), name: s.sidebarFilter === 'all' ? (projectNameById[String(sec.project_id)] || '') + ' › ' + sec.name : sec.name })),
+      sidebarTasks: sidebarTaskList,
+      sidebarCompletedTasks: sidebarCompletedList,
+      sidebarEmpty: sidebarTaskList.length === 0 && sidebarCompletedList.length === 0,
+      sidebarSortOptions,
+      sidebarLabelChips,
+
+      tagActionError: s.tagActionError,
+      newTagInput: s.newTagInput,
+      onNewTagInputChange: (e) => this.setState({ newTagInput: e.target.value }),
+      onNewTagKeyDown: (e) => { if (e.key === 'Enter') this.createLabel(); },
+      onAddTag: () => this.createLabel(),
+      manageLabels: (s.labels || []).map(l => {
+        const isEditing = s.editingLabelId === l.id;
+        return {
+          id: l.id,
+          name: l.name,
+          isEditing,
+          notEditing: !isEditing,
+          editingName: s.editingLabelName,
+          onStartEdit: () => this.setState({ editingLabelId: l.id, editingLabelName: l.name }),
+          onEditChange: (e) => this.setState({ editingLabelName: e.target.value }),
+          onEditKeyDown: (e) => { if (e.key === 'Enter') this.saveLabelEdit(l.id); if (e.key === 'Escape') this.setState({ editingLabelId: null }); },
+          onSaveEdit: () => this.saveLabelEdit(l.id),
+          onDelete: () => this.deleteLabel(l.id)
+        };
+      }),
+
+      projectActionError: s.projectActionError,
+      newProjectInput: s.newProjectInput,
+      onNewProjectInputChange: (e) => this.setState({ newProjectInput: e.target.value }),
+      onNewProjectKeyDown: (e) => { if (e.key === 'Enter') this.createProject(); },
+      onAddProject: () => this.createProject(),
+      manageProjects: (s.projects || []).map(p => {
+        const isEditingP = s.editingProjectId === p.id;
+        const isExpanded = s.expandedProjectId === p.id;
+        const sectionsForP = (s.sections || []).filter(sec => String(sec.project_id) === String(p.id)).map(sec => {
+          const isEditingS = s.editingSectionId === sec.id;
+          return {
+            id: sec.id,
+            name: sec.name,
+            isEditing: isEditingS,
+            notEditing: !isEditingS,
+            editingName: s.editingSectionName,
+            onStartEdit: () => this.setState({ editingSectionId: sec.id, editingSectionName: sec.name }),
+            onEditChange: (e) => this.setState({ editingSectionName: e.target.value }),
+            onEditKeyDown: (e) => { if (e.key === 'Enter') this.renameSection(sec.id); if (e.key === 'Escape') this.setState({ editingSectionId: null }); },
+            onSaveEdit: () => this.renameSection(sec.id),
+            onDelete: () => this.deleteSection(sec.id)
+          };
+        });
+        return {
+          id: p.id,
+          name: p.name,
+          isEditing: isEditingP,
+          notEditing: !isEditingP,
+          editingName: s.editingProjectName,
+          onStartEdit: () => this.setState({ editingProjectId: p.id, editingProjectName: p.name }),
+          onEditChange: (e) => this.setState({ editingProjectName: e.target.value }),
+          onEditKeyDown: (e) => { if (e.key === 'Enter') this.renameProject(p.id); if (e.key === 'Escape') this.setState({ editingProjectId: null }); },
+          onSaveEdit: () => this.renameProject(p.id),
+          onDelete: () => this.deleteProject(p.id),
+          isExpanded,
+          expandLabel: isExpanded ? 'Hide sections' : 'Sections',
+          onToggleExpand: () => this.setState(st => ({ expandedProjectId: st.expandedProjectId === p.id ? null : p.id, newSectionInput: '' })),
+          sections: sectionsForP,
+          newSectionInput: s.newSectionInput,
+          onNewSectionInputChange: (e) => this.setState({ newSectionInput: e.target.value }),
+          onNewSectionKeyDown: (e) => { if (e.key === 'Enter') this.createSection(p.id); },
+          onAddSection: () => this.createSection(p.id)
+        };
+      }),
+
+      retentionOptions: [
+        { key: 1, label: '1 day' },
+        { key: 7, label: '1 week' },
+        { key: 14, label: '2 weeks' },
+        { key: 30, label: '1 month' }
+      ].map(o => {
+        const selected = s.completedRetentionDays === o.key;
+        return {
+          label: o.label,
+          onSelect: () => this.setRetention(o.key),
+          style: 'padding:9px 14px; border-radius:10px; font-size:13px; font-weight:600; cursor:pointer; border:1.5px solid ' +
+            (selected ? '#4a3aff' : 'var(--border)') + '; background:' + (selected ? 'var(--chip-selected-bg)' : 'var(--bg-surface)') + '; color:' + (selected ? '#4a3aff' : 'var(--text-secondary)') + ';'
+        };
+      }),
+      retentionDaysInput: s.completedRetentionDays,
+      onRetentionDaysInputChange: (e) => {
+        const n = parseInt(e.target.value, 10);
+        this.setRetention(isNaN(n) || n < 0 ? 0 : n);
+      }
+    };
+  }
+
+  startEdit(t) {
+    const parent = t.parent_id ? (this.state.tasks || []).find(x => String(x.id) === String(t.parent_id)) : null;
+    this.setState({
+      view: 'quickadd',
+      editingTaskId: t.id,
+      form: {
+        text: t.content,
+        projectId: String(t.project_id),
+        sectionId: t.section_id ? String(t.section_id) : '',
+        priority: t.priority,
+        dueDate: t.due && t.due.date ? t.due.date.slice(0, 10) : '',
+        labels: t.labels || [],
+        description: t.description || '',
+        parentTaskId: t.parent_id || null,
+        parentTaskContent: parent ? parent.content : ''
+      }
+    });
+  }
+
+  startSubtask(parentTask) {
+    this.setState({
+      view: 'quickadd',
+      editingTaskId: null,
+      form: {
+        text: '',
+        projectId: String(parentTask.project_id),
+        sectionId: parentTask.section_id ? String(parentTask.section_id) : '',
+        priority: 1,
+        dueDate: '',
+        labels: [],
+        description: '',
+        parentTaskId: parentTask.id,
+        parentTaskContent: parentTask.content
+      }
+    });
+  }
+
+  async submitTask() {
+    const s = this.state;
+    const text = (s.form.text || '').trim();
+    if (!text || !s.token) return;
+    this.setState({ submitting: true, toast: null });
+
+    const liveParsed = this.parseQuickText(text, s.projects, s.labels);
+    const content = this.cleanContent(text, liveParsed.duePhrase);
+    const effectiveDueDate = s.form.dueDate || liveParsed.dueDate || '';
+
+    const payload = { content, priority: s.form.priority, description: s.form.description || '' };
+    if (s.form.labels && s.form.labels.length) payload.labels = s.form.labels;
+    if (!s.editingTaskId && s.form.sectionId) payload.section_id = s.form.sectionId;
+    if (s.form.parentTaskId && !s.editingTaskId) payload.parent_id = s.form.parentTaskId;
+    payload.due_date = effectiveDueDate || null;
+
+    if (payload.due_date === null) delete payload.due_date;
+    const isEdit = !!s.editingTaskId;
+    const url = isEdit ? (BASE + '/tasks/' + s.editingTaskId) : (BASE + '/tasks');
+    const originalTask = isEdit ? (s.tasks || []).find(t => String(t.id) === String(s.editingTaskId)) : null;
+    const parentChanged = isEdit && originalTask && String(originalTask.parent_id || '') !== String(s.form.parentTaskId || '');
+    const sectionChanged = isEdit && !parentChanged && originalTask && String(originalTask.section_id || '') !== String(s.form.sectionId || '');
+    const projectChanged = isEdit && !parentChanged && !sectionChanged && originalTask && s.form.projectId && String(originalTask.project_id) !== String(s.form.projectId);
+    if (!isEdit && s.form.projectId) payload.project_id = s.form.projectId;
+
+    try {
+      const childIds = isEdit ? (s.tasks || []).filter(t => String(t.parent_id) === String(s.editingTaskId)).map(t => t.id) : [];
+      if (parentChanged) {
+        await this.moveTaskToParent(s.editingTaskId, s.form.parentTaskId || null, s.form.projectId);
+      } else if (sectionChanged) {
+        await Promise.all([s.editingTaskId, ...childIds].map(id => this.moveTaskToSection(id, s.form.sectionId || null, s.form.projectId)));
+      } else if (projectChanged) {
+        await Promise.all([s.editingTaskId, ...childIds].map(id => this.moveTaskToProject(id, s.form.projectId)));
+      }
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('Could not ' + (isEdit ? 'update' : 'create') + ' task (' + res.status + ').');
+      const saved = await res.json();
+      this.setState(st => ({
+        submitting: false,
+        editingTaskId: null,
+        tasks: isEdit ? st.tasks.map(t => {
+          if (t.id === s.editingTaskId) return saved;
+          if ((sectionChanged || projectChanged) && childIds.includes(t.id)) {
+            return { ...t, project_id: saved.project_id, section_id: sectionChanged ? (s.form.sectionId || null) : t.section_id };
+          }
+          return t;
+        }) : [...st.tasks, saved],
+        form: { text: '', projectId: st.form.projectId, sectionId: st.form.sectionId, priority: st.form.priority, dueDate: st.form.dueDate, labels: st.form.labels, description: '', parentTaskId: null, parentTaskContent: '' },
+        toast: { msg: isEdit ? 'Task updated ✓' : (s.form.parentTaskId ? 'Subtask added ✓' : 'Task added ✓'), color: '#1f8a44' }
+      }));
+      setTimeout(() => this.setState({ toast: null }), 2500);
+    } catch (err) {
+      const friendly = this.explainFetchError(err);
+      this.setState({ submitting: false, toast: null, dataError: friendly });
+    }
+  }
+
+  requestDeleteTask(t) {
+    const s = this.state;
+    const allTasks = [...(s.tasks || []), ...Object.values(s.localCompleted).map(e => e.task)];
+    const collectDescendants = (id) => {
+      const direct = allTasks.filter(x => String(x.parent_id) === String(id));
+      let all = [...direct];
+      direct.forEach(d => { all = all.concat(collectDescendants(d.id)); });
+      return all;
+    };
+    const childCount = collectDescendants(t.id).length;
+    this.setState({ confirmDeleteTask: { id: t.id, content: t.content, childCount, childPlural: childCount === 1 ? '' : 's' } });
+  }
+
+  cancelDeleteTask() {
+    this.setState({ confirmDeleteTask: null });
+  }
+
+  async confirmDeleteTaskAction() {
+    const target = this.state.confirmDeleteTask;
+    if (!target) return;
+    await this.deleteTaskCascade(target.id);
+  }
+
+  async deleteTaskCascade(taskId) {
+    const s = this.state;
+    const allTasks = [...(s.tasks || []), ...Object.values(s.localCompleted).map(e => e.task)];
+    const collectDescendants = (id) => {
+      const direct = allTasks.filter(x => String(x.parent_id) === String(id));
+      let all = [...direct];
+      direct.forEach(d => { all = all.concat(collectDescendants(d.id)); });
+      return all;
+    };
+    const idsToDelete = [...collectDescendants(taskId).map(t => t.id), taskId];
+    this.setState({ submitting: true });
+    try {
+      for (const id of idsToDelete) {
+        const res = await fetch(BASE + '/tasks/' + id, {
+          method: 'DELETE',
+          headers: { Authorization: 'Bearer ' + s.token }
+        });
+        if (!res.ok && res.status !== 404 && res.status !== 204) {
+          throw new Error('Could not delete task (' + res.status + ').');
+        }
+      }
+      this.setState(st => {
+        const idSet = new Set(idsToDelete.map(String));
+        const localCompleted = { ...st.localCompleted };
+        idSet.forEach(id => { delete localCompleted[id]; });
+        this.persistCompleted(localCompleted);
+        return {
+          submitting: false,
+          confirmDeleteTask: null,
+          tasks: st.tasks.filter(t => !idSet.has(String(t.id))),
+          localCompleted,
+          editingTaskId: idSet.has(String(st.editingTaskId)) ? null : st.editingTaskId,
+          toast: { msg: 'Task deleted', color: '#c53929' }
+        };
+      });
+      setTimeout(() => this.setState({ toast: null }), 2500);
+    } catch (err) {
+      this.setState({ submitting: false, confirmDeleteTask: null, dataError: this.explainFetchError(err) });
+    }
+  }
+
+  async completeTask(id) {
+    const s = this.state;
+    const task = (s.tasks || []).find(t => t.id === id);
+    this.setState(st => ({ completingIds: { ...st.completingIds, [id]: true } }));
+    try {
+      const res = await fetch(BASE + '/tasks/' + id + '/close', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + s.token }
+      });
+      if (!res.ok) throw new Error('Failed to complete task');
+      setTimeout(() => {
+        this.setState(st => {
+          const localCompleted = { ...st.localCompleted };
+          if (task) localCompleted[id] = { task, completedAt: Date.now() };
+          this.persistCompleted(localCompleted);
+          return {
+            tasks: st.tasks.filter(t => t.id !== id),
+            completingIds: { ...st.completingIds, [id]: undefined },
+            localCompleted
+          };
+        });
+      }, 250);
+    } catch (err) {
+      this.setState(st => ({ completingIds: { ...st.completingIds, [id]: undefined }, dataError: this.explainFetchError(err) }));
+    }
+  }
+
+  async reopenTask(id) {
+    const s = this.state;
+    const entry = s.localCompleted[id];
+    if (!entry) return;
+    this.setState(st => ({ completingIds: { ...st.completingIds, [id]: true } }));
+    try {
+      const res = await fetch(BASE + '/tasks/' + id + '/reopen', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + s.token }
+      });
+      if (!res.ok) throw new Error('Failed to reopen task');
+      this.setState(st => {
+        const localCompleted = { ...st.localCompleted };
+        delete localCompleted[id];
+        this.persistCompleted(localCompleted);
+        return {
+          tasks: [...st.tasks, entry.task],
+          localCompleted,
+          completingIds: { ...st.completingIds, [id]: undefined }
+        };
+      });
+    } catch (err) {
+      this.setState(st => ({ completingIds: { ...st.completingIds, [id]: undefined }, dataError: this.explainFetchError(err) }));
+    }
+  }
+
+  async createLabel() {
+    const s = this.state;
+    const name = (s.newTagInput || '').trim();
+    if (!name || !s.token) return;
+    if ((s.labels || []).some(l => l.name.toLowerCase() === name.toLowerCase())) {
+      this.setState({ newTagInput: '', tagActionError: '' });
+      return;
+    }
+    try {
+      const res = await fetch(BASE + '/labels', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name })
+      });
+      if (!res.ok) throw new Error('Could not create tag (' + res.status + ').');
+      const created = await res.json();
+      this.setState(st => ({ labels: [...st.labels, created], newTagInput: '', tagActionError: '' }));
+    } catch (err) {
+      this.setState({ tagActionError: this.explainFetchError(err) });
+    }
+  }
+
+  async saveLabelEdit(id) {
+    const s = this.state;
+    const name = (s.editingLabelName || '').trim();
+    if (!name) { this.setState({ editingLabelId: null }); return; }
+    const oldLabel = (s.labels || []).find(l => l.id === id);
+    try {
+      const res = await fetch(BASE + '/labels/' + id, {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name })
+      });
+      if (!res.ok) throw new Error('Could not rename tag (' + res.status + ').');
+      this.setState(st => ({
+        editingLabelId: null,
+        tagActionError: '',
+        labels: st.labels.map(l => l.id === id ? { ...l, name } : l),
+        tasks: oldLabel ? st.tasks.map(t => (t.labels || []).includes(oldLabel.name)
+          ? { ...t, labels: t.labels.map(x => x === oldLabel.name ? name : x) }
+          : t) : st.tasks
+      }));
+    } catch (err) {
+      this.setState({ tagActionError: this.explainFetchError(err) });
+    }
+  }
+
+  async deleteLabel(id) {
+    const s = this.state;
+    const label = (s.labels || []).find(l => l.id === id);
+    try {
+      const res = await fetch(BASE + '/labels/' + id, {
+        method: 'DELETE',
+        headers: { Authorization: 'Bearer ' + s.token }
+      });
+      if (!res.ok && res.status !== 204) throw new Error('Could not delete tag (' + res.status + ').');
+      this.setState(st => ({
+        labels: st.labels.filter(l => l.id !== id),
+        tagActionError: '',
+        sidebarLabelFilter: label ? st.sidebarLabelFilter.filter(x => x !== label.name) : st.sidebarLabelFilter,
+        form: label ? { ...st.form, labels: st.form.labels.filter(x => x !== label.name) } : st.form
+      }));
+    } catch (err) {
+      this.setState({ tagActionError: this.explainFetchError(err) });
+    }
+  }
+
+  setDarkMode(dark) {
+    try { localStorage.setItem('todoist_dark_mode', dark ? '1' : '0'); } catch (e) {}
+    this.setState({ darkMode: dark });
+  }
+
+  toggleProjectVisibility(projectId) {
+    this.setState(st => {
+      const key = String(projectId);
+      const hiddenProjectIds = st.hiddenProjectIds.includes(key)
+        ? st.hiddenProjectIds.filter(id => id !== key)
+        : [...st.hiddenProjectIds, key];
+      try { localStorage.setItem('todoist_hidden_projects', JSON.stringify(hiddenProjectIds)); } catch (e) {}
+      return { hiddenProjectIds };
+    });
+  }
+
+  setRetention(days) {
+    try { localStorage.setItem('todoist_completed_retention_days', String(days)); } catch (e) {}
+    this.setState({ completedRetentionDays: days });
+  }
+
+  async createProject() {
+    const s = this.state;
+    const name = (s.newProjectInput || '').trim();
+    if (!name || !s.token) return;
+    try {
+      const res = await fetch(BASE + '/projects', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name })
+      });
+      if (!res.ok) throw new Error('Could not create project (' + res.status + ').');
+      const created = await res.json();
+      this.setState(st => ({ projects: [...st.projects, created], newProjectInput: '', projectActionError: '' }));
+    } catch (err) {
+      this.setState({ projectActionError: this.explainFetchError(err) });
+    }
+  }
+
+  async renameProject(id) {
+    const s = this.state;
+    const name = (s.editingProjectName || '').trim();
+    if (!name) { this.setState({ editingProjectId: null }); return; }
+    try {
+      const res = await fetch(BASE + '/projects/' + id, {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name })
+      });
+      if (!res.ok) throw new Error('Could not rename project (' + res.status + ').');
+      this.setState(st => ({
+        editingProjectId: null,
+        projectActionError: '',
+        projects: st.projects.map(p => p.id === id ? { ...p, name } : p)
+      }));
+    } catch (err) {
+      this.setState({ projectActionError: this.explainFetchError(err) });
+    }
+  }
+
+  async deleteProject(id) {
+    const s = this.state;
+    try {
+      const res = await fetch(BASE + '/projects/' + id, {
+        method: 'DELETE',
+        headers: { Authorization: 'Bearer ' + s.token }
+      });
+      if (!res.ok && res.status !== 204) throw new Error('Could not delete project (' + res.status + ').');
+      this.setState(st => ({
+        projects: st.projects.filter(p => p.id !== id),
+        sections: st.sections.filter(sec => String(sec.project_id) !== String(id)),
+        tasks: st.tasks.filter(t => String(t.project_id) !== String(id)),
+        projectActionError: '',
+        expandedProjectId: st.expandedProjectId === id ? null : st.expandedProjectId
+      }));
+    } catch (err) {
+      this.setState({ projectActionError: this.explainFetchError(err) });
+    }
+  }
+
+  async createSection(projectId) {
+    const s = this.state;
+    const name = (s.newSectionInput || '').trim();
+    if (!name || !s.token) return;
+    try {
+      const res = await fetch(BASE + '/sections', {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, project_id: projectId })
+      });
+      if (!res.ok) throw new Error('Could not create section (' + res.status + ').');
+      const created = await res.json();
+      this.setState(st => ({ sections: [...st.sections, created], newSectionInput: '', projectActionError: '' }));
+    } catch (err) {
+      this.setState({ projectActionError: this.explainFetchError(err) });
+    }
+  }
+
+  async renameSection(id) {
+    const s = this.state;
+    const name = (s.editingSectionName || '').trim();
+    if (!name) { this.setState({ editingSectionId: null }); return; }
+    try {
+      const res = await fetch(BASE + '/sections/' + id, {
+        method: 'POST',
+        headers: { Authorization: 'Bearer ' + s.token, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name })
+      });
+      if (!res.ok) throw new Error('Could not rename section (' + res.status + ').');
+      this.setState(st => ({
+        editingSectionId: null,
+        projectActionError: '',
+        sections: st.sections.map(sec => sec.id === id ? { ...sec, name } : sec)
+      }));
+    } catch (err) {
+      this.setState({ projectActionError: this.explainFetchError(err) });
+    }
+  }
+
+  async deleteSection(id) {
+    const s = this.state;
+    try {
+      const res = await fetch(BASE + '/sections/' + id, {
+        method: 'DELETE',
+        headers: { Authorization: 'Bearer ' + s.token }
+      });
+      if (!res.ok && res.status !== 204) throw new Error('Could not delete section (' + res.status + ').');
+      this.setState(st => ({
+        sections: st.sections.filter(sec => sec.id !== id),
+        projectActionError: ''
+      }));
+    } catch (err) {
+      this.setState({ projectActionError: this.explainFetchError(err) });
+    }
+  }
+}
+</script>
+</body>
+</html>
