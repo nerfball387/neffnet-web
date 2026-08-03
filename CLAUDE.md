@@ -106,11 +106,22 @@ It is a generated `.dc.html` bundle: `index.html` needs `support.js` beside it, 
 is hand-edited — re-export from the authoring tool and re-apply the change below.
 
 The source file ships `const DEFAULT_TOKEN = '<live 40-char Todoist token>'` near line 628.
-**It is blanked to `''` in this repo and must stay that way.** The repo is public and also
-served by GitHub Pages, so committing that line hands anyone full read/write on Steve's
-Todoist account. The app already handles an empty token properly — it shows a "Connect your
-Todoist account → Add API token" banner and stores what you paste in `localStorage` only.
-Re-check that line on every re-export; the authoring tool puts it back.
+**That line must never be committed.** The repo is public and also served by GitHub Pages, so
+committing it hands anyone full read/write on Steve's Todoist account. In this repo the line
+reads `(typeof window !== 'undefined' && window.__TODOIST_TOKEN) || ''`.
+Re-check it on every re-export; the authoring tool puts the literal token back.
+
+The real token lives in **`todoist/token.js`, which is gitignored and exists only on
+Mercury.** It sets `window.__TODOIST_TOKEN`, so `/todoist/` auto-connects on neffio.com. On
+neffnet.com that file 404s and the app falls back to its "Add API token" banner, which stores
+whatever you paste in `localStorage` only. If you ever rebuild Mercury, recreate `token.js`
+by hand — nothing restores it from git, by design.
+
+**Cloudflare Access does not make it safe to commit the token.** Access gates
+`neffio.com/todoist` (app `Lister (Todoist)`, allow sjneff@gmail.com). It has no reach over
+GitHub Pages: `neffnet.com/todoist/index.html` is served publicly with no login, from the
+same commit. Two publishing targets, one perimeter — that asymmetry is the whole reason for
+the split.
 
 ---
 
