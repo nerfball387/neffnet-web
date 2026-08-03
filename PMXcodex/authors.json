@@ -47,6 +47,16 @@
       "youtube": null,
       "accent": "#1A4D1C",
       "credit": "Reader-submitted links, summarized by Claude and filed into the Codex. Original credit belongs to the source publication."
+    },
+    {
+      "key": "info@xelplus.com",
+      "name": "Leila at XelPlus",
+      "brand": "Leila at XelPlus (info@xelplus.com)",
+      "credential": "",
+      "site": "",
+      "youtube": "",
+      "accent": "#1991C7",
+      "credit": ""
     }
   ],
   "fallback": {

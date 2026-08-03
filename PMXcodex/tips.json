@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-03T23:08:02.800Z",
+ "generated": "2026-08-03T23:36:47.343Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1071,46 +1071,49 @@
    "id": "2026-06-29-python-in-excel-for-time-series-analysis",
    "weeklyId": "2026-06-29",
    "date": "2026-07-02",
-   "authorKey": "neffio",
-   "authorName": "Steve Neff",
-   "authorBrand": "Neff.io (submitted)",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
    "title": "Python in Excel for Time Series Analysis",
    "summary": "Python integration within Excel enables data science techniques previously considered impractical in the spreadsheet environment. This bridges Python's analytical capabilities with Excel's familiar interface, allowing advanced statistical and time series computations without external setup.",
    "youtube_url": null,
    "article_url": "https://pages.xelplus.com/posts/excel-s-outgrown-its-reputation",
    "claude_prompt": "What are the practical limitations of using Python in Excel for time series forecasting compared to dedicated Python environments, and how would you structure a workflow to validate Python outputs within Excel for financial analysis?",
    "focus_match": false,
-   "category": "AI & Python in Excel"
+   "category": "AI & Python in Excel",
+   "edited": true
   },
   {
    "id": "2026-06-29-cell-styles-for-workbook-consistency-and-readability",
    "weeklyId": "2026-06-29",
    "date": "2026-07-02",
-   "authorKey": "neffio",
-   "authorName": "Steve Neff",
-   "authorBrand": "Neff.io (submitted)",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
    "title": "Cell Styles for Workbook Consistency and Readability",
    "summary": "Cell Styles provide a workbook-level formatting system that allows consistent visual differentiation between input and calculated cells without manual formatting. Styles can be created, duplicated, modified, and applied across worksheets; built-in styles for inputs and calculations can be customized to corporate standards, and custom styles persist within the workbook or can be distributed via templates.",
    "youtube_url": null,
    "article_url": "https://pages.xelplus.com/posts/i-used-to-build-workbooks-no-one-could-read",
    "claude_prompt": "How would you programmatically manage and apply Cell Styles across multiple workbooks using VBA or Office Scripts? Specifically, how would you create custom styles, modify built-in styles, and ensure consistency when copying styles from a template workbook to dependent files?",
    "focus_match": false,
-   "category": "Charts & Visualization"
+   "category": "Charts & Visualization",
+   "edited": true
   },
   {
    "id": "2026-06-29-copilot-personalization-in-excel",
    "weeklyId": "2026-06-29",
    "date": "2026-07-02",
-   "authorKey": "neffio",
-   "authorName": "Steve Neff",
-   "authorBrand": "Neff.io (submitted)",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
    "title": "Copilot Personalization in Excel",
    "summary": "Copilot in Excel now includes a Personalization feature that remembers user preferences for formatting, cell styles, and number formats across workbooks and devices. This reduces the need for lengthy, repetitive prompts by allowing users to set style preferences once, and Copilot applies them consistently to generated content.",
    "youtube_url": "https://www.youtube.com/watch?v=si61bqW4AEo",
    "article_url": "https://pages.xelplus.com/posts/your-copilot-prompts-are-getting-too-long",
    "claude_prompt": "How would you design a system for Copilot to store and apply user-defined formatting preferences (table styles, cell formatting, number formats) when generating or modifying Excel structures? What data schema and retrieval logic would ensure consistency across workbooks and devices?",
    "focus_match": false,
-   "category": "Dynamic Arrays & LAMBDA"
+   "category": "Dynamic Arrays & LAMBDA",
+   "edited": true
   },
   {
    "id": "2026-07-06-power-query-advanced-options-practical-features-hidden-in-ui",
