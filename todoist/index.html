@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<!-- Mercury-only, gitignored; 404s harmlessly on neffnet.com. See CLAUDE.md. -->
+<script src="./token.js"></script>
 </head>
 <body>
 <x-dc>
@@ -625,7 +627,9 @@
 <script type="text/x-dc" data-dc-script>
 const BASE = 'https://api.todoist.com/api/v1';
 function unwrap(data) { return Array.isArray(data) ? data : (data && data.results) || []; }
-const DEFAULT_TOKEN = '';
+// Supplied by the gitignored token.js on Mercury only. Never hardcode a token
+// here — this file is public on GitHub and on neffnet.com. See CLAUDE.md.
+const DEFAULT_TOKEN = (typeof window !== 'undefined' && window.__TODOIST_TOKEN) || '';
 
 function makeUuid() {
   if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();

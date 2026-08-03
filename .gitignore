@@ -1,0 +1,4 @@
+# Mercury-only secret: the Todoist API token for /todoist/.
+# This repo is PUBLIC and is also served by GitHub Pages at neffnet.com,
+# where Cloudflare Access does not apply. This file must never be committed.
+todoist/token.js
