@@ -1,4 +1,7 @@
-# Mercury-only secret: the Todoist API token for /todoist/.
-# This repo is PUBLIC and is also served by GitHub Pages at neffnet.com,
-# where Cloudflare Access does not apply. This file must never be committed.
-todoist/token.js
+# The Lister/Todoist app is deliberately NOT in this repo — see CLAUDE.md.
+# It lives in /srv/todoist on Mercury and is served by an nginx alias, behind the
+# Cloudflare Access app "Lister (Todoist)".
+#
+# This repo is PUBLIC and GitHub Pages republishes it at neffnet.com, where Access
+# does not apply — so anything committed here is world-readable. Do not re-add it.
+todoist/

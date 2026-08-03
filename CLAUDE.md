@@ -67,6 +67,7 @@ root /srv/neffnet-web;
 location = /          -> alias /srv/neffnet-web/landing/   # EXACT match: the apex only
 location /_landing/   -> alias /srv/neffnet-web/landing/   # landing page's own assets
 location /excel-digest/ -> alias /srv/neffnet-web/neff.io/excel-digest/
+location /todoist/    -> alias /srv/todoist/                # OUTSIDE the repo, see below
 location /            -> try_files $uri $uri/ =404          # everything else
 location ~ /\.git     -> deny all; return 404
 ```
@@ -91,7 +92,6 @@ landing/                   neffio.com's actual home page + logo assets
   index.html
   Neffio_logo_*.png
 neff.io/excel-digest/      weekly Excel Tips digests (written by the n8n workflow)
-todoist/                   "Lister" Todoist client — index.html + support.js runtime
 excel/  tips/  pics/  PMXcodex/
 ```
 
@@ -99,29 +99,38 @@ excel/  tips/  pics/  PMXcodex/
 repo and with no backup. Adding it to the repo also means it is published at
 `neffnet.com/landing/`, which is harmless but was not the goal.
 
-### ⚠️ `todoist/` — never restore the hardcoded API token
+### ⚠️ `/todoist/` is served from OUTSIDE this repo — do not re-add it
 
-Added 2026-08-03 from `OneDrive\03.Projects\AutomateMyLife\TaskManager\Todoist Interface.dc.html`.
-It is a generated `.dc.html` bundle: `index.html` needs `support.js` beside it, and neither
-is hand-edited — re-export from the authoring tool and re-apply the change below.
+The "Lister" Todoist client is at `neffio.com/todoist/` but its files live in
+**`/srv/todoist/`**, not here. `todoist/` is gitignored so it cannot be re-added by accident.
 
-The source file ships `const DEFAULT_TOKEN = '<live 40-char Todoist token>'` near line 628.
-**That line must never be committed.** The repo is public and also served by GitHub Pages, so
-committing it hands anyone full read/write on Steve's Todoist account. In this repo the line
-reads `(typeof window !== 'undefined' && window.__TODOIST_TOKEN) || ''`.
-Re-check it on every re-export; the authoring tool puts the literal token back.
+It was briefly committed here on 2026-08-03 (`eeb360a`, `73b5afa`) and removed the same day,
+because **anything in this repo is republished by GitHub Pages at `neffnet.com`, where
+Cloudflare Access does not apply.** Access gates `neffio.com/todoist` (app
+`Lister (Todoist)`, allow sjneff@gmail.com) and has no reach over Pages, so the committed
+copy was world-readable at `neffnet.com/todoist/` the whole time. Two publishing targets, one
+perimeter. Moving it out of the repo is what actually closed that path.
 
-The real token lives in **`todoist/token.js`, which is gitignored and exists only on
-Mercury.** It sets `window.__TODOIST_TOKEN`, so `/todoist/` auto-connects on neffio.com. On
-neffnet.com that file 404s and the app falls back to its "Add API token" banner, which stores
-whatever you paste in `localStorage` only. If you ever rebuild Mercury, recreate `token.js`
-by hand — nothing restores it from git, by design.
+Nothing sensitive is in this repo's history — the API token was never committed (verified by
+scanning every commit), which is why no history rewrite was needed.
 
-**Cloudflare Access does not make it safe to commit the token.** Access gates
-`neffio.com/todoist` (app `Lister (Todoist)`, allow sjneff@gmail.com). It has no reach over
-GitHub Pages: `neffnet.com/todoist/index.html` is served publicly with no login, from the
-same commit. Two publishing targets, one perimeter — that asymmetry is the whole reason for
-the split.
+Layout in `/srv/todoist/`, all three files required together:
+
+```
+index.html    generated .dc.html bundle; not hand-edited
+support.js    its runtime; must sit beside index.html
+token.js      sets window.__TODOIST_TOKEN — the live Todoist API token
+```
+
+Re-exporting from the authoring tool
+(`OneDrive\03.Projects\AutomateMyLife\TaskManager\Todoist Interface.dc.html`) puts a literal
+`const DEFAULT_TOKEN = '<live 40-char token>'` back around line 628. Replace it with
+`(typeof window !== 'undefined' && window.__TODOIST_TOKEN) || ''` and copy to `/srv/todoist/`
+— never into this repo. Without `token.js` the app falls back to its "Add API token" banner,
+which stores what you paste in `localStorage` only.
+
+`/srv/todoist/` is outside every backup and outside git, by design. If Mercury is rebuilt,
+recreate `token.js` by hand; it is one line.
 
 ---
 
