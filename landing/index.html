@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>neffio.com</title>
+<meta name="description" content="Neff.io — projects, digests and tools, self-hosted on Mercury.">
+<link rel="icon" href="/_landing/Neffio_Drk_Favicon.png">
+<style>
+  :root{
+    --bg:#ffffff; --fg:#111418; --muted:#5b6672; --line:#e3e8ee;
+    --card:#f7f9fb; --accent:#2E9EB3; --accent-fg:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0e1216; --fg:#e8edf2; --muted:#9aa7b4; --line:#222c35;
+           --card:#151b21; --accent:#43b8cf; --accent-fg:#04191d; }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:clamp(2rem,6vw,4.5rem) 1.25rem 3rem}
+  header{display:flex; align-items:center; gap:.9rem; margin-bottom:.4rem}
+  .logo{height:44px; width:auto}
+  .logo-dark{display:none}
+  @media (prefers-color-scheme: dark){
+    .logo-light{display:none} .logo-dark{display:block}
+  }
+  h1{font-size:clamp(1.6rem,4vw,2.1rem); margin:0; letter-spacing:-.02em}
+  .tag{color:var(--muted); margin:.35rem 0 2.5rem; font-size:1.02rem}
+  h2{font-size:.78rem; text-transform:uppercase; letter-spacing:.09em;
+     color:var(--muted); font-weight:600; margin:2.5rem 0 .9rem}
+  .grid{display:grid; gap:.75rem; grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  a.card{
+    display:block; padding:1.05rem 1.15rem; background:var(--card);
+    border:1px solid var(--line); border-radius:11px; text-decoration:none;
+    color:inherit; transition:border-color .15s ease, transform .15s ease;
+  }
+  a.card:hover{border-color:var(--accent); transform:translateY(-2px)}
+  a.card strong{display:block; font-size:1.02rem; margin-bottom:.2rem}
+  a.card span{color:var(--muted); font-size:.9rem}
+  footer{margin-top:3.5rem; padding-top:1.25rem; border-top:1px solid var(--line);
+         color:var(--muted); font-size:.85rem; display:flex; justify-content:space-between;
+         flex-wrap:wrap; gap:.5rem}
+  .dot{display:inline-block; width:7px; height:7px; border-radius:50%;
+       background:var(--accent); margin-right:.45rem; vertical-align:middle}
+  code{background:var(--card); border:1px solid var(--line); border-radius:5px;
+       padding:.1rem .35rem; font-size:.85em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="logo logo-light" src="/_landing/Neffio_logo_drkb-blu_noBG.png" alt="">
+    <img class="logo logo-dark"  src="/_landing/Neffio_logo_wht-blu_noBG.png" alt="">
+    <h1>neffio.com</h1>
+  </header>
+  <p class="tag">Projects, digests and tools — self-hosted on <strong>Mercury</strong>.</p>
+
+  <h2>Publications</h2>
+  <div class="grid">
+    <a class="card" href="/excel-digest/">
+      <strong>Excel Tips Weekly Digest</strong>
+      <span>The full weekly archive, newest first.</span>
+    </a>
+    <a class="card" href="/PMXcodex/">
+      <strong>PM Excelerated — Codex</strong>
+      <span>Excel knowledge base and tip index.</span>
+    </a>
+  </div>
+
+  <h2>Services</h2>
+  <div class="grid">
+    <a class="card" href="https://service.neffio.com/">
+      <strong>Service Director</strong>
+      <span>Lifespring weekly service pipeline. Team access only.</span>
+    </a>
+    <a class="card" href="https://n8n.neffio.com/">
+      <strong>n8n</strong>
+      <span>Workflow automation engine.</span>
+    </a>
+  </div>
+
+  <footer>
+    <div><span class="dot"></span>Served from Mercury</div>
+    <div>neffio.com</div>
+  </footer>
+</div>
+</body>
+</html>
