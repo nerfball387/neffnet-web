@@ -36,21 +36,31 @@ curl -s -o /dev/null -w "%{http_code}\n" https://neffio.com/
 
 ---
 
-## An automation commits to this repo
+## An automation writes into this docroot
 
-The n8n workflow **"Neff.io:Excel Tips Weekly Digest"** (active, runs weekly on Mercury)
-writes to this repo through the **GitHub API** — it uses GitHub nodes, not a local git
-checkout. Commits appear as `Add/Update Excel Tips digest weekly_MM.DD.YYYY`.
+The n8n workflow **"Neff.io:Excel Tips Weekly Digest"** (active, Fridays 17:00 PT) writes the
+weekly digest **directly into `neff.io/excel-digest/`** on Mercury. The directory is bind
+mounted into the n8n container as `/data/excel-digest` (see `/etc/systemd/system/n8n.service`).
+Because the docroot is this working tree, **the digest is live on neffio.com the moment it is
+written** — no commit, no pull, no deploy step.
+
+GitHub is a **backup**, not the publish path. The systemd timer
+`neffnet-digest-backup.timer` (every 15 min, `/usr/local/bin/neffnet-digest-backup.sh`)
+commits and pushes that one directory. Commits read `Back up Excel Tips digest YYYY-MM-DD`.
+
+**This was flipped on 2026-08-03.** It previously used GitHub API nodes as its filesystem —
+reading `index.html` from GitHub, patching it, and writing back — with Pages publishing the
+result. When Pages was retired that left the digest committed to GitHub but not live anywhere
+until someone pulled. Writing to the serving origin first and replicating to GitHub after is
+the correct direction.
 
 Consequences:
-- Those commits land on GitHub only. Since Pages was retired **nothing publishes them** —
-  the digest is not live on neffio.com until someone pulls on Mercury
-- So neffio.com can silently lag the archive by a week or more. This got *more* important
-  when Pages went away: Pages used to publish these automatically, and now nothing does
-- Always `git pull` before editing here, or you will be working from a stale tree and may
-  conflict with the automation
-- The workflow emails links to `https://neffio.com/excel-digest/...`, so a digest it just
-  committed 404s for you until that pull happens
+- The backup job stages **only** `neff.io/excel-digest/`, so unrelated uncommitted work in
+  the docroot is never swept into its commits
+- Its commits are made on Mercury, so unlike the old GitHub-API commits they are already in
+  the local tree — but still `git pull` before editing, in case of web edits
+- A workflow bug is live immediately rather than sitting in a repo. Git history is the
+  rollback path
 
 Steve also edits pages directly in GitHub's web editor (commits titled `Update index.html`)
 and pulls them down to Mercury afterwards.
