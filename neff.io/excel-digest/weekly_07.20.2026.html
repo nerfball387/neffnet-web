@@ -34,7 +34,7 @@
 <div class="header">
   <div>
     <h1>📊 Excel Tips Digest</h1>
-    <div class="meta">July 20, 2026 · 3 summaries</div>
+    <div class="meta">July 20, 2026 · 4 summaries</div>
   </div>
   <a href="index.html">← Back to Index</a>
 </div>
@@ -44,8 +44,8 @@
   <div class="flag-card">
     <div class="flag-label">⚡ Top Pick for Teachers</div>
     <h2>Unpivoting wide data to long format with a single formula</h2>
-    <p>Converting data from wide format (months as columns) to long format (month as rows) using a single dynamic formula that automatically updates without manual refresh. This transformation is essential for Pivot Tables and time-series analysis while maintaining live data connections.</p>
-    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/shorts/DKYR_AK1vJ04" target="_blank">▶ Watch Video</a><a class="btn btn-claude" href="https://claude.ai/new?q=What%20are%20the%20most%20efficient%20formula%20approaches%20in%20Excel%20to%20unpivot%20wide-format%20data%20into%20long%20format%2C%20and%20how%20do%20LAMBDA%2C%20TOCOL%2C%20WRAPROWS%2C%20or%20nested%20FILTER%2FSEQUENCE%20combinations%20compare%20in%20performance%20and%20flexibility%20for%20tables%20with%20varying%20numbers%20of%20month%20columns%3F" target="_blank">✦ Ask Claude</a></div>
+    <p>Converting horizontally-arranged data (months in columns) to vertically-stacked format (long/tidy data) using a single dynamic formula that updates automatically without Power Query refresh cycles. This technique enables pivot tables and aggregation analysis on meeting-friendly wide layouts.</p>
+    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/shorts/DKYR_AK1vJ04" target="_blank">▶ Watch Video</a><a class="btn btn-claude" href="https://claude.ai/new?q=What%20are%20the%20key%20differences%20between%20using%20a%20single%20unpivoting%20formula%20versus%20Power%20Query%20for%20converting%20wide-to-long%20data%20in%20Excel%3F%20When%20would%20you%20recommend%20each%20approach%2C%20and%20what%20are%20the%20performance%20implications%20for%20datasets%20with%20hundreds%20of%20rows%20and%2012%2B%20month%20columns%3F" target="_blank">✦ Ask Claude</a></div>
   </div>
   
   <hr class="divider">
@@ -54,10 +54,10 @@
   <div class="card">
     <div class="card-header">
       <span class="tag tag-mark">Mark · Jul 24</span>
-      <h2>AutoCorrect for Formula Code Snippets</h2>
+      <h2>AutoCorrect Formula Shortcuts for Custom Code Expansion</h2>
     </div>
-    <p>Uses Excel's AutoCorrect feature to create custom short codes that automatically expand into frequently-used formula segments or function syntax. This reduces typing repetition and helps users remember function argument order by storing boilerplate formula text as abbreviated triggers.</p>
-    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/watch?v=dMzNs8RQLGE" target="_blank">▶ Watch Video</a><a class="btn btn-claude" href="https://claude.ai/new?q=How%20would%20you%20design%20a%20system%20of%20AutoCorrect%20entries%20for%20advanced%20financial%20modeling%20work%3F%20What%20are%20the%20risks%20of%20using%20AutoCorrect%20for%20formula%20snippets%20in%20collaborative%20workbooks%2C%20and%20how%20would%20you%20document%20such%20shortcuts%20for%20team%20members%3F" target="_blank">✦ Ask Claude</a></div>
+    <p>Uses Excel's AutoCorrect feature to create user-defined short codes that automatically expand into frequently-used formula segments or argument structures. This reduces repetitive typing and helps users remember complex function syntax by building a personal formula code library.</p>
+    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/watch?v=dMzNs8RQLGE" target="_blank">▶ Watch Video</a><a class="btn btn-claude" href="https://claude.ai/new?q=How%20would%20you%20design%20a%20comprehensive%20AutoCorrect%20strategy%20for%20a%20team%20of%20Excel%20analysts%20to%20standardize%20formula%20entry%20across%20workbooks%3F%20What%20are%20the%20limitations%20of%20AutoCorrect%20expansion%20versus%20using%20named%20formulas%20or%20LAMBDA%20functions%20for%20similar%20goals%3F" target="_blank">✦ Ask Claude</a></div>
   </div>
   
   <hr class="divider">
@@ -65,13 +65,21 @@
   
   <div class="card">
     <div class="card-header">
-      <span class="tag tag-mynda">Mynda · Jul 21</span>
-      <h2>ABS and SIGN functions for robust financial calculations and logical testing</h2>
+      <span class="tag tag-mynda">Mynda · Jul 23</span>
+      <h2>Merged Cells Alternatives and Conditional Formatting Replication</h2>
     </div>
-    <p>ABS removes sign information to correctly handle percentage change calculations with negative values and simplify variance tolerance checks. SIGN converts numbers to -1/0/1 for building OR logic within SUMPRODUCT to avoid double-counting when multiple conditions are true.</p>
-    <div class="card-links"><a class="btn btn-watch" href="https://clicks.aweber.com/y/ct/?l=uhC8&m=hizJ.lnSg5VR.Zj&b=sP3FZ503FaPLGikOTgLsyQ" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://www.myonlinetraininghub.com?awt_a=f2Zj&awt_l=uhC8&awt_m=hizJ.lnSg5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=5-boring-excel-functions-that-are-secretly-brilliant" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=When%20using%20ABS%20in%20percentage%20change%20formulas%20with%20negative%20denominators%2C%20explain%20why%20%3D(Current%20Year-Prior%20Year)%2FABS(Prior%20Year)%20correctly%20handles%20losses%20and%20expenses%20that%20are%20stored%20as%20negative%20values%2C%20and%20how%20this%20differs%20from%20the%20result%20when%20the%20denominator%20is%20left%20unsigned.%20Also%20explain%20the%20double-counting%20problem%20when%20using%20%3D(Units%3E100)%2B(Price%3E20)%20inside%20SUMPRODUCT%20and%20how%20SIGN%20can%20solve%20it." target="_blank">✦ Ask Claude</a></div>
+    <p>Merged cells create data integrity problems by breaking filters, PivotTables, and formulas while appearing visually organized. The technique demonstrates replacement methods using conditional formatting to replicate the visual effect of vertical merged cells while maintaining functional data ranges.</p>
+    <div class="card-links"><a class="btn btn-watch" href="https://clicks.aweber.com/y/ct/?l=uhC8&m=hIq3_XM7k5VR.Zj&b=zdr8zc360X0qRDVtcX44FQ" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://clicks.aweber.com/y/ct/?l=uhC8&m=hIq3_XM7k5VR.Zj&b=zdr8zc360X0qRDVtcX44FQ" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=Explain%20why%20merged%20cells%20break%20AutoFilter%20and%20PivotTable%20functionality%20at%20the%20data%20structure%20level%2C%20and%20what%20specific%20conditional%20formatting%20rule%20configuration%20creates%20the%20visual%20appearance%20of%20merged%20cells%20without%20compromising%20formula%20references%20or%20data%20operations." target="_blank">✦ Ask Claude</a></div>
   </div>
-  <div class="promo-note">Jul 23 — "The Excel Feature Everyone Loves ... But Shouldn't Use" — promotional, no technique content.</div>
+  <div class="card">
+    <div class="card-header">
+      <span class="tag tag-mynda">Mynda · Jul 21</span>
+      <h2>Five Underrated Excel Functions for Business Problem-Solving</h2>
+    </div>
+    <p>This email covers five lesser-known Excel functions (ABS, SIGN, REPT, TRUNC, CELL) that solve specific business problems despite being available in virtually all Excel versions. It demonstrates practical applications like calculating percentage change with negative numbers, validating invoice tolerances, and implementing OR logic in SUMPRODUCT.</p>
+    <div class="card-links"><a class="btn btn-watch" href="https://clicks.aweber.com/y/ct/?l=uhC8&m=hizJ.lnSg5VR.Zj&b=sP3FZ503FaPLGikOTgLsyQ" target="_blank">▶ Watch Video</a><a class="btn btn-read" href="https://www.myonlinetraininghub.com?awt_a=f2Zj&awt_l=uhC8&awt_m=hizJ.lnSg5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=5-boring-excel-functions-that-are-secretly-brilliant" target="_blank">📄 Full Post</a><a class="btn btn-claude" href="https://claude.ai/new?q=Explain%20the%20mathematical%20reasoning%20behind%20why%20ABS(Prior%20Year)%20correctly%20handles%20percentage%20change%20calculations%20when%20prior-year%20values%20are%20negative%2C%20and%20contrast%20this%20with%20the%20flawed%20logic%20of%20dividing%20by%20a%20negative%20denominator.%20Additionally%2C%20discuss%20why%20SIGN%20combined%20with%20SUMPRODUCT%20effectively%20implements%20OR%20logic%20without%20double-counting%20when%20multiple%20conditions%20are%20true." target="_blank">✦ Ask Claude</a></div>
+  </div>
+  
   <hr class="divider">
   <div class="section-label">Leila at XelPlus (info@xelplus.com)</div>
   
@@ -80,8 +88,8 @@
       <span class="tag tag-other">Leila at XelPlus · Jul 26</span>
       <h2>Unpivoting wide data to long format with a single formula</h2>
     </div>
-    <p>Converting data from wide format (months as columns) to long format (month as rows) using a single dynamic formula that automatically updates without manual refresh. This transformation is essential for Pivot Tables and time-series analysis while maintaining live data connections.</p>
-    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/shorts/DKYR_AK1vJ04" target="_blank">▶ Watch Video</a><a class="btn btn-claude" href="https://claude.ai/new?q=What%20are%20the%20most%20efficient%20formula%20approaches%20in%20Excel%20to%20unpivot%20wide-format%20data%20into%20long%20format%2C%20and%20how%20do%20LAMBDA%2C%20TOCOL%2C%20WRAPROWS%2C%20or%20nested%20FILTER%2FSEQUENCE%20combinations%20compare%20in%20performance%20and%20flexibility%20for%20tables%20with%20varying%20numbers%20of%20month%20columns%3F" target="_blank">✦ Ask Claude</a></div>
+    <p>Converting horizontally-arranged data (months in columns) to vertically-stacked format (long/tidy data) using a single dynamic formula that updates automatically without Power Query refresh cycles. This technique enables pivot tables and aggregation analysis on meeting-friendly wide layouts.</p>
+    <div class="card-links"><a class="btn btn-watch" href="https://www.youtube.com/shorts/DKYR_AK1vJ04" target="_blank">▶ Watch Video</a><a class="btn btn-claude" href="https://claude.ai/new?q=What%20are%20the%20key%20differences%20between%20using%20a%20single%20unpivoting%20formula%20versus%20Power%20Query%20for%20converting%20wide-to-long%20data%20in%20Excel%3F%20When%20would%20you%20recommend%20each%20approach%2C%20and%20what%20are%20the%20performance%20implications%20for%20datasets%20with%20hundreds%20of%20rows%20and%2012%2B%20month%20columns%3F" target="_blank">✦ Ask Claude</a></div>
   </div>
   <div class="promo-note">Jul 23 — "If your team has Copilot but nothing's changed" — promotional, no technique content.</div><div class="promo-note">Jul 21 — "I nearly dismissed it as spam." — promotional, no technique content.</div>
 </div>
