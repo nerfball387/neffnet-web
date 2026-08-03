@@ -5,25 +5,22 @@ HTML/CSS committed directly. What is in the repo is what gets served.
 
 ---
 
-## ⚠️ This repo publishes to TWO places, with different rules
+## One repo, one site (since 2026-08-03)
 
-Getting this wrong is the easiest mistake to make here.
+This repo is served **only** by nginx on Mercury at **https://neffio.com**, docroot
+`/srv/neffnet-web`. Deploys are manual — a push does nothing until someone pulls here.
 
-| Target | Served by | How it updates |
-|---|---|---|
-| **https://neffnet.com** | GitHub Pages (branch `main`, path `/`) | **Automatic** on push |
-| **https://neffio.com** | nginx on Mercury, docroot `/srv/neffnet-web` | **Manual** — someone must `git pull` on Mercury |
+GitHub is still the remote, and that part is load-bearing: it is the offsite copy and the
+target the n8n digest workflow writes to (see below). Only the *hosting* was removed.
 
-So a push updates neffnet.com within a minute and does **nothing** for neffio.com. And a
-local edit on Mercury is live on neffio.com immediately — committed or not — while
-neffnet.com knows nothing about it until you push.
+**GitHub Pages was disabled and neffnet.com retired on 2026-08-03.** Previously this same
+repo was also published by Pages at neffnet.com, which is what let `/todoist/` be world-
+readable while `neffio.com/todoist` was gated by Cloudflare Access — one repo, two origins,
+two different security perimeters. Retiring Pages removed that whole class of bug.
+`CNAME` was deleted with it; do not re-add it.
 
-The two domains show **different home pages from the same repo**:
-- `neffnet.com/` → `index.html` at the repo root (a plain placeholder)
-- `neffio.com/`  → `landing/index.html`, via an nginx alias (see routing below)
-
-Pages is enabled and `CNAME` contains `neffnet.com` — do not delete that file or Pages
-stops resolving the custom domain.
+Consequence to remember: **nothing about this repo is public-facing except through Mercury.**
+If Mercury is down, the site is down — there is no second origin anymore.
 
 ### Deploying to neffio.com
 
@@ -46,10 +43,14 @@ writes to this repo through the **GitHub API** — it uses GitHub nodes, not a l
 checkout. Commits appear as `Add/Update Excel Tips digest weekly_MM.DD.YYYY`.
 
 Consequences:
-- Those commits land on GitHub and auto-publish to neffnet.com without human involvement
-- **Mercury does not see them until someone pulls**, so neffio.com can silently lag by a week
+- Those commits land on GitHub only. Since Pages was retired **nothing publishes them** —
+  the digest is not live on neffio.com until someone pulls on Mercury
+- So neffio.com can silently lag the archive by a week or more. This got *more* important
+  when Pages went away: Pages used to publish these automatically, and now nothing does
 - Always `git pull` before editing here, or you will be working from a stale tree and may
   conflict with the automation
+- The workflow emails links to `https://neffio.com/excel-digest/...`, so a digest it just
+  committed 404s for you until that pull happens
 
 Steve also edits pages directly in GitHub's web editor (commits titled `Update index.html`)
 and pulls them down to Mercury afterwards.
@@ -73,9 +74,8 @@ location ~ /\.git     -> deny all; return 404
 ```
 
 - `location = /` is an **exact** match, which is why the apex serves `landing/index.html`
-  while the repo's root `index.html` sits unused on neffio.com (Pages still uses it).
-- The landing page references its assets as `/_landing/...` — that prefix exists only on
-  Mercury. On neffnet.com those paths 404, which is expected.
+  while the repo's root `index.html` sits unused.
+- The landing page references its assets as `/_landing/...`, an nginx-only prefix.
 - **The docroot is a git working tree.** `location ~ /\.git` is what stops `.git/` being
   downloadable over the web. Do not remove it.
 
@@ -86,8 +86,7 @@ After changing the vhost: `sudo nginx -t && sudo systemctl reload nginx`.
 ## Layout
 
 ```
-CNAME                      neffnet.com — required by GitHub Pages
-index.html                 root placeholder; neffnet.com's home, unused by neffio.com
+index.html                 root placeholder; unused (was neffnet.com's home before Pages was retired)
 landing/                   neffio.com's actual home page + logo assets
   index.html
   Neffio_logo_*.png
@@ -96,8 +95,7 @@ excel/  tips/  pics/  PMXcodex/
 ```
 
 `landing/` was added 2026-08-02 — it previously lived at `/srv/neffio/landing`, outside any
-repo and with no backup. Adding it to the repo also means it is published at
-`neffnet.com/landing/`, which is harmless but was not the goal.
+repo and with no backup.
 
 ### ⚠️ `/todoist/` is served from OUTSIDE this repo — do not re-add it
 
@@ -105,11 +103,12 @@ The "Lister" Todoist client is at `neffio.com/todoist/` but its files live in
 **`/srv/todoist/`**, not here. `todoist/` is gitignored so it cannot be re-added by accident.
 
 It was briefly committed here on 2026-08-03 (`eeb360a`, `73b5afa`) and removed the same day,
-because **anything in this repo is republished by GitHub Pages at `neffnet.com`, where
-Cloudflare Access does not apply.** Access gates `neffio.com/todoist` (app
-`Lister (Todoist)`, allow sjneff@gmail.com) and has no reach over Pages, so the committed
-copy was world-readable at `neffnet.com/todoist/` the whole time. Two publishing targets, one
-perimeter. Moving it out of the repo is what actually closed that path.
+because at the time **this repo was also republished by GitHub Pages at `neffnet.com`, where
+Cloudflare Access did not apply.** Access gates `neffio.com/todoist` (app
+`Lister (Todoist)`, allow sjneff@gmail.com) but had no reach over Pages, so the committed
+copy was world-readable at `neffnet.com/todoist/`. Pages has since been retired, but the app
+stays outside the repo — Access is enforced per-path at Cloudflare, and keeping the files out
+of a public repo is a second, independent layer.
 
 Nothing sensitive is in this repo's history — the API token was never committed (verified by
 scanning every commit), which is why no history rewrite was needed.
@@ -138,10 +137,8 @@ recreate `token.js` by hand; it is one line.
 
 - Plain HTML/CSS, no build tooling. Don't introduce a bundler or framework for this.
 - Keep pages self-contained; assets live beside the page or in `pics/`.
-- Test on **both** targets when it matters — the aliases mean neffio.com and neffnet.com do
-  not render identically.
-- Don't commit anything secret. This repo is **public**, and half of it is also served by
-  GitHub Pages.
+- Don't commit anything secret. This repo is **public on GitHub** even though it is no
+  longer published by Pages.
 
 ## Related
 
