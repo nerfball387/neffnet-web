@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-03T23:36:47.343Z",
+ "generated": "2026-08-03T23:59:22.159Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1399,6 +1399,22 @@
    "claude_prompt": "How would you use LET and DATE functions together to generate a dynamic calendar grid where the displayed dates, day names, and checkbox positions all shift based on a single month/year selector in Data Validation, while maintaining formula efficiency across a large date range?",
    "focus_match": false,
    "category": "Charts & Visualization"
+  },
+  {
+   "id": "2026-08-03-advanced-conditional-formatting-techniques",
+   "weeklyId": "2026-08-03",
+   "date": "2026-08-03",
+   "authorKey": "BCTI",
+   "authorName": "BCTI",
+   "authorBrand": "BCTI",
+   "title": "Advanced Conditional Formatting Techniques",
+   "summary": "Explores six sophisticated applications of conditional formatting beyond basic highlighting, including formula-based rules, data visualization techniques, and dynamic formatting that responds to cell values and conditions. Demonstrates how to leverage conditional formatting for data validation, pattern recognition, and interactive dashboard elements.",
+   "youtube_url": null,
+   "article_url": "https://youtu.be/Nyiv2Vnm20Y?si=rH4uWOlcwoTU2H9M",
+   "claude_prompt": "How can you use formula-based conditional formatting rules to create self-referencing or cross-worksheet validation highlighting that updates dynamically based on multiple cell dependencies?",
+   "focus_match": false,
+   "category": "Formatting & UI",
+   "edited": true
   }
  ]
 }

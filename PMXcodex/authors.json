@@ -57,6 +57,16 @@
       "youtube": "",
       "accent": "#1991C7",
       "credit": ""
+    },
+    {
+      "key": "BCTI",
+      "name": "BCTI",
+      "brand": "BCTI",
+      "credential": "",
+      "site": "https://www.bcti.com",
+      "youtube": "https://www.youtube.com/@bcti-bcti",
+      "accent": "#1A4D1C",
+      "credit": ""
     }
   ],
   "fallback": {
