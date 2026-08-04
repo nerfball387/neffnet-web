@@ -36,27 +36,41 @@ curl -s -o /dev/null -w "%{http_code}\n" https://neffio.com/
 
 ---
 
-## An automation writes into this docroot
+## Automations write into this docroot
 
-The n8n workflow **"Neff.io:Excel Tips Weekly Digest"** (active, Fridays 17:00 PT) writes the
-weekly digest **directly into `neff.io/excel-digest/`** on Mercury. The directory is bind
-mounted into the n8n container as `/data/excel-digest` (see `/etc/systemd/system/n8n.service`).
-Because the docroot is this working tree, **the digest is live on neffio.com the moment it is
-written** — no commit, no pull, no deploy step.
+Four active n8n workflows write **directly into this working tree** on Mercury. Because the
+docroot is the working tree, **their output is live on neffio.com the moment it is written** —
+no commit, no pull, no deploy step.
+
+| Workflow | Writes | Bind mount |
+|---|---|---|
+| Neff.io:Excel Tips Weekly Digest (Fridays 17:00 PT) | `neff.io/excel-digest/` + appends `PMXcodex/tips.json` | `/data/excel-digest`, `/data/pmxcodex` |
+| Neff.io:PMX Submit Tip | `PMXcodex/tips.json` | `/data/pmxcodex` |
+| Neff.io:PMX Tip Patch | `PMXcodex/tips.json` | `/data/pmxcodex` |
+| Neff.io:PMX Authors Commit | `PMXcodex/authors.json` | `/data/pmxcodex` |
+
+Mounts and env are in `/etc/systemd/system/n8n.service`.
 
 GitHub is a **backup**, not the publish path. The systemd timer
 `neffnet-digest-backup.timer` (every 15 min, `/usr/local/bin/neffnet-digest-backup.sh`)
-commits and pushes that one directory. Commits read `Back up Excel Tips digest YYYY-MM-DD`.
+commits and pushes those directories. It stages only the ones that actually changed, and
+labels the commit accordingly:
 
-**This was flipped on 2026-08-03.** It previously used GitHub API nodes as its filesystem —
-reading `index.html` from GitHub, patching it, and writing back — with Pages publishing the
-result. When Pages was retired that left the digest committed to GitHub but not live anywhere
-until someone pulled. Writing to the serving origin first and replicating to GitHub after is
-the correct direction.
+| Changed | Commit message |
+|---|---|
+| digest only | `Back up Excel Tips digest YYYY-MM-DD` |
+| Codex only | `Back up PMX Codex YYYY-MM-DD` |
+| both | `Back up Excel Tips digest and PMX Codex YYYY-MM-DD` |
+
+**This was flipped on 2026-08-03.** Everything above previously used GitHub API nodes as its
+filesystem — reading a file from GitHub, patching it, writing back — with Pages publishing the
+result. When Pages was retired that left output committed to GitHub but not live anywhere until
+someone pulled. Writing to the serving origin first and replicating to GitHub after is the
+correct direction.
 
 Consequences:
-- The backup job stages **only** `neff.io/excel-digest/`, so unrelated uncommitted work in
-  the docroot is never swept into its commits
+- The backup job stages **only** `neff.io/excel-digest/` and `PMXcodex/`, so unrelated
+  uncommitted work in the docroot is never swept into its commits
 - Its commits are made on Mercury, so unlike the old GitHub-API commits they are already in
   the local tree — but still `git pull` before editing, in case of web edits
 - A workflow bug is live immediately rather than sitting in a repo. Git history is the
@@ -64,6 +78,55 @@ Consequences:
 
 Steve also edits pages directly in GitHub's web editor (commits titled `Update index.html`)
 and pulls them down to Mercury afterwards.
+
+### ⚠️ n8n runs the *published* version, not the draft
+
+n8n 2.x keeps two copies of every workflow. Editing the canvas — or patching
+`workflow_entity.nodes` in the DB — changes only the **draft**. Production reads the
+**published** snapshot in `workflow_history`, selected by `workflow_entity.activeVersionId`.
+
+- "Test workflow" (manual) runs the **draft**
+- Schedule and webhook triggers run the **published** version
+
+This burned a full afternoon on 2026-08-03: the digest's manual runs looked correct while every
+webhook-triggered follow-on batch ran a months-old snapshot. Worse, un-publishing and
+re-publishing re-activated *the same old version* rather than promoting the draft.
+
+Verify a publish actually took, rather than trusting the button:
+
+```bash
+sudo python3 -c "
+import sqlite3
+c=sqlite3.connect('file:/opt/n8n/data/database.sqlite?mode=ro',uri=True)
+print(c.execute(\"select name,versionId,activeVersionId from workflow_entity where active=1\").fetchall())"
+```
+
+`versionId` (draft) and `activeVersionId` (published) must match.
+
+### ⚠️ n8n restricts local file access by default
+
+n8n 2.x ships `N8N_RESTRICT_FILE_ACCESS_TO` defaulting to `~/.n8n-files`; in 1.x it was
+unrestricted. Any path outside the allowlist fails with the unhelpful **"Access to the file is
+not allowed."** — not a permissions error, despite the wording. The unit sets:
+
+```
+N8N_RESTRICT_FILE_ACCESS_TO=/data/excel-digest;/data/sermons;/data/pmxcodex
+```
+
+**Adding a new write target means adding both a bind mount and an entry here.** The same
+message is also thrown when any parent directory of the target is a symlink.
+
+### Reading a file in a Code node
+
+Use `getBinaryDataBuffer`, never a base64 decode:
+
+```js
+const html = (await this.helpers.getBinaryDataBuffer(0, 'data')).toString('utf-8');
+```
+
+Binary data mode is `filesystem`, so `$input.first().binary.data.data` is a **stub, not the
+payload**. Decoding it as base64 yields ~13 bytes of garbage. On 2026-08-03 that silently
+overwrote the live `excel-digest/index.html`; recovery was `git checkout`.
 
 ---
 
@@ -101,11 +164,47 @@ landing/                   neffio.com's actual home page + logo assets
   index.html
   Neffio_logo_*.png
 neff.io/excel-digest/      weekly Excel Tips digests (written by the n8n workflow)
-excel/  tips/  pics/  PMXcodex/
+PMXcodex/                  PM Excelerated Codex (written by the PMX workflows)
+  index.html               the app; served at neffio.com/PMXcodex/
+  tips.json                appended by Submit Tip, Tip Patch, and the Friday digest
+  authors.json             whole-file overwrite by Authors Commit
+  .image-slots.state.json  dot-prefixed; tracked, do not let a tool skip it
+excel/  tips/  pics/
 ```
 
 `landing/` was added 2026-08-02 — it previously lived at `/srv/neffio/landing`, outside any
 repo and with no backup.
+
+### PM Excelerated Codex — `PMXcodex/`
+
+Deployed 2026-08-03. Served at **`https://neffio.com/PMXcodex/`** — the path is
+**case-sensitive**, `/pmxcodex` is a 404. Admin UI is the `#admin` fragment on that same page.
+
+Three webhook workflows back the admin UI. They are reachable at `n8n.neffio.com`, which the
+tunnel exposes un-gated specifically for webhooks — `automate.neffio.com` is the Access-gated
+editor and will not work for these:
+
+```
+https://n8n.neffio.com/webhook/pmx-submit
+https://n8n.neffio.com/webhook/pmx-authors
+https://n8n.neffio.com/webhook/pmx-tip-patch
+```
+
+The URLs are stored per-browser in localStorage, so they must be set once on each device used
+for admin. Each webhook's CORS `allowedOrigins` is `https://neffio.com`; a change of origin
+means editing all three.
+
+Auth is an `X-PMX-Key` header compared against `$env.PMX_ADMIN_KEY` in each workflow's auth
+Code node. **No key literal exists in any workflow.** The value lives in
+`/etc/n8n-pmx.env` (mode 600, root-only) and is passed through by `--env PMX_ADMIN_KEY`, so it
+is not in the world-readable unit file. Reading it requires `N8N_BLOCK_ENV_ACCESS_IN_NODE=false`,
+also set in the unit — without it every call fails 401 with no useful diagnostic.
+
+The original deployment guide
+(`OneDrive\03.Projects\PMX Codex\2026-07-27-pmx-deployment-guide.md`) predates the migration
+and is **stale in three ways**: it targets `neffnet.com`, it has the workflows commit through
+the GitHub API, and it routes webhooks over Tailscale Serve — Tailscale is not installed on
+Mercury. The converted, in-use versions are in that folder under `n8n\converted-mercury\`.
 
 ### ⚠️ `/todoist/` is served from OUTSIDE this repo — do not re-add it
 
