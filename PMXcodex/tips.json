@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-15T00:00:20.915Z",
+ "generated": "2026-08-21T16:29:02.559Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1459,7 +1459,8 @@
    "article_url": null,
    "claude_prompt": "What formula pattern would you use in conditional formatting to identify cells containing formulas with hard-coded numbers versus formula references to other cells? How would you structure a rule that distinguishes between =A1*0.05 and =A1*5 to flag only the latter?",
    "focus_match": false,
-   "category": "Formatting & UI"
+   "category": "Formatting & UI",
+   "edited": true
   },
   {
    "id": "2026-08-10-conditional-value-replacement-in-power-query-using-column-re",

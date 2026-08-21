@@ -67,6 +67,16 @@
       "youtube": "https://www.youtube.com/@bcti-bcti",
       "accent": "#1A4D1C",
       "credit": ""
+    },
+    {
+      "key": "test",
+      "name": "test",
+      "brand": "test",
+      "credential": "",
+      "site": "",
+      "youtube": "",
+      "accent": "#999999",
+      "credit": ""
     }
   ],
   "fallback": {
