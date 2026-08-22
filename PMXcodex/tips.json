@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-21T16:29:02.559Z",
+ "generated": "2026-08-22T00:00:08.557Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1490,6 +1490,21 @@
    "article_url": "https://www.myonlinetraininghub.com?awt_a=f2Zj&awt_l=uhC8&awt_m=iBPEpAc4s5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=bye-bye-copy-paste-this-is-faster",
    "claude_prompt": "Explain the technical difference between how Ctrl+Enter handles relative cell references when applied to a multi-cell selection versus how standard fill-down operations adjust references. Why does Alt+; (visible cells only) prevent Ctrl+Enter from updating hidden filtered rows, and what is the underlying selection mechanism that makes this work?",
    "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-08-10-tocol-for-multi-column-list-consolidation",
+   "weeklyId": "2026-08-10",
+   "date": "2026-08-16",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
+   "title": "TOCOL for Multi-Column List Consolidation",
+   "summary": "TOCOL converts multiple columns of data into a single dynamic list, automatically handling variable row lengths and eliminating the need for manual copy-paste consolidation. It creates a live, updatable single-column range from dispersed source data across multiple columns.",
+   "youtube_url": "https://www.youtube.com/shorts/s63hXFx9AHw",
+   "article_url": null,
+   "claude_prompt": "How does TOCOL compare to VSTACK for consolidating data from multiple columns, and in what scenarios would you choose TOCOL over VSTACK or a combination of other dynamic array functions? What are the specific advantages when dealing with inconsistent column heights?",
+   "focus_match": true,
    "category": "Formulas & Functions"
   }
  ]
