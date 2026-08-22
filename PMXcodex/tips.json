@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T00:00:23.083Z",
+ "generated": "2026-08-22T02:44:27.117Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1429,7 +1429,8 @@
    "article_url": null,
    "claude_prompt": "In Power Query, what are the most common auto-generated M code elements that cause problems in real-world scenarios, and what is the underlying reason the UI generates them even when they create inefficiencies or errors?",
    "focus_match": true,
-   "category": "Power Query & ETL"
+   "category": "Power Query & ETL",
+   "edited": true
   },
   {
    "id": "2026-08-03-excel-print-settings-sequencing-and-page-layout-management",
