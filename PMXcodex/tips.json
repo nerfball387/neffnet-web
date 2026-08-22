@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T02:44:27.117Z",
+ "generated": "2026-08-22T03:03:00.482Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1537,6 +1537,21 @@
    "claude_prompt": "When restructuring a fragmented Excel report with data split across multiple sections by category (e.g., funded vs pending vs denied grants stored separately), what are the specific data normalization techniques and column design patterns that prevent formula breakage when new records are added, and how does this foundation enable automatic dashboard refresh without manual intervention?",
    "focus_match": false,
    "category": "Power Query & ETL"
+  },
+  {
+   "id": "2026-08-22-hidden-excel-ui-clickable-shortcuts-and-features",
+   "weeklyId": "2026-08-17",
+   "date": "2026-08-22",
+   "authorKey": "unknown",
+   "authorName": "Unknown",
+   "authorBrand": "Unknown",
+   "title": "Hidden Excel UI Clickable Shortcuts and Features",
+   "summary": "A comprehensive guide to 19 underutilized interactive elements across Excel's ribbon, formula bar, tables, and pivot tables that provide productivity gains through direct clicking rather than menu navigation. Covers contextual shortcuts and hidden functionality within core Excel objects that accelerate common workflows like data analysis and report building.",
+   "youtube_url": null,
+   "article_url": "https://youtu.be/IsX9q4Tz47Q?si=0QfUtUyAIcUen62x",
+   "claude_prompt": "Which specific ribbon elements, formula bar interactions, or table/pivot table UI controls provide the greatest time savings for data analysts, and how do these clickable features integrate with Excel's broader interface hierarchy?",
+   "focus_match": false,
+   "category": "Formatting & UI"
   }
  ]
 }
