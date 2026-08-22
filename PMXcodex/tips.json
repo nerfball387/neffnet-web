@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T00:00:08.557Z",
+ "generated": "2026-08-22T00:00:23.083Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1506,6 +1506,36 @@
    "claude_prompt": "How does TOCOL compare to VSTACK for consolidating data from multiple columns, and in what scenarios would you choose TOCOL over VSTACK or a combination of other dynamic array functions? What are the specific advantages when dealing with inconsistent column heights?",
    "focus_match": true,
    "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-08-17-power-pivot-data-modeling-with-dax-calculations",
+   "weeklyId": "2026-08-17",
+   "date": "2026-08-21",
+   "authorKey": "exceloffthegrid",
+   "authorName": "Mark Proctor",
+   "authorBrand": "Excel Off The Grid",
+   "title": "Power Pivot Data Modeling with DAX Calculations",
+   "summary": "Power Pivot enables advanced data analysis beyond standard PivotTables by loading multiple data sources, establishing table relationships, and creating calculated columns/measures using DAX formulas. This eliminates the need for VLOOKUP helper columns and manual aggregations required by traditional PivotTable workflows.",
+   "youtube_url": "https://www.youtube.com/watch?v=VCPvWFitY3M",
+   "article_url": null,
+   "claude_prompt": "An Excel teacher wants to explain to intermediate users why Power Pivot's relational data model with DAX is fundamentally superior to using standard PivotTables with VLOOKUP helper columns. What are the specific architectural advantages in terms of memory efficiency, calculation speed, and formula maintenance when working with multi-table datasets?",
+   "focus_match": true,
+   "category": "Power Pivot & DAX"
+  },
+  {
+   "id": "2026-08-17-restructuring-fragile-reports-through-proper-tabular-data-de",
+   "weeklyId": "2026-08-17",
+   "date": "2026-08-18",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Restructuring Fragile Reports Through Proper Tabular Data Design",
+   "summary": "Demonstrates the critical importance of organizing source data in proper tabular format (one record per row, consistent columns, valid data types) before building reports or dashboards. Shows how poor data structure causes formula brittleness, then refactors a multi-section grant tracker into a normalized single table with Status and Period columns, enabling reliable calculations and dynamic refresh capabilities.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=gPyvU1Dnk5VR.Zj&b=fz1kc6vaIAUveVvgdUJJyA",
+   "article_url": "https://www.myonlinetraininghub.com/excel-tabular-data-format?awt_a=f2Zj&awt_l=uhC8&awt_m=gPyvU1Dnk5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=spreadsheet-makeover-from-manual-report-to-one-click-dashboard",
+   "claude_prompt": "When restructuring a fragmented Excel report with data split across multiple sections by category (e.g., funded vs pending vs denied grants stored separately), what are the specific data normalization techniques and column design patterns that prevent formula breakage when new records are added, and how does this foundation enable automatic dashboard refresh without manual intervention?",
+   "focus_match": false,
+   "category": "Power Query & ETL"
   }
  ]
 }
