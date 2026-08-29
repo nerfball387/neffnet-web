@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-22T03:03:00.482Z",
+ "generated": "2026-08-29T00:00:18.919Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1550,6 +1550,66 @@
    "youtube_url": null,
    "article_url": "https://youtu.be/IsX9q4Tz47Q?si=0QfUtUyAIcUen62x",
    "claude_prompt": "Which specific ribbon elements, formula bar interactions, or table/pivot table UI controls provide the greatest time savings for data analysts, and how do these clickable features integrate with Excel's broader interface hierarchy?",
+   "focus_match": false,
+   "category": "Formatting & UI"
+  },
+  {
+   "id": "2026-08-17-data-model-relationships-for-multi-table-pivot-tables",
+   "weeklyId": "2026-08-17",
+   "date": "2026-08-23",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
+   "title": "Data Model Relationships for Multi-Table Pivot Tables",
+   "summary": "Excel's Data Model allows you to create relationships between tables on shared columns without merging or duplicating data. Once related, pivot tables can pull and aggregate data across multiple tables simultaneously using the relationship definitions in the backstage Data Model.",
+   "youtube_url": "https://www.xelplus.com/create-pivot-table-from-multiple-sheets/",
+   "article_url": "https://www.xelplus.com/create-pivot-table-from-multiple-sheets/",
+   "claude_prompt": "An advanced Excel user is building a financial reporting system with sales data in one table and product details in another, and needs to aggregate sales by product attributes without modifying the source tables. How would you explain the technical steps for creating a relationship in the Data Model, and what are the performance implications versus using XLOOKUP to denormalize the data before pivot table creation?",
+   "focus_match": true,
+   "category": "Power Pivot & DAX"
+  },
+  {
+   "id": "2026-08-24-power-bi-as-external-data-model-source-for-excel-pivottables",
+   "weeklyId": "2026-08-24",
+   "date": "2026-08-28",
+   "authorKey": "exceloffthegrid",
+   "authorName": "Mark Proctor",
+   "authorBrand": "Excel Off The Grid",
+   "title": "Power BI as External Data Model Source for Excel PivotTables",
+   "summary": "Demonstrates using Power BI to create a workbook-independent Power Pivot data model that can be referenced by PivotTables across multiple Excel files. Solves the limitation that Power Pivot models are confined to single workbooks by centralizing the data model in Power BI and connecting Excel PivotTables to it as a shared source of truth.",
+   "youtube_url": "https://www.youtube.com/watch?v=Lkjfbp4R0XY",
+   "article_url": null,
+   "claude_prompt": "How would you architect a solution where Power BI serves as the centralized data model backend for PivotTables across multiple Excel workbooks, and what are the connection methods, refresh behavior considerations, and potential performance implications compared to workbook-embedded Power Pivot models?",
+   "focus_match": true,
+   "category": "Power Pivot & DAX"
+  },
+  {
+   "id": "2026-08-24-power-query-custom-data-types-for-crm-integration",
+   "weeklyId": "2026-08-24",
+   "date": "2026-08-27",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Power Query Custom Data Types for CRM Integration",
+   "summary": "Uses Power Query custom data types to consolidate disparate customer data sources (details, interactions, opportunities) into a unified, self-updating Excel CRM structure. The technique leverages Microsoft 365 native functionality to create linked data types that maintain referential integrity without VBA or add-ins.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=j7rtWpwnj5VR.Zj&b=9z1sy1W3Aqp4m6nfekwleQ",
+   "article_url": "https://www.myonlinetraininghub.com/build-a-searchable-crm-in-excel-with-power-query-custom-data-types?awt_a=f2Zj&awt_l=uhC8&awt_m=j7rtWpwnj5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=turn-excel-into-your-own-crm-system-no-coding-needed",
+   "claude_prompt": "How do Power Query custom data types maintain data relationships and auto-refresh when source tables change, and what are the performance implications when using them at scale with hundreds of customer records linked across multiple interaction tables?",
+   "focus_match": true,
+   "category": "Power Query & ETL"
+  },
+  {
+   "id": "2026-08-24-data-cleaning-workflow-for-reliable-reports",
+   "weeklyId": "2026-08-24",
+   "date": "2026-08-25",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Data Cleaning Workflow for Reliable Reports",
+   "summary": "A systematic 8-step approach to preparing source data before analysis, focusing on structural integrity (tabular format, no blanks/subtotals/merged cells), standardizing values (dates, text, duplicates), and validation. Emphasizes preserving original data and understanding granularity before operations like PivotTables or formulas.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=iznLu4e0v5VR.Zj&b=d8XYmmUW3acjjIejq_I0Ug",
+   "article_url": "https://www.myonlinetraininghub.com/how-to-clean-data-in-excel-step-by-step?awt_a=f2Zj&awt_l=uhC8&awt_m=iznLu4e0v5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=8-essential-steps-for-reliable-reports",
+   "claude_prompt": "In an Excel data cleaning workflow, what are the technical differences between storing dates as text versus true date values, and what formula-based or Power Query approach would you recommend to detect and convert text-formatted dates across a large dataset while preserving an audit trail?",
    "focus_match": false,
    "category": "Formatting & UI"
   }
