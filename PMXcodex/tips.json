@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-29T00:00:18.919Z",
+ "generated": "2026-08-30T02:13:26.355Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1612,6 +1612,21 @@
    "claude_prompt": "In an Excel data cleaning workflow, what are the technical differences between storing dates as text versus true date values, and what formula-based or Power Query approach would you recommend to detect and convert text-formatted dates across a large dataset while preserving an audit trail?",
    "focus_match": false,
    "category": "Formatting & UI"
+  },
+  {
+   "id": "2026-08-30-advanced-xlookup-techniques",
+   "weeklyId": "2026-08-24",
+   "date": "2026-08-30",
+   "authorKey": "unknown",
+   "authorName": "Unknown",
+   "authorBrand": "Unknown",
+   "title": "Advanced XLOOKUP Techniques",
+   "summary": "Explores three sophisticated XLOOKUP applications beyond standard lookup operations. Demonstrates specialized use cases that leverage XLOOKUP's flexibility with match modes, search directions, and error handling to solve complex data retrieval problems.",
+   "youtube_url": null,
+   "article_url": "https://youtu.be/4ApaCfA40po?si=hf7Z9Ww8U91K0BVl",
+   "claude_prompt": "What are three advanced XLOOKUP techniques that go beyond basic lookup-return-value operations, and how do match modes and search directions enable solutions that VLOOKUP cannot accomplish?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
   }
  ]
 }
