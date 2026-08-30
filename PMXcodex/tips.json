@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30T02:13:26.355Z",
+ "generated": "2026-08-30T02:18:10.967Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1617,16 +1617,17 @@
    "id": "2026-08-30-advanced-xlookup-techniques",
    "weeklyId": "2026-08-24",
    "date": "2026-08-30",
-   "authorKey": "unknown",
-   "authorName": "Unknown",
-   "authorBrand": "Unknown",
+   "authorKey": "Excel_Champs",
+   "authorName": "Puneet Gogia",
+   "authorBrand": " Excel Champs",
    "title": "Advanced XLOOKUP Techniques",
    "summary": "Explores three sophisticated XLOOKUP applications beyond standard lookup operations. Demonstrates specialized use cases that leverage XLOOKUP's flexibility with match modes, search directions, and error handling to solve complex data retrieval problems.",
-   "youtube_url": null,
+   "youtube_url": "https://youtu.be/4ApaCfA40po?si=hiLPZSvTj9WkCWEL",
    "article_url": "https://youtu.be/4ApaCfA40po?si=hf7Z9Ww8U91K0BVl",
    "claude_prompt": "What are three advanced XLOOKUP techniques that go beyond basic lookup-return-value operations, and how do match modes and search directions enable solutions that VLOOKUP cannot accomplish?",
    "focus_match": false,
-   "category": "Formulas & Functions"
+   "category": "Formulas & Functions",
+   "edited": true
   }
  ]
 }

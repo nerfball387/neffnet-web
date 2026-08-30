@@ -45,7 +45,7 @@
       "logo": null,
       "site": "https://neffnet.com",
       "youtube": null,
-      "accent": "#1A4D1C",
+      "accent": "#999999",
       "credit": "Reader-submitted links, summarized by Claude and filed into the Codex. Original credit belongs to the source publication."
     },
     {
@@ -63,19 +63,19 @@
       "name": "BCTI",
       "brand": "BCTI",
       "credential": "",
-      "site": "https://www.bcti.com",
-      "youtube": "https://www.youtube.com/@bcti-bcti",
-      "accent": "#1A4D1C",
+      "site": "",
+      "youtube": "",
+      "accent": "#009E6D",
       "credit": ""
     },
     {
-      "key": "test",
-      "name": "test",
-      "brand": "test",
+      "key": "Excel_Champs",
+      "name": "Puneet Gogia",
+      "brand": " Excel Champs",
       "credential": "",
-      "site": "",
-      "youtube": "",
-      "accent": "#999999",
+      "site": "https://excelchamps.com/",
+      "youtube": "https://www.youtube.com/@excelchamps",
+      "accent": "#F15A24",
       "credit": ""
     }
   ],
