@@ -1,5 +1,5 @@
 {
- "generated": "2026-08-30T02:18:10.967Z",
+ "generated": "2026-09-05T00:00:19.437Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1628,6 +1628,66 @@
    "focus_match": false,
    "category": "Formulas & Functions",
    "edited": true
+  },
+  {
+   "id": "2026-08-24-layered-chart-technique-for-budget-vs-actual-with-variance-v",
+   "weeklyId": "2026-08-24",
+   "date": "2026-08-30",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
+   "title": "Layered Chart Technique for Budget vs. Actual with Variance Visualization",
+   "summary": "A multi-chart overlay method that stacks variance indicator charts transparently on top of primary budget/actual comparison charts, using axis hiding and fill removal to create a unified visual without native chart support. Combines dropdown filtering with lookups to enable dynamic month/region selection on a single dashboard view.",
+   "youtube_url": null,
+   "article_url": "https://www.xelplus.com/excel-budget-actual-dashboard/",
+   "claude_prompt": "Explain the technical approach for layering multiple Excel charts to create a composite visualization where variance strips appear directly beneath category columns in a budget vs. actual chart. What are the alignment challenges when stacking charts, and how do axis label suppression and transparency settings preserve readability without duplicating category names?",
+   "focus_match": false,
+   "category": "Charts & Visualization"
+  },
+  {
+   "id": "2026-08-31-power-query-performance-query-references-vs-multiple-connect",
+   "weeklyId": "2026-08-31",
+   "date": "2026-09-04",
+   "authorKey": "exceloffthegrid",
+   "authorName": "Mark Proctor",
+   "authorBrand": "Excel Off The Grid",
+   "title": "Power Query Performance: Query References vs Multiple Connections",
+   "summary": "Tests whether it's faster to load the same data source multiple times in Power Query versus loading once and creating references to that query. Challenges the conventional assumption that single-source loading is always more efficient by empirically comparing performance outcomes.",
+   "youtube_url": "https://www.youtube.com/watch?v=h3QsZePjkKM",
+   "article_url": null,
+   "claude_prompt": "In Power Query, when should you prioritize loading a source multiple times versus loading once and referencing that query? What are the performance trade-offs between these approaches, and how do refresh times, memory usage, and query complexity affect this decision?",
+   "focus_match": true,
+   "category": "Power Query & ETL"
+  },
+  {
+   "id": "2026-08-31-dynamic-work-schedule-with-conditional-formula-logic",
+   "weeklyId": "2026-08-31",
+   "date": "2026-09-03",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Dynamic Work Schedule with Conditional Formula Logic",
+   "summary": "Demonstrates building a self-updating work schedule that automatically recalculates when a single date field is changed, using conditional formulas to prevent invalid time entries (like finish times on days off). The technique relies on a small conditional formula that determines whether shift data should display based on date relationships.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=gKnxwcPTL5VR.Zj&b=wcwrPOJjJtNbPvr3tl_P1g",
+   "article_url": "https://www.myonlinetraininghub.com/automated-work-schedule-in-excel?awt_a=f2Zj&awt_l=uhC8&awt_m=gKnxwcPTL5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=stop-rebuilding-your-work-schedule-every-month",
+   "claude_prompt": "How would you structure a work schedule template using IF statements to conditionally display shift times only when the day falls within an active work period, and what formula approach prevents errors like showing finish times on days off when formulas are copied across rows?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-08-31-dynamic-array-formulas-with-spilling-for-automatic-row-expan",
+   "weeklyId": "2026-08-31",
+   "date": "2026-09-01",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Dynamic Array Formulas with Spilling for Automatic Row Expansion",
+   "summary": "Dynamic array formulas return multiple values in a single formula that automatically spills into adjacent cells, eliminating the need to copy formulas down. This approach ensures formulas respond automatically to data changes, prevents accidental overwrites of individual results, and reduces maintenance overhead by consolidating logic into one editable cell.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=f.EaTFHMX5VR.Zj&b=NgFDsl23beIBxI8rjVlxHg",
+   "article_url": "https://www.myonlinetraininghub.com/excel-dynamic-array-formulas",
+   "claude_prompt": "How would you design a dynamic array formula using FILTER and SEQUENCE to automatically number and return only rows meeting specific criteria, and what are the implications for dependent formulas referencing the spilled range when source data changes?",
+   "focus_match": true,
+   "category": "Dynamic Arrays & LAMBDA"
   }
  ]
 }
