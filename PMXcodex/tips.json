@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-05T00:00:19.437Z",
+ "generated": "2026-09-12T00:00:18.988Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1688,6 +1688,66 @@
    "claude_prompt": "How would you design a dynamic array formula using FILTER and SEQUENCE to automatically number and return only rows meeting specific criteria, and what are the implications for dependent formulas referencing the spilled range when source data changes?",
    "focus_match": true,
    "category": "Dynamic Arrays & LAMBDA"
+  },
+  {
+   "id": "2026-08-31-unpivoting-wide-data-to-long-format-with-python-in-excel",
+   "weeklyId": "2026-08-31",
+   "date": "2026-09-06",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
+   "title": "Unpivoting wide data to long format with Python in Excel",
+   "summary": "Demonstrates using Python in Excel to transform wide-format data (with time periods as column headers) into long-format (with period as a value column). The technique handles recurring data structures and automatically incorporates new columns as they're added, enabling proper filtering and pivot table analysis.",
+   "youtube_url": "https://www.youtube.com/shorts/aUlGfk7kst0",
+   "article_url": null,
+   "claude_prompt": "How would you compare the performance and maintainability of using Python in Excel's UNPIVOT equivalent versus traditional Power Query M functions for converting wide-to-long transformations, and what are the trade-offs in terms of formula recalculation overhead?",
+   "focus_match": true,
+   "category": "Power Query & ETL"
+  },
+  {
+   "id": "2026-09-07-hierarchy-based-conditional-formatting-for-fixed-format-repo",
+   "weeklyId": "2026-09-07",
+   "date": "2026-09-11",
+   "authorKey": "exceloffthegrid",
+   "authorName": "Mark Proctor",
+   "authorBrand": "Excel Off The Grid",
+   "title": "Hierarchy-Based Conditional Formatting for Fixed-Format Reports",
+   "summary": "A conditional formatting technique that applies formatting rules based on report hierarchy levels, designed for fixed-structure financial statements like P&L and Balance Sheets. Once configured, the formatting automatically adapts as data changes without requiring manual reapplication.",
+   "youtube_url": "https://www.youtube.com/watch?v=SVThO23SBtM",
+   "article_url": null,
+   "claude_prompt": "How would you implement conditional formatting rules that intelligently respond to different hierarchy levels in a financial statement? What are the technical advantages and limitations compared to helper column approaches or formula-based formatting?",
+   "focus_match": false,
+   "category": "Formatting & UI"
+  },
+  {
+   "id": "2026-09-07-data-linking-methods-for-cross-sheet-and-cross-workbook-sync",
+   "weeklyId": "2026-09-07",
+   "date": "2026-09-10",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Data Linking Methods for Cross-Sheet and Cross-Workbook Synchronization",
+   "summary": "This email compares five distinct approaches to maintaining automatic data synchronization between Excel sheets and workbooks, addressing limitations of simple cell references (which break on file renames and miss new rows). Each method handles different scenarios: internal links, dynamic row selection, and external file references with refresh-on-open capability.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=i00yZhezn5VR.Zj&b=Aa7iq7FPQ7bFDhxeJOd7ig",
+   "article_url": "https://www.myonlinetraininghub.com/5-ways-to-link-data-in-excel-and-automatically-sync?awt_a=f2Zj&awt_l=uhC8&awt_m=i00yZhezn5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=5-ways-to-keep-excel-sheets-workbooks-linked-automatically",
+   "claude_prompt": "What are the technical differences between using direct cell references, named ranges, INDIRECT formulas, and structured table references for linking data across workbooks, and which approach best handles scenarios where source data rows are added dynamically without breaking dependent reports?",
+   "focus_match": false,
+   "category": "Power Query & ETL"
+  },
+  {
+   "id": "2026-09-07-dynamic-leaderboards-with-rank-eq-and-excel-tables",
+   "weeklyId": "2026-09-07",
+   "date": "2026-09-08",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Dynamic Leaderboards with RANK.EQ and Excel Tables",
+   "summary": "Combines Excel Tables with RANK.EQ and structured references to create automatically updating leaderboards that recalculate rankings and rearrange results when source data changes. Users can sort by different columns and filter results without modifying formulas, leveraging table-based calculations and percentile ranking.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=j7DqIq0Aj5VR.Zj&b=_zk1bvYJG6g.KbCnEo5P8g",
+   "article_url": "https://www.myonlinetraininghub.com/dynamic-excel-leaderboards?awt_a=f2Zj&awt_l=uhC8&awt_m=j7DqIq0Aj5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=interactive-excel-leaderboards-template-included",
+   "claude_prompt": "How would you combine RANK.EQ with Excel Table structured references and IFERROR to build a dynamic leaderboard that handles edge cases like zero/blank targets, and what advantages does this approach offer over using sorted pivot tables for ranking performance metrics?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
   }
  ]
 }
