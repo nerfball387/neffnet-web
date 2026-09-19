@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-19T00:00:06.792Z",
+ "generated": "2026-09-19T00:00:19.054Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1763,6 +1763,51 @@
    "claude_prompt": "An Excel teacher frequently encounters students who use Merge & Center within data ranges, breaking sort and filter functionality. Explain the technical difference between Merge & Center and Center Across Selection at the cell-level (what happens to the underlying cell structure and how each affects range operations like SORT, FILTER, and SUM). What would be the most effective classroom lesson to break this habit?",
    "focus_match": false,
    "category": "Charts & Visualization"
+  },
+  {
+   "id": "2026-09-14-building-verification-frameworks-around-copilot-output-for-r",
+   "weeklyId": "2026-09-14",
+   "date": "2026-09-18",
+   "authorKey": "exceloffthegrid",
+   "authorName": "Mark Proctor",
+   "authorBrand": "Excel Off The Grid",
+   "title": "Building Verification Frameworks Around Copilot Output for Reconciliation Tasks",
+   "summary": "Demonstrates a structured approach to using Copilot in Excel for account reconciliation by having Copilot assign reconciliation IDs to matched transactions, then using Excel formulas to instantly validate which items reconcile, which don't, and whether the logic is sound. This shifts focus from verifying individual AI outputs to verifying the overall process, making validation faster than manual reconciliation.",
+   "youtube_url": "https://www.youtube.com/watch?v=DNmePZQZ94o",
+   "article_url": null,
+   "claude_prompt": "What are the key formula patterns and Excel structures needed to validate Copilot-generated reconciliation IDs at scale, and how would you design a system that makes verification faster than the original manual process while maintaining auditability?",
+   "focus_match": false,
+   "category": "AI & Python in Excel"
+  },
+  {
+   "id": "2026-09-14-threaded-comments-with-mentions-and-outlook-integration",
+   "weeklyId": "2026-09-14",
+   "date": "2026-09-17",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Threaded Comments with @Mentions and Outlook Integration",
+   "summary": "Excel's threaded comments feature enables asynchronous collaboration by allowing users to reply to comments directly from Outlook email notifications via @mentions, with replies automatically attached to the original cell. Comments can be converted to assigned tasks, reducing email chains and screenshot exchanges while maintaining discussion history within the workbook.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=hlMlA5PLe5VR.Zj&b=7pRulO3tkAICZld5j5XS1A",
+   "article_url": "https://www.myonlinetraininghub.com/excel-threaded-comments?awt_a=f2Zj&awt_l=uhC8&awt_m=hlMlA5PLe5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=the-excel-feature-that-replaces-5-follow-up-emails-and-a-meeting",
+   "claude_prompt": "How do threaded comments with @mentions in Excel integrate with Outlook workflows, and what are the technical limitations when replies are sent from Outlook—specifically regarding whether the comment thread updates in real-time across multiple users or requires manual refresh?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-09-14-multi-method-rolling-forecast-model-with-dynamic-recalculati",
+   "weeklyId": "2026-09-14",
+   "date": "2026-09-15",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Multi-method Rolling Forecast Model with Dynamic Recalculation",
+   "summary": "A framework for building Excel forecasts that combines multiple forecasting methods (fixed growth rates, linear trends, ratios, budget lookups, and averages) within a single model that recalculates automatically when new actuals are added. Uses helper columns (Method, Rate/Ratio, Notes) to document assumptions and enable flexible formula switching by account type.",
+   "youtube_url": "https://www.youtube.com/watch?v=VGnUzCVJE7Kzj5gG6BMrMQ",
+   "article_url": "https://www.myonlinetraininghub.com/how-to-forecast-revenue-and-expenses-in-excel",
+   "claude_prompt": "How would you design an Excel forecast model that supports multiple forecasting methods (growth rate, linear trend, ratio-based, budget lookup, and moving average) within a single formula structure that automatically recalculates when new actual data is added to the current period? What formula logic would allow switching between methods by account without duplicating calculation columns?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
   }
  ]
 }
