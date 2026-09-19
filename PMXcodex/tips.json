@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-12T00:00:18.988Z",
+ "generated": "2026-09-19T00:00:06.792Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1748,6 +1748,21 @@
    "claude_prompt": "How would you combine RANK.EQ with Excel Table structured references and IFERROR to build a dynamic leaderboard that handles edge cases like zero/blank targets, and what advantages does this approach offer over using sorted pivot tables for ranking performance metrics?",
    "focus_match": false,
    "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-09-07-center-across-selection-as-ribbon-accessible-alternative-to-",
+   "weeklyId": "2026-09-07",
+   "date": "2026-09-13",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
+   "title": "Center Across Selection as ribbon-accessible alternative to Merge & Center",
+   "summary": "Center Across Selection visually centers text across a range without actually merging cells, preserving sortability and column formulas. Microsoft is promoting this feature to the ribbon as a discoverable alternative to Merge & Center, which breaks data integrity when used within tables.",
+   "youtube_url": "https://www.youtube.com/shorts/lBf6ytvFddU",
+   "article_url": null,
+   "claude_prompt": "An Excel teacher frequently encounters students who use Merge & Center within data ranges, breaking sort and filter functionality. Explain the technical difference between Merge & Center and Center Across Selection at the cell-level (what happens to the underlying cell structure and how each affects range operations like SORT, FILTER, and SUM). What would be the most effective classroom lesson to break this habit?",
+   "focus_match": false,
+   "category": "Charts & Visualization"
   }
  ]
 }
