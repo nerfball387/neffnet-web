@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-19T00:00:19.054Z",
+ "generated": "2026-09-26T00:00:07.365Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1807,6 +1807,21 @@
    "article_url": "https://www.myonlinetraininghub.com/how-to-forecast-revenue-and-expenses-in-excel",
    "claude_prompt": "How would you design an Excel forecast model that supports multiple forecasting methods (growth rate, linear trend, ratio-based, budget lookup, and moving average) within a single formula structure that automatically recalculates when new actual data is added to the current period? What formula logic would allow switching between methods by account without duplicating calculation columns?",
    "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-09-14-vstack-for-multi-sheet-data-consolidation",
+   "weeklyId": "2026-09-14",
+   "date": "2026-09-20",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
+   "title": "VSTACK for Multi-Sheet Data Consolidation",
+   "summary": "VSTACK vertically concatenates ranges from multiple sheets into a single output range, enabling dynamic consolidation of monthly or periodic data without manual copying. The function recalculates live, works in Excel Online, and supports dynamic sheet insertion between sentinel sheets without formula modification.",
+   "youtube_url": "https://www.youtube.com/watch?v=UEDRQ9CalxBI",
+   "article_url": null,
+   "claude_prompt": "Explain the architectural advantage of using empty sentinel sheets with VSTACK to enable automatic inclusion of newly inserted sheets in a consolidation formula. What are the limitations of this approach when dealing with inconsistent column structures or missing headers across monthly datasets?",
+   "focus_match": true,
    "category": "Formulas & Functions"
   }
  ]
