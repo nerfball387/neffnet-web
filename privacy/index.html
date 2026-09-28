@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — neffio.com</title>
+<meta name="description" content="How neffio.com handles sign-in information for its access-controlled services.">
+<link rel="icon" href="/_landing/Neffio_Drk_Favicon.png">
+<style>
+  :root{
+    --bg:#ffffff; --fg:#111418; --muted:#5b6672; --line:#e3e8ee;
+    --card:#f7f9fb; --accent:#2E9EB3; --accent-fg:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0e1216; --fg:#e8edf2; --muted:#9aa7b4; --line:#222c35;
+           --card:#151b21; --accent:#43b8cf; --accent-fg:#04191d; }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:clamp(2rem,6vw,4.5rem) 1.25rem 3rem}
+  header{display:flex; align-items:center; gap:.9rem; margin-bottom:.4rem}
+  .logo{height:56px; width:auto}
+  .logo-dark{display:none}
+  @media (prefers-color-scheme: dark){
+    .logo-light{display:none} .logo-dark{display:block}
+  }
+  h1{font-size:clamp(1.4rem,3.4vw,1.8rem); margin:.9rem 0 .3rem; letter-spacing:-.02em}
+  .eff{color:var(--muted); font-size:.9rem; margin:0 0 2.25rem}
+  h2{font-size:.78rem; text-transform:uppercase; letter-spacing:.09em;
+     color:var(--muted); font-weight:600; margin:2.4rem 0 .7rem}
+  p{margin:.7rem 0; max-width:66ch}
+  ul{margin:.7rem 0; padding-left:1.15rem; max-width:66ch}
+  li{margin:.4rem 0}
+  a{color:var(--accent)}
+  .note{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent);
+        border-radius:9px; padding:.9rem 1.1rem; margin:1.4rem 0}
+  .note p{margin:0; max-width:none}
+  footer{margin-top:3.5rem; padding-top:1.25rem; border-top:1px solid var(--line);
+         color:var(--muted); font-size:.85rem; display:flex; justify-content:space-between;
+         flex-wrap:wrap; gap:.5rem}
+  footer a{color:var(--muted)}
+  .dot{display:inline-block; width:7px; height:7px; border-radius:50%;
+       background:var(--accent); margin-right:.45rem; vertical-align:middle}
+  code{background:var(--card); border:1px solid var(--line); border-radius:5px;
+       padding:.1rem .35rem; font-size:.85em}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img class="logo logo-light" src="/_landing/Neffio_logo_drkb-blu_noBG.png" alt="">
+    <img class="logo logo-dark"  src="/_landing/Neffio_logo_wht-blu_noBG.png" alt="">
+  </header>
+
+  <h1>Privacy Policy</h1>
+  <p class="eff">Effective 27 September 2026</p>
+
+  <p>Neff.io is a personal project operated by Steve Neff. It hosts a small number of
+     private, invitation-only tools alongside some freely readable publications. This
+     policy describes what happens to your information when you sign in to one of the
+     private tools.</p>
+
+  <h2>Who this applies to</h2>
+  <p>The access-controlled services at <code>service.neffio.com</code>,
+     <code>automate.neffio.com</code> and <code>neffio.com/todoist</code> are available
+     only to a short list of named individuals who were invited directly. There is no
+     public sign-up. If you have not been given access by Steve Neff, none of this
+     applies to you.</p>
+  <p>The public parts of this site — the landing page, the Excel Tips Weekly Digest and
+     the PM Excelerated Codex — require no sign-in and collect nothing from you.</p>
+
+  <h2>What is collected when you sign in</h2>
+  <p>Sign-in is handled by Cloudflare Access, which sits in front of these tools and
+     checks your identity before any request reaches the server. You may sign in either
+     with Google or with a one-time code sent to your email address.</p>
+  <p>The only piece of information used to make the access decision is your
+     <strong>email address</strong>, which is compared against a fixed list. If it is on
+     the list you are let through; if it is not, you are refused. When you sign in with
+     Google, Google also supplies your basic profile details (your name and profile
+     picture) as part of the standard sign-in response.</p>
+
+  <div class="note">
+    <p><strong>Signing in here does not give these tools access to your Google account.</strong>
+       The sign-in requests only your identity — your email address and basic profile. It
+       does not request, and cannot obtain, access to your Gmail, Google Drive, Calendar,
+       Contacts or any other Google service.</p>
+  </div>
+
+  <h2>What is stored</h2>
+  <ul>
+    <li><strong>A session cookie</strong> in your browser, set by Cloudflare, so you are
+        not asked to sign in again on every page. You can end a session at any time by
+        visiting <code>/cdn-cgi/access/logout</code> on the relevant subdomain.</li>
+    <li><strong>Sign-in records kept by Cloudflare</strong>, which log the fact that an
+        authentication happened — typically the email address used, a timestamp and the
+        originating IP address. These are retained by Cloudflare under its own retention
+        schedule and are used only to see who accessed what, and to investigate problems.</li>
+    <li><strong>Your email address on the access list itself</strong>, which is stored in
+        the Cloudflare configuration for as long as you have access.</li>
+  </ul>
+  <p>Your Google profile details are not copied into a database of our own. Some of the
+     tools do store the working content you create while using them — for example service
+     plans entered into the Service Director — and that content is kept for as long as the
+     tool is in use.</p>
+
+  <h2>What is not done</h2>
+  <ul>
+    <li>Your information is never sold, rented or traded.</li>
+    <li>It is not shared with anyone beyond the service providers described below.</li>
+    <li>It is not used to advertise to you or to build a profile of you.</li>
+    <li>These pages carry no advertising, analytics or third-party tracking scripts.</li>
+  </ul>
+
+  <h2>Service providers</h2>
+  <p>Two third parties necessarily handle information in the course of signing you in:
+     <strong>Cloudflare</strong>, which performs the authentication and carries the
+     traffic, and <strong>Google</strong>, if you choose Google as your sign-in method.
+     Each handles your data under its own privacy policy. Individual tools may rely on
+     further services to do their job, using credentials belonging to the site operator
+     rather than to you.</p>
+
+  <h2>Your choices</h2>
+  <p>You can use the one-time email code instead of Google if you would prefer not to
+     involve your Google account. You can ask to have your access removed at any time,
+     which deletes your email address from the access list. You can also ask what is held
+     about you. For any of these, email the address below.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, the effective date above will change with it. Because the
+     audience is a handful of people, material changes will simply be mentioned directly.</p>
+
+  <h2>Contact</h2>
+  <p>Steve Neff — <a href="mailto:steve@neffio.com">steve@neffio.com</a></p>
+
+  <footer>
+    <div><span class="dot"></span><a href="/">neffio.com</a></div>
+    <div><a href="/terms/">Terms of Service</a></div>
+  </footer>
+</div>
+</body>
+</html>
