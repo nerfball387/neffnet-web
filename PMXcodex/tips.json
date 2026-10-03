@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-26T00:00:19.802Z",
+ "generated": "2026-10-03T00:00:21.679Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1868,6 +1868,66 @@
    "claude_prompt": "How would an Excel educator structure a lesson on Copilot Skills for students who need to automate multi-step data transformation workflows? What are the key differences between using Skills versus recording a macro for similar repetitive tasks, and when would you recommend each approach?",
    "focus_match": false,
    "category": "Office Scripts & Automation"
+  },
+  {
+   "id": "2026-09-21-multi-value-cell-lists-in-excel",
+   "weeklyId": "2026-09-21",
+   "date": "2026-09-27",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
+   "title": "Multi-value cell lists in Excel",
+   "summary": "Excel now supports storing multiple values as distinct items within a single cell, enabling direct operations on comma-separated data without traditional text-to-columns workflows. Users can now filter, count, and sum individual values stored together in one cell, fundamentally changing how Excel treats cell contents.",
+   "youtube_url": "https://www.youtube.com/watch?v=WPdD5ybmj7w",
+   "article_url": null,
+   "claude_prompt": "How would multi-value cells in Excel change the architectural approach to data normalization and ETL workflows that previously required text-to-columns or Power Query transformations? What are the implications for formula design and dynamic array compatibility?",
+   "focus_match": true,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-09-28-dynamic-chart-title-formatting-with-conditional-styling",
+   "weeklyId": "2026-09-28",
+   "date": "2026-10-02",
+   "authorKey": "exceloffthegrid",
+   "authorName": "Mark Proctor",
+   "authorBrand": "Excel Off The Grid",
+   "title": "Dynamic Chart Title Formatting with Conditional Styling",
+   "summary": "A technique for applying custom formatting to individual words within Excel chart titles, enabling different styling per word that automatically updates when chart data selections change. This leverages dynamic array outputs to control chart title appearance conditionally.",
+   "youtube_url": "https://www.youtube.com/watch?v=3fVIiAH5nFA",
+   "article_url": "https://exceloffthegrid.com/cr",
+   "claude_prompt": "How would you construct a dynamic chart title in Excel that applies different number formats or text styling to individual words based on the selected data range, and what are the limitations of this approach when using LAMBDA functions versus traditional formulas?",
+   "focus_match": true,
+   "category": "Dynamic Arrays & LAMBDA"
+  },
+  {
+   "id": "2026-09-28-excel-tables-for-dynamic-data-range-management",
+   "weeklyId": "2026-09-28",
+   "date": "2026-10-01",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Excel Tables for Dynamic Data Range Management",
+   "summary": "Converting static ranges to Excel Tables (Ctrl+T) automatically expands formula ranges and PivotTable sources when new rows are added, eliminating manual range updates. Tables also enable structured references in formulas using column names, support dynamic totals that respect filtered data, and integrate with Power Query for automated reporting workflows.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=fsCcvY1nS5VR.Zj&b=STOxIdWqY4hcsl_xCODvcA",
+   "article_url": "https://www.myonlinetraininghub.com/dynamic-excel-tables-for-smarter-spreadsheets?awt_a=f2Zj&awt_l=uhC8&awt_m=fsCcvY1nS5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=one-excel-habit-worth-changing",
+   "claude_prompt": "Explain the technical differences between how Excel handles formula expansion in a standard range versus a Table object. Why do formulas in adjacent columns automatically populate new rows in Tables but not in static ranges, and what internal Excel mechanism drives this behavior?",
+   "focus_match": true,
+   "category": "Power Query & ETL"
+  },
+  {
+   "id": "2026-09-28-excel-lists-and-arrays-in-cells-native-multi-value-storage",
+   "weeklyId": "2026-09-28",
+   "date": "2026-09-29",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Excel Lists and Arrays in Cells — Native Multi-Value Storage",
+   "summary": "Excel 365's new Lists and Arrays in Cells feature allows single cells to store multiple typed values, complete 2D arrays, or nested arrays—fundamentally changing cell behavior after 40 years. This enables compact data structuring, in-cell filtering, direct calculations on stored values, and elimination of spilled ranges across worksheets.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=hNRMhUFFO5VR.Zj&b=r75P1R5e7UecKjF4fQhiOg",
+   "article_url": "https://www.myonlinetraininghub.com/excel-lists-and-arrays-in-cells?awt_a=f2Zj&awt_l=uhC8&awt_m=hNRMhUFFO5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=40-years-unchanged-until-now-bye-bye-cells-as-we-know-them",
+   "claude_prompt": "How does Excel's new in-cell array storage (using curly brace syntax like ={SEQUENCE(3,2)}) interact with existing spill behavior and array formulas? What are the performance implications of nesting arrays within arrays, and how should educators guide students toward choosing between traditional spill ranges versus in-cell arrays for complex data workflows?",
+   "focus_match": true,
+   "category": "Dynamic Arrays & LAMBDA"
   }
  ]
 }
