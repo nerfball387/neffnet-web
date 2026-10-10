@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-03T00:00:21.679Z",
+ "generated": "2026-10-10T00:00:16.947Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1928,6 +1928,36 @@
    "claude_prompt": "How does Excel's new in-cell array storage (using curly brace syntax like ={SEQUENCE(3,2)}) interact with existing spill behavior and array formulas? What are the performance implications of nesting arrays within arrays, and how should educators guide students toward choosing between traditional spill ranges versus in-cell arrays for complex data workflows?",
    "focus_match": true,
    "category": "Dynamic Arrays & LAMBDA"
+  },
+  {
+   "id": "2026-10-05-using-pivottables-for-rapid-ad-hoc-reporting",
+   "weeklyId": "2026-10-05",
+   "date": "2026-10-08",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Using PivotTables for Rapid Ad-Hoc Reporting",
+   "summary": "PivotTables enable rapid pivoting of dimensions and metrics without formula rebuilds when business requirements change. A single PivotTable can answer multiple analytical questions and adapt to new grouping dimensions (e.g., segment to country) in seconds, replacing dozens of static formulas that would otherwise require manual recalculation.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=gcoXim1o85VR.Zj&b=tiawiRjIaAAx6t6O6ifXvQ",
+   "article_url": "https://www.myonlinetraininghub.com/excel-data-analysis-without-formulas?awt_a=f2Zj&awt_l=uhC8&awt_m=gcoXim1o85VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=what-would-you-do-with-this-4-pm-request",
+   "claude_prompt": "How does PivotTable recalculation differ from formula-based reporting when dimensions are swapped, and what are the performance and maintenance trade-offs when handling large datasets (100k+ rows) with frequent ad-hoc dimension changes?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-10-05-built-in-excel-data-entry-form-via-alt-d-o-shortcut",
+   "weeklyId": "2026-10-05",
+   "date": "2026-10-06",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Built-in Excel Data Entry Form via Alt+D O Shortcut",
+   "summary": "Excel's legacy Data Entry Form is an auto-generated dialog that creates a compact record-entry interface from worksheet column headings and data. Accessed via Alt+D O, it enables navigation, filtering, and CRUD operations on table rows without requiring VBA, custom forms, or horizontal scrolling through wide datasets.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=iJwnHWGYa5VR.Zj&b=Qx7sMA8Znl304BVho0pcaA",
+   "article_url": "https://www.myonlinetraininghub.com/how-to-use-the-hidden-excel-data-entry-form?awt_a=f2Zj&awt_l=uhC8&awt_m=iJwnHWGYa5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=microsoft-don-t-want-you-to-find-this-excel-form",
+   "claude_prompt": "The Excel Data Entry Form disables entry fields for columns containing formulas in a regular range, but auto-fills calculated columns in an Excel Table. Why is this behavior inconsistent, and how should educators explain this distinction when teaching data validation workflows?",
+   "focus_match": false,
+   "category": "Office Scripts & Automation"
   }
  ]
 }
