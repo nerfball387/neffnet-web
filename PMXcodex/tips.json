@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10T00:00:16.947Z",
+ "generated": "2026-10-17T00:00:19.314Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -1958,6 +1958,66 @@
    "claude_prompt": "The Excel Data Entry Form disables entry fields for columns containing formulas in a regular range, but auto-fills calculated columns in an Excel Table. Why is this behavior inconsistent, and how should educators explain this distinction when teaching data validation workflows?",
    "focus_match": false,
    "category": "Office Scripts & Automation"
+  },
+  {
+   "id": "2026-10-05-onedrive-desktop-sync-management-and-safe-folder-recovery",
+   "weeklyId": "2026-10-05",
+   "date": "2026-10-11",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
+   "title": "OneDrive Desktop Sync Management and Safe Folder Recovery",
+   "summary": "Guidance on safely disabling OneDrive's automatic syncing of Desktop, Documents, and Pictures folders to cloud storage without accidentally deleting local files. Covers the counterintuitive UI behavior where default selections can empty local folders while files remain in OneDrive, and provides pre-sync verification checks.",
+   "youtube_url": "https://www.youtube.com/watch?v=WSrd5PtsF0",
+   "article_url": null,
+   "claude_prompt": "How would you explain to an advanced Excel user the difference between OneDrive's 'Always keep on this device' setting and complete sync disablement, and why the default behavior in OneDrive's folder sync configuration creates a data management trap for users who want local-only storage?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-10-12-understanding-filter-logic-with-multiple-conditions",
+   "weeklyId": "2026-10-12",
+   "date": "2026-10-16",
+   "authorKey": "exceloffthegrid",
+   "authorName": "Mark Proctor",
+   "authorBrand": "Excel Off The Grid",
+   "title": "Understanding FILTER Logic with Multiple Conditions",
+   "summary": "The FILTER function operates on a single core concept that makes AND/OR logic and multiple conditions intuitive once understood. Rather than treating FILTER as a complex function requiring SUMIFS-like syntax, mastering its underlying principle clarifies how conditional filtering works across all condition types.",
+   "youtube_url": "https://www.youtube.com/watch?v=KX3kX-mV9Us",
+   "article_url": null,
+   "claude_prompt": "Explain the single core concept that unifies FILTER's behavior across AND logic, OR logic, and multiple conditions. How does understanding this concept make formulas like FILTER((range1=criteria1)*(range2=criteria2)) or FILTER((range1=criteria1)+(range2=criteria2)) intuitive rather than appearing as syntax anomalies?",
+   "focus_match": true,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-10-12-core-excel-functions-that-handle-80-of-typical-work",
+   "weeklyId": "2026-10-12",
+   "date": "2026-10-15",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Core Excel Functions That Handle 80% of Typical Work",
+   "summary": "A curated set of approximately 10 Excel functions can handle the majority of common spreadsheet tasks, eliminating the need to master Excel's entire function library. The email references specific techniques including row-level data retrieval with single formulas and the ability to create custom reusable functions.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=hlCBMfvvF5VR.Zj&b=hD62Z_y6lYMK.atSf1L8yQ",
+   "article_url": "https://www.myonlinetraininghub.com/10-essential-excel-functions-do-80-of-your-work?awt_a=f2Zj&awt_l=uhC8&awt_m=hlCBMfvvF5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=you-might-only-need-about-10-excel-functions",
+   "claude_prompt": "Which 10 Excel functions would you prioritize teaching intermediate users, and what specific use cases make each one critical for 80% of real-world spreadsheet work?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-10-12-multi-method-workbook-navigation-techniques",
+   "weeklyId": "2026-10-12",
+   "date": "2026-10-13",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Multi-Method Workbook Navigation Techniques",
+   "summary": "This guide covers native Excel navigation methods including keyboard shortcuts (Ctrl+Page Up/Down), sheet navigation arrows with right-click context menus, the Navigation pane for filtering worksheets and objects, and Find All with workbook-wide scope to locate values across all sheets. These techniques progressively move from basic tab navigation to search-based jumping.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=hNsQEHNjF5VR.Zj&b=BpW2ZzZxwY5b.kWXfanYxw",
+   "article_url": "https://www.myonlinetraininghub.com/how-to-navigate-excel-workbooks-faster?awt_a=f2Zj&awt_l=uhC8&awt_m=hNsQEHNjF5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=create-a-custom-navigation-bar-in-excel",
+   "claude_prompt": "When teaching Find All for workbook-wide searches in Find and Replace, how would you explain the performance implications and best practices for using 'Within: Workbook' on very large multi-sheet files with thousands of rows? What are the technical limitations teachers should know about?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
   }
  ]
 }
