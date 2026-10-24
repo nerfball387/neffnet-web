@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T00:00:19.314Z",
+ "generated": "2026-10-24T00:00:06.306Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -2016,6 +2016,51 @@
    "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=hNsQEHNjF5VR.Zj&b=BpW2ZzZxwY5b.kWXfanYxw",
    "article_url": "https://www.myonlinetraininghub.com/how-to-navigate-excel-workbooks-faster?awt_a=f2Zj&awt_l=uhC8&awt_m=hNsQEHNjF5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=create-a-custom-navigation-bar-in-excel",
    "claude_prompt": "When teaching Find All for workbook-wide searches in Find and Replace, how would you explain the performance implications and best practices for using 'Within: Workbook' on very large multi-sheet files with thousands of rows? What are the technical limitations teachers should know about?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-10-19-power-query-sharepoint-connection-patterns",
+   "weeklyId": "2026-10-19",
+   "date": "2026-10-23",
+   "authorKey": "exceloffthegrid",
+   "authorName": "Mark Proctor",
+   "authorBrand": "Excel Off The Grid",
+   "title": "Power Query SharePoint Connection Patterns",
+   "summary": "Demonstrates the multiple connector options and URL format variations required to connect Power Query to SharePoint lists, folders, and files. Addresses the complexity of different authentication and data source approaches that Microsoft provides without clear guidance.",
+   "youtube_url": "https://www.youtube.com/watch?v=vNzmmgE-JAQ",
+   "article_url": null,
+   "claude_prompt": "When connecting Power Query to SharePoint, what are the technical differences between the SharePoint Online connector, the SharePoint folder connector, and direct list connections in terms of refresh reliability, credential caching, and handling of nested folder hierarchies? When should an educator recommend each approach to students?",
+   "focus_match": true,
+   "category": "Power Query & ETL"
+  },
+  {
+   "id": "2026-10-19-multi-location-inventory-tracking-with-automated-stock-alert",
+   "weeklyId": "2026-10-19",
+   "date": "2026-10-22",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Multi-Location Inventory Tracking with Automated Stock Alerts and Reorder Grouping",
+   "summary": "This technique demonstrates building an inventory management system that tracks stock across multiple locations, automatically updates balances when sales or deliveries are recorded, flags low-stock items, and generates supplier-grouped reorder lists. The system uses Excel formulas and data structures to consolidate inventory data and trigger alerts based on threshold conditions.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=gapPju1cB5VR.Zj&b=cQ5K2MmjMgfcM95f3liVOA",
+   "article_url": "https://www.myonlinetraininghub.com/excel-inventory-management-system?awt_a=f2Zj&awt_l=uhC8&awt_m=gapPju1cB5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=your-stock-could-be-easier-to-track-free-template",
+   "claude_prompt": "What formula approaches or Excel structures would you recommend for building a multi-location inventory system that automatically updates stock balances based on transaction records and conditionally flags items below reorder thresholds? How would you design the lookup and aggregation logic to group reorder items by supplier?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-10-19-9-things-you-had-no-idea-excel-could-do",
+   "weeklyId": "2026-10-19",
+   "date": "2026-10-20",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "9 Things You Had No Idea Excel Could Do",
+   "summary": "Find mismatched numbers with a keyboard shortcut, rearrange columns and let Excel read your data aloud to name a few. 9 Things You Had No Idea Excel Could Do Having trouble reading this email? Read it",
+   "youtube_url": null,
+   "article_url": null,
+   "claude_prompt": "Explain this Excel topic: 9 Things You Had No Idea Excel Could Do",
    "focus_match": false,
    "category": "Formulas & Functions"
   }
