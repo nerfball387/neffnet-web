@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T00:00:06.306Z",
+ "generated": "2026-10-31T00:00:17.484Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -2063,6 +2063,36 @@
    "claude_prompt": "Explain this Excel topic: 9 Things You Had No Idea Excel Could Do",
    "focus_match": false,
    "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-10-26-whatsapp-message-generation-from-excel-via-url-scheme",
+   "weeklyId": "2026-10-26",
+   "date": "2026-10-29",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "WhatsApp Message Generation from Excel via URL Scheme",
+   "summary": "Uses Excel formulas to construct WhatsApp message URLs that pre-populate personalized text with customer data, allowing users to click a link that opens WhatsApp with the message ready to review and send. Incorporates dropdown selection to switch between different message templates dynamically.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=gEKeheh275VR.Zj&b=ZNVBCL7gBpqr4iTxaqfg.w",
+   "article_url": "https://www.myonlinetraininghub.com/send-whatsapp-messages-from-excel?awt_a=f2Zj&awt_l=uhC8&awt_m=gEKeheh275VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=excel-s-secret-whatsapp-integration-that-99-of-users-don-t-know-about",
+   "claude_prompt": "How would you construct a formula in Excel that concatenates customer data with a WhatsApp API URL scheme (wa.me format) and handles URL encoding for special characters and line breaks, and what are the limitations of this approach versus native API integration?",
+   "focus_match": false,
+   "category": "Formatting & UI"
+  },
+  {
+   "id": "2026-10-26-excel-table-based-subscription-audit-with-conditional-annual",
+   "weeklyId": "2026-10-26",
+   "date": "2026-10-27",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Excel Table-Based Subscription Audit with Conditional Annual Cost Conversion",
+   "summary": "This technique uses an Excel Table with a calculated column to normalize subscription costs to annual figures using IF logic, then leverages checkbox inputs (TRUE/FALSE) to filter and calculate savings projections. The approach demonstrates practical application of structured tables, formula-driven calculations, and logical value filtering for financial analysis.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=hErh0U2lJ5VR.Zj&b=_R45lFqc7yd2KOXlo8pU3w",
+   "article_url": "https://www.myonlinetraininghub.com/excel-subscription-audit-template?awt_a=f2Zj&awt_l=uhC8&awt_m=hErh0U2lJ5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=what-are-those-forgotten-subscriptions-really-costing-you",
+   "claude_prompt": "How would you extend this subscription audit model to handle variable billing cycles (weekly, quarterly, semi-annual) without requiring separate formula branches? What's the most scalable approach using helper columns or LAMBDA functions to normalize any billing frequency to annual cost?",
+   "focus_match": false,
+   "category": "Formatting & UI"
   }
  ]
 }
