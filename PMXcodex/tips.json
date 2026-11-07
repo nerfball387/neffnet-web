@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31T00:00:17.484Z",
+ "generated": "2026-11-07T01:00:16.702Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -2091,6 +2091,51 @@
    "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=hErh0U2lJ5VR.Zj&b=_R45lFqc7yd2KOXlo8pU3w",
    "article_url": "https://www.myonlinetraininghub.com/excel-subscription-audit-template?awt_a=f2Zj&awt_l=uhC8&awt_m=hErh0U2lJ5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=what-are-those-forgotten-subscriptions-really-costing-you",
    "claude_prompt": "How would you extend this subscription audit model to handle variable billing cycles (weekly, quarterly, semi-annual) without requiring separate formula branches? What's the most scalable approach using helper columns or LAMBDA functions to normalize any billing frequency to annual cost?",
+   "focus_match": false,
+   "category": "Formatting & UI"
+  },
+  {
+   "id": "2026-10-26-column-differences-feature-for-formula-auditing",
+   "weeklyId": "2026-10-26",
+   "date": "2026-11-01",
+   "authorKey": "info@xelplus.com",
+   "authorName": "Leila at XelPlus",
+   "authorBrand": "Leila at XelPlus (info@xelplus.com)",
+   "title": "Column Differences Feature for Formula Auditing",
+   "summary": "The Column Differences tool identifies formulas in a column that deviate from the pattern established by adjacent cells, enabling rapid detection of formula inconsistencies in inherited or complex spreadsheets. This is particularly useful for auditing large files with multiple sheets where formula uniformity cannot be assumed.",
+   "youtube_url": "https://www.youtube.com/watch?v=6aQY3Sx-UJQ",
+   "article_url": null,
+   "claude_prompt": "How would you systematically use the Column Differences feature as part of a broader spreadsheet auditing protocol? What are the limitations of this tool when dealing with intentional formula variations, and how would you combine it with other Excel auditing features like Trace Precedents or Trace Dependents to create a comprehensive formula integrity check?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-11-02-sumifs-logic-flaw-and-correction-technique",
+   "weeklyId": "2026-11-02",
+   "date": "2026-11-06",
+   "authorKey": "exceloffthegrid",
+   "authorName": "Mark Proctor",
+   "authorBrand": "Excel Off The Grid",
+   "title": "SUMIFS Logic Flaw and Correction Technique",
+   "summary": "SUMIFS has a design flaw that can return incorrect results under certain conditions. The video demonstrates when this occurs and provides an alternative formula approach that reliably produces correct values. This is critical for anyone using SUMIFS in production reporting.",
+   "youtube_url": "https://www.youtube.com/watch?v=bYIWCW6a0JE",
+   "article_url": "https://techcommunity.microsoft.com/blog/excelblog/whats-new-in-excel-october-2026/4549758",
+   "claude_prompt": "What specific scenarios cause SUMIFS to return incorrect results due to its design logic, and what formula alternatives (SUMPRODUCT, array formulas, or other approaches) reliably handle those edge cases without the same limitation?",
+   "focus_match": false,
+   "category": "Formulas & Functions"
+  },
+  {
+   "id": "2026-11-02-dynamic-and-dependent-data-validation-lists",
+   "weeklyId": "2026-11-02",
+   "date": "2026-11-05",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "Dynamic and Dependent Data Validation Lists",
+   "summary": "Advanced dropdown techniques that automatically update when source data changes, including cascading dropdowns where subsequent list options depend on prior selections. Covers methods for managing validation lists across sheets and automating list expansion without manual reconfiguration.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=fuAEvwob_5VR.Zj&b=aWjOG9ohkdtISvJQHhJKhw",
+   "article_url": "https://www.myonlinetraininghub.com/dynamic-drop-down-lists-in-excel?awt_a=f2Zj&awt_l=uhC8&awt_m=fuAEvwob_5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=stop-making-basic-drop-downs-try-these-5-advanced-methods-instead",
+   "claude_prompt": "What are the key differences between using INDIRECT with named ranges versus OFFSET for building dependent dropdown lists in Excel, and when would you recommend each approach for managing cascading validations across multiple sheets?",
    "focus_match": false,
    "category": "Formatting & UI"
   }
