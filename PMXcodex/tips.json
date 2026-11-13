@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07T01:00:16.702Z",
+ "generated": "2026-11-13T14:27:51.340Z",
  "source": "backfill of weekly_*.html",
  "tips": [
   {
@@ -2138,6 +2138,51 @@
    "claude_prompt": "What are the key differences between using INDIRECT with named ranges versus OFFSET for building dependent dropdown lists in Excel, and when would you recommend each approach for managing cascading validations across multiple sheets?",
    "focus_match": false,
    "category": "Formatting & UI"
+  },
+  {
+   "id": "2026-11-09-creating-custom-copilot-skills-in-excel",
+   "weeklyId": "2026-11-09",
+   "date": "2026-11-13",
+   "authorKey": "exceloffthegrid",
+   "authorName": "Mark Proctor",
+   "authorBrand": "Excel Off The Grid",
+   "title": "Creating Custom Copilot Skills in Excel",
+   "summary": "Users can save frequently-used detailed prompts as reusable Copilot Skills in Excel, eliminating the need to repeat the same instructions repeatedly. This feature enables standardized, templated prompts that can be called on demand for consistent AI-assisted workflows.",
+   "youtube_url": "https://www.youtube.com/watch?v=bsCtLq_Vnp0",
+   "article_url": null,
+   "claude_prompt": "How does the Skills feature in Excel Copilot differ from simple prompt templates, and what are the technical constraints on skill complexity, parameter passing, and scope when creating custom skills for team-wide deployment?",
+   "focus_match": false,
+   "category": "AI & Python in Excel"
+  },
+  {
+   "id": "2026-11-09-hyperlink-function-for-workbook-navigation",
+   "weeklyId": "2026-11-09",
+   "date": "2026-11-12",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "HYPERLINK Function for Workbook Navigation",
+   "summary": "The HYPERLINK function creates internal and external navigation links within Excel files, enabling table of contents sheets, inter-sheet navigation buttons, and dynamic links to specific cells or external resources. This improves workbook usability and professional presentation without requiring VBA.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=i2u48vowQ5VR.Zj&b=Ku5bsExPMHvERCqn099mKA",
+   "article_url": "https://www.myonlinetraininghub.com/excel-hyperlink-function?awt_a=f2Zj&awt_l=uhC8&awt_m=i2u48vowQ5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=the-most-underrated-excel-function-you-re-not-using-but-should",
+   "claude_prompt": "How does HYPERLINK compare to other navigation methods in Excel (INDEX/MATCH navigation, named ranges with Ctrl+G, Power Query bookmarks)? When should an educator recommend HYPERLINK over these alternatives for workbook structure, and what are its limitations with dynamic cell references versus INDIRECT?",
+   "focus_match": false,
+   "category": "Office Scripts & Automation"
+  },
+  {
+   "id": "2026-11-09-sequence-based-shift-roster-calendar-with-repeating-cycle-in",
+   "weeklyId": "2026-11-09",
+   "date": "2026-11-10",
+   "authorKey": "myonlinetraininghub",
+   "authorName": "Mynda Treacy",
+   "authorBrand": "MyOnlineTrainingHub",
+   "title": "SEQUENCE-based shift roster calendar with repeating cycle inputs",
+   "summary": "Uses SEQUENCE to generate a 42-column calendar grid (6 weeks × 7 days) for each month, with the starting date calculated by converting a month name to the first of that month, then offsetting back to Sunday using WEEKDAY. Combined with conditional formatting triggered by Days On/Days Off cycle inputs to automatically highlight working days across an entire year.",
+   "youtube_url": "https://clicks.aweber.com/y/ct/?l=uhC8&m=hgBVx9u5M5VR.Zj&b=YVPWqg4SyfiFg7YKnibdOw",
+   "article_url": "https://www.myonlinetraininghub.com/excel-shift-roster-template-for-a-repeating-work-schedule?awt_a=f2Zj&awt_l=uhC8&awt_m=hgBVx9u5M5VR.Zj&utm_source=aweber&utm_medium=email&utm_campaign=stop-counting-your-shifts-on-a-calendar-use-this-template",
+   "claude_prompt": "How would you extend this SEQUENCE-based shift roster to calculate which specific dates fall within 'days on' and 'days off' periods? Walk through the logic needed to determine if a given date in the grid is a working day based on the start date and the cycling ratio, then explain how that calculation would integrate with conditional formatting rules.",
+   "focus_match": true,
+   "category": "Dynamic Arrays & LAMBDA"
   }
  ]
 }
